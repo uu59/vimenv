@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# cd $HOME
+# git clone https://github.com/uu59/vimenv .vim
+# cd .vim
+# ./setup.sh
+
+DIR=$(cd $(dirname $0);pwd)
+
+for dotfile in `find -maxdepth 1 -type f -name ".*"`; do
+  if [ -f "${HOME}/${dotfile}" ];then
+    echo "${HOME}/${dotfile} exists. skip"
+  else
+    ln "${DIR}/${dotfile} ${HOME}/${dotfile}"
+  fi
+done
+
+read -p "go BundleInstall. Press Enter"
+vim -c 'BundleInstall'
