@@ -1,9 +1,11 @@
 " ### vundle start ###
 filetype off                   " required!
 
+set rtp+=~/.vim/vundle/
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'https://github.com/gmarik/vundle.git'
 Bundle 'https://github.com/Shougo/unite.vim.git'
 Bundle 'https://github.com/hakobe/unite-script'
 Bundle 'https://github.com/trapd00r/neverland-vim-theme.git'
