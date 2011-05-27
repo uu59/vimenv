@@ -67,6 +67,7 @@ au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
 \ | execute "11d"
 \ | execute "9"
 
+au BufEnter *.mkd,*.markdown setlocal wrap
 au BufEnter *   execute ":lcd " . expand("%:p:h")
 
 set nu
@@ -84,7 +85,7 @@ set noswapfile
 set backspace=2
 set visualbell
 set number
-set wildmode=list:longest
+set wildmode=list:longest,full
 set listchars=tab:>\ 
 set list
 set scrolloff=0
@@ -134,3 +135,4 @@ augroup InsModeAu
     autocmd InsertEnter,CmdwinEnter * set noimdisable
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
+
