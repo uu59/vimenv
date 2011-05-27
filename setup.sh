@@ -1,13 +1,8 @@
 #!/bin/bash
 
-# cd $HOME
-# git clone https://github.com/uu59/vimenv .vim
-# cd .vim
-# ./setup.sh
-
 DIR=$(cd $(dirname $0);pwd)
 
-for dotfile in `find $DIR -maxdepth 1 -type f -name ".*"`; do
+for dotfile in `find $DIR -maxdepth 1 -type f -name ".*" -a -not -name ".git*"`; do
   dst=$HOME/`basename $dotfile`
   if [ -f "$dst" ];then
     echo "$dst exists. skip"
@@ -16,5 +11,5 @@ for dotfile in `find $DIR -maxdepth 1 -type f -name ".*"`; do
   fi
 done
 
-read -p "go BundleInstall. Press Enter"
+read -p "Press Enter for go BundleInstall or C-c"
 vim -c 'BundleInstall'
