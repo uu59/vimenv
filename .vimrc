@@ -1,8 +1,8 @@
 " ### vundle start ###
 filetype off                   " required!
 
-set rtp+=~/.vim/vundle/
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'https://github.com/gmarik/vundle.git'
@@ -55,8 +55,6 @@ colo zenburn
 "colo pyte
 "so ~/.vimrc.solarized
 
-" bug fix for vimgolf ref. http://jarp.does.notwork.org/diary/201012c.html#201012291
-"au BufRead ~/.vimgolf/put/* setl compatible
 au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
 \ | execute "10"
 \ | " move to last line
@@ -100,7 +98,7 @@ set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
 map j gj
 map k gk
 
-"inoremap <S-Insert> <C-r><C-o>+<C-[>
+inoremap <S-Insert> <C-r><C-o>+<C-[>
 
 " ----------------------------------------
 " plugin setting
@@ -126,34 +124,7 @@ noremap ,sh :<C-u>VimShell<CR>
 noremap ,irb :<C-u>VimShellInteractive irb<CR>
 vnoremap ss :<C-u>VimShellSendString<CR>
 
-
-" Vundle
-"set rtp+=~/.vim/vundle
-"call vundle#rc()
-"filetype plugin on
-"Bundle 'Shougo/unite.vim'
-"Bundle 'hakobe/unite-script'
-"Bundle 'trapd00r/neverland-vim-theme'
-"Bundle 'hail2u/vim-css3-syntax'
-"Bundle 'sjl/gundo.vim'
-"Bundle 'altercation/solarized'
-"Bundle 'Shougo/vimproc'
-"Bundle 'Shougo/vimshell'
-"Bundle 'othree/html5.vim'
-
-"nnoremap <F8> :SrcExplToggle<CR> 
-"let g:SrcExpl_UpdateTags = 1
-"let g:SrcExpl_isUpdateTags = 1 
-"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
-"let g:SrcExpl_refreshTime = 100 
-"let g:SrcExpl_updateTagsKey = "<F12>" 
-
-"nnoremap ,t :TlistToggle<CR>
-
-
 " ----------------------------------------
-" vimfiler git://github.com/Shougo/vimfiler.git
-"let g:vimfiler_as_default_explorer = 1
 
 set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 
