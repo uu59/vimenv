@@ -1,0 +1,4 @@
+# Note
+    $ cd $HOME
+    $ git clone --recursive git@github.com:uu59/vimenv.git .vim
+    $ ./.vim/setup.sh
