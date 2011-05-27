@@ -1,0 +1,10 @@
+// ==UserScript==
+// @name           name of this script
+// @namespace      http://uu59.org/
+// @version        1.0.0
+// @include        http://*
+// ==/UserScript==
+
+(function(){
+
+})();

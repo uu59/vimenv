@@ -65,6 +65,10 @@ au BufNewFile *.html 0r ~/.vim/template/html.txt
 \ | execute "9d"
 \ | execute "7"
 
+au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
+\ | execute "11d"
+\ | execute "9"
+
 au BufEnter *   execute ":lcd " . expand("%:p:h")
 
 set nu
