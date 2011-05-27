@@ -7,11 +7,12 @@
 
 DIR=$(cd $(dirname $0);pwd)
 
-for dotfile in `find -maxdepth 1 -type f -name ".*"`; do
-  if [ -f "${HOME}/${dotfile}" ];then
-    echo "${HOME}/${dotfile} exists. skip"
+for dotfile in `find $DIR -maxdepth 1 -type f -name ".*"`; do
+  dst=$HOME/`basename $dotfile`
+  if [ -f "$dst" ];then
+    echo "$dst exists. skip"
   else
-    ln "${DIR}/${dotfile} ${HOME}/${dotfile}"
+    ln $dotfile $dst
   fi
 done
 
