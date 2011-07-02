@@ -22,7 +22,8 @@ Bundle 'https://github.com/mattn/gist-vim'
 Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'https://github.com/ujihisa/quickrun'
 Bundle 'https://github.com/vim-scripts/YankRing.vim'
-Bundle 'https://github.com/vim-scripts/eregex.vim'
+Bundle 'https://github.com/c9s/vim-makefile'
+Bundle 'https://github.com/othree/eregex.vim'
 Bundle 'https://github.com/vim-scripts/Zenburn'
 Bundle 'https://github.com/vim-scripts/darkburn'
 Bundle 'https://github.com/tsaleh/vim-align'
@@ -30,6 +31,7 @@ Bundle 'https://github.com/tpope/vim-pathogen'
 Bundle 'https://github.com/vim-scripts/Rename'
 Bundle 'https://github.com/tomasr/molokai'
 Bundle 'https://github.com/sjl/gundo.vim.git'
+Bundle 'https://github.com/ujihisa/shadow.vim'
 
 filetype plugin indent on     " required!
 
