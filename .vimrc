@@ -1,8 +1,8 @@
 " ### vundle start ###
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'https://github.com/gmarik/vundle.git'
@@ -22,7 +22,6 @@ Bundle 'https://github.com/mattn/gist-vim'
 Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'https://github.com/ujihisa/quickrun'
 Bundle 'https://github.com/vim-scripts/YankRing.vim'
-Bundle 'https://github.com/c9s/vim-makefile'
 Bundle 'https://github.com/othree/eregex.vim'
 Bundle 'https://github.com/vim-scripts/Zenburn'
 Bundle 'https://github.com/vim-scripts/darkburn'
@@ -31,7 +30,7 @@ Bundle 'https://github.com/tpope/vim-pathogen'
 Bundle 'https://github.com/vim-scripts/Rename'
 Bundle 'https://github.com/tomasr/molokai'
 Bundle 'https://github.com/sjl/gundo.vim.git'
-Bundle 'https://github.com/ujihisa/shadow.vim'
+Bundle 'https://github.com/kana/vim-altr'
 
 filetype plugin indent on     " required!
 
@@ -42,6 +41,7 @@ syntax enable
 set ambiwidth=double
 set mouse=a
 set history=100000
+set noshowmatch
 
 " colors
 "set bg=dark
@@ -69,7 +69,12 @@ au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
 \ | execute "11d"
 \ | execute "9"
 
-au BufEnter *.mkd,*.markdown setlocal wrap
+
+au BufEnter *.erubis setlocal ft=eruby
+
+au BufEnter *.mkd,*.markdown,*md setlocal wrap
+\ | setlocal ft=markdown
+
 au BufEnter *   execute ":lcd " . expand("%:p:h")
 
 set nu
@@ -101,7 +106,7 @@ set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
 map j gj
 map k gk
 
-inoremap <S-Insert> <C-r><C-o>+<C-[>
+"inoremap <S-Insert> <C-r><C-o>+<C-[>
 
 " ----------------------------------------
 " plugin setting
@@ -127,6 +132,8 @@ noremap ,sh :<C-u>VimShell<CR>
 noremap ,irb :<C-u>VimShellInteractive irb<CR>
 vnoremap ss :<C-u>VimShellSendString<CR>
 
+
+
 " ----------------------------------------
 
 set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,sjis,cp932,utf-8
@@ -137,4 +144,3 @@ augroup InsModeAu
     autocmd InsertEnter,CmdwinEnter * set noimdisable
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
-
