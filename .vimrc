@@ -56,10 +56,11 @@ let g:zenburn_high_Contrast = 1
 colo zenburn
 "colo pyte
 "so ~/.vimrc.solarized
+"
 
 au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
 \ | execute "10"
-\ | " move to last line
+\ | setlocal keywordprg=rurema
 
 au BufNewFile *.html 0r ~/.vim/template/html.txt
 \ | execute "9d"
@@ -103,8 +104,8 @@ set showcmd
 set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
 
 
-map j gj
-map k gk
+noremap j gj
+noremap k gk
 
 "inoremap <S-Insert> <C-r><C-o>+<C-[>
 
@@ -112,25 +113,28 @@ map k gk
 " plugin setting
 " ----------------------------------------
 
-" Rename.vim
+" -- Rename.vim
 cmap w<Space> <C-u>Rename<Space>
 
-"map <Leader>b :FufBuffer<CR>
-"map <Leader>f :FufFile<CR>
-"map <Leader>l :FufLine<CR>
+" -- Unite
 let g:unite_enable_start_insert=1
 map <Leader>u :Unite 
 map <Leader>b :Unite buffer<CR>
 map <Leader>o :Unite outline<CR>
 map <Leader>f :Unite file buffer<CR>
-"au FileType fuf echo %
 
+" -- Gundo
 nmap U :<C-u>GundoToggle<CR>
 
 " -- VimShell
 noremap ,sh :<C-u>VimShell<CR>
 noremap ,irb :<C-u>VimShellInteractive irb<CR>
 vnoremap ss :<C-u>VimShellSendString<CR>
+
+" -- vim-attr.vim
+" http://labs.timedia.co.jp/2011/07/vim-altr.html
+" nmap <F2>  <Plug>(altr-forward)
+" call altr#define('autoload/%.vim', 'doc/%.txt', 'plugin/%.vim')
 
 
 
