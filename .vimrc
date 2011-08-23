@@ -31,6 +31,7 @@ Bundle 'https://github.com/vim-scripts/Rename'
 Bundle 'https://github.com/tomasr/molokai'
 Bundle 'https://github.com/sjl/gundo.vim.git'
 Bundle 'https://github.com/kana/vim-altr'
+"Bundle 'https://github.com/aereal/dotfiles/blob/master/.vim/colors/shandy.vim'
 
 filetype plugin indent on     " required!
 
