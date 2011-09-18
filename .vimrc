@@ -1,8 +1,10 @@
-" ### vundle start ###
-filetype off                   " required!
+set nocompatible
 
-set rtp+=~/.vim/vundle/
+" ### vundle start ###
+filetype off " required!
+
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'https://github.com/gmarik/vundle.git'
@@ -20,9 +22,9 @@ Bundle 'https://github.com/othree/html5.vim'
 Bundle 'https://github.com/h1mesuke/unite-outline'
 Bundle 'https://github.com/mattn/gist-vim'
 Bundle 'https://github.com/tpope/vim-surround'
-Bundle 'https://github.com/ujihisa/quickrun'
+Bundle 'https://github.com/thinca/vim-quickrun'
 Bundle 'https://github.com/vim-scripts/YankRing.vim'
-Bundle 'https://github.com/othree/eregex.vim'
+Bundle 'https://github.com/vim-scripts/eregex.vim'
 Bundle 'https://github.com/vim-scripts/Zenburn'
 Bundle 'https://github.com/vim-scripts/darkburn'
 Bundle 'https://github.com/tsaleh/vim-align'
@@ -30,19 +32,22 @@ Bundle 'https://github.com/tpope/vim-pathogen'
 Bundle 'https://github.com/vim-scripts/Rename'
 Bundle 'https://github.com/tomasr/molokai'
 Bundle 'https://github.com/sjl/gundo.vim.git'
-Bundle 'https://github.com/kana/vim-altr'
-"Bundle 'https://github.com/aereal/dotfiles/blob/master/.vim/colors/shandy.vim'
+Bundle 'https://github.com/t9md/vim-surround_custom_mapping'
+Bundle 'https://github.com/vim-scripts/Lucius'
+Bundle 'https://github.com/ChrisKempson/Tomorrow-Theme', {'rtp': 'Vim/'}
+Bundle 'https://github.com/vim-scripts/mrkn256.vim'
+Bundle 'https://github.com/ujihisa/unite-font'
+Bundle 'https://github.com/flazz/vim-colorschemes'
+Bundle 'https://github.com/thinca/vim-fontzoom'
+Bundle 'https://github.com/tyru/open-browser.vim'
 
-filetype plugin indent on     " required!
-
+filetype plugin indent on " required!
 " ### vundle end ###
 
-set nocompatible
 syntax enable
 set ambiwidth=double
 set mouse=a
 set history=100000
-set noshowmatch
 
 " colors
 "set bg=dark
@@ -57,11 +62,12 @@ let g:zenburn_high_Contrast = 1
 colo zenburn
 "colo pyte
 "so ~/.vimrc.solarized
-"
+
+au BufEnter *.erubis execute "setlocal ft=eruby"
 
 au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
 \ | execute "10"
-\ | setlocal keywordprg=rurema
+\ | " move to last line
 
 au BufNewFile *.html 0r ~/.vim/template/html.txt
 \ | execute "9d"
@@ -71,12 +77,7 @@ au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
 \ | execute "11d"
 \ | execute "9"
 
-
-au BufEnter *.erubis setlocal ft=eruby
-
-au BufEnter *.mkd,*.markdown,*md setlocal wrap
-\ | setlocal ft=markdown
-
+au BufEnter *.mkd,*.markdown setlocal wrap
 au BufEnter *   execute ":lcd " . expand("%:p:h")
 
 set nu
@@ -108,36 +109,41 @@ set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
 noremap j gj
 noremap k gk
 
-"inoremap <S-Insert> <C-r><C-o>+<C-[>
+inoremap <S-Insert> <C-r><C-o>+<C-[>
 
 " ----------------------------------------
 " plugin setting
 " ----------------------------------------
+" quickrun
+let g:quickrun_config = {}
+let g:quickrun_config['markdown'] = {
+      \ 'outputter': 'browser',
+      \ 'type': 'markdown/redcarpet'
+      \ }
 
-" -- Rename.vim
+
+" Rename.vim
 cmap w<Space> <C-u>Rename<Space>
 
-" -- Unite
-let g:unite_enable_start_insert=1
-map <Leader>u :Unite 
-map <Leader>b :Unite buffer<CR>
-map <Leader>o :Unite outline<CR>
-map <Leader>f :Unite file buffer<CR>
+" fuf
+"map <Leader>b :FufBuffer<CR>
+"map <Leader>f :FufFile<CR>
+"map <Leader>l :FufLine<CR>
+"au FileType fuf echo %
 
-" -- Gundo
-nmap U :<C-u>GundoToggle<CR>
+" unite.vim
+let g:unite_enable_start_insert=1
+noremap <Leader>u :Unite 
+noremap <Leader>b :Unite buffer<CR>
+noremap <Leader>o :Unite outline<CR>
+noremap <Leader>f :Unite file buffer<CR>
+
+nnoremap U :<C-u>GundoToggle<CR>
 
 " -- VimShell
-noremap ,sh :<C-u>VimShell<CR>
-noremap ,irb :<C-u>VimShellInteractive irb<CR>
-vnoremap ss :<C-u>VimShellSendString<CR>
-
-" -- vim-attr.vim
-" http://labs.timedia.co.jp/2011/07/vim-altr.html
-" nmap <F2>  <Plug>(altr-forward)
-" call altr#define('autoload/%.vim', 'doc/%.txt', 'plugin/%.vim')
-
-
+"noremap ,sh :<C-u>VimShell<CR>
+"noremap ,irb :<C-u>VimShellInteractive irb<CR>
+"vnoremap ss :<C-u>VimShellSendString<CR>
 
 " ----------------------------------------
 
@@ -149,3 +155,7 @@ augroup InsModeAu
     autocmd InsertEnter,CmdwinEnter * set noimdisable
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
+
+if has("gui_running")
+  source ~/.gvimrc
+endif
