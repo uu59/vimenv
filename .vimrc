@@ -1,12 +1,13 @@
+" /* vim: set fdm=marker: */
+" map z[ocRM]
+
 set nocompatible
 
-" ### vundle start ###
+" ### vundle start ### {{{
 filetype off " required!
-
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/vundle/
 call vundle#rc()
-
 Bundle 'https://github.com/gmarik/vundle.git'
 Bundle 'https://github.com/Shougo/unite.vim.git'
 Bundle 'https://github.com/hakobe/unite-script'
@@ -40,29 +41,48 @@ Bundle 'https://github.com/ujihisa/unite-font'
 Bundle 'https://github.com/flazz/vim-colorschemes'
 Bundle 'https://github.com/thinca/vim-fontzoom'
 Bundle 'https://github.com/tyru/open-browser.vim'
-
+Bundle 'https://github.com/vim-scripts/yanktmp.vim'
+Bundle 'https://github.com/Shougo/neocomplcache'
 filetype plugin indent on " required!
 " ### vundle end ###
+" }}}
 
+" ### set variables ### {{{
 syntax enable
 set ambiwidth=double
 set mouse=a
 set history=100000
+set title
+set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
+set completeopt=menuone,preview
+set lazyredraw
+set nu
+set expandtab
+set ts=2 sw=2
+set incsearch
+set ignorecase
+set smartcase
+set autoindent
+set nowrap
+set nobackup
+set hidden
+set noswapfile
+set backspace=2
+set visualbell
+set number
+set wildmode=list:longest,full
+set listchars=tab:\|\ 
+set list
+set scrolloff=0
+set laststatus=2
+set cmdheight=1
+set showcmd
+"set linespace=0
+set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
+" }}}
 
-" colors
-"set bg=dark
-"highlight StatusLine   term=bold cterm=bold ctermfg=white ctermbg=black
-"highlight StatusLineNC   term=bold cterm=bold ctermfg=darkgray ctermbg=black
-"highlight VertSplit   ctermfg=black
-"set t_Co=256
-"colo jellybeans
-"colo twilight
-"let g:zenburn_high_Contrast = 0
-let g:zenburn_high_Contrast = 1
-colo zenburn
-"colo pyte
-"so ~/.vimrc.solarized
-
+" ### filetype setting ### {{{
+au BufEnter *   execute ":lcd " . expand("%:p:h")
 au BufEnter *.erubis execute "setlocal ft=eruby"
 
 au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
@@ -78,42 +98,33 @@ au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
 \ | execute "9"
 
 au BufEnter *.mkd,*.markdown setlocal wrap
-au BufEnter *   execute ":lcd " . expand("%:p:h")
+" }}}
 
-set nu
-set expandtab
-set ts=2 sw=2
-set incsearch
-set ignorecase
-set smartcase
-set autoindent
-set nowrap
-set nobackup
-
-set hidden
-set noswapfile
-set backspace=2
-set visualbell
-set number
-set wildmode=list:longest,full
-set listchars=tab:>\ 
-set list
-set scrolloff=0
-set laststatus=2
-set cmdheight=1
-set showcmd
-"set linespace=0
-set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
-
-
+" ### key mapping ### {{{
 noremap j gj
 noremap k gk
-
 inoremap <S-Insert> <C-r><C-o>+<C-[>
+" }}}
 
-" ----------------------------------------
-" plugin setting
-" ----------------------------------------
+" ### color setting ### {{{
+"set bg=dark
+"set t_Co=256
+"colo jellybeans
+"colo twilight
+let g:zenburn_high_Contrast = 1
+colo zenburn
+" }}}
+
+" ### plugin setting ### {{{
+" neocomplcache
+"let g:acp_enableAtStartup = 0
+"let g:neocomplcache_enable_at_startup = 1
+
+" yanktmp.vim
+map <silent> sy :call YanktmpYank()<CR>
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>
+
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
@@ -138,14 +149,16 @@ noremap <Leader>b :Unite buffer<CR>
 noremap <Leader>o :Unite outline<CR>
 noremap <Leader>f :Unite file buffer<CR>
 
+" gundo
 nnoremap U :<C-u>GundoToggle<CR>
 
 " -- VimShell
 "noremap ,sh :<C-u>VimShell<CR>
 "noremap ,irb :<C-u>VimShellInteractive irb<CR>
 "vnoremap ss :<C-u>VimShellSendString<CR>
+" }}}
 
-" ----------------------------------------
+" ### misc ### {{{
 
 set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 
@@ -159,3 +172,5 @@ augroup END
 if has("gui_running")
   source ~/.gvimrc
 endif
+
+" }}}
