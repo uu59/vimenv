@@ -116,6 +116,11 @@ colo zenburn
 " }}}
 
 " ### plugin setting ### {{{
+" gist.vim
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command = 'chromium-browser %URL%'
+let g:gist_detect_filetype = 1
+
 " neocomplcache
 "let g:acp_enableAtStartup = 0
 "let g:neocomplcache_enable_at_startup = 1
