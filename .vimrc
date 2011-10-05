@@ -25,7 +25,7 @@ Bundle 'https://github.com/mattn/gist-vim'
 Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'https://github.com/thinca/vim-quickrun'
 Bundle 'https://github.com/vim-scripts/YankRing.vim'
-Bundle 'https://github.com/vim-scripts/eregex.vim'
+Bundle 'https://github.com/othree/eregex.vim'
 Bundle 'https://github.com/vim-scripts/Zenburn'
 Bundle 'https://github.com/vim-scripts/darkburn'
 Bundle 'https://github.com/tsaleh/vim-align'
@@ -126,9 +126,9 @@ let g:gist_detect_filetype = 1
 "let g:neocomplcache_enable_at_startup = 1
 
 " yanktmp.vim
-map <silent> sy :call YanktmpYank()<CR>
-map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>
+map <silent> Sy :call YanktmpYank()<CR>
+map <silent> Sp :call YanktmpPaste_p()<CR>
+map <silent> SP :call YanktmpPaste_P()<CR>
 
 " quickrun
 let g:quickrun_config = {}
