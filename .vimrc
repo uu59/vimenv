@@ -43,6 +43,10 @@ Bundle 'https://github.com/thinca/vim-fontzoom'
 Bundle 'https://github.com/tyru/open-browser.vim'
 Bundle 'https://github.com/vim-scripts/yanktmp.vim'
 Bundle 'https://github.com/Shougo/neocomplcache'
+Bundle 'https://github.com/kana/vim-textobj-user'
+Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
+Bundle 'https://github.com/kchmck/vim-coffee-script'
+Bundle 'https://github.com/briancollins/vim-jst'
 filetype plugin indent on " required!
 " ### vundle end ###
 " }}}
@@ -179,3 +183,5 @@ if has("gui_running")
 endif
 
 " }}}
+
+
