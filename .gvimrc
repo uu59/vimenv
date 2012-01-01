@@ -3,7 +3,8 @@ let g:molokai_original = 1
 "colo molokai
 "colo xoria256
 "colo github256
-colo Tomorrow-Night-Eighties                                                                                                      
+colo Tomorrow-Night
+"colo vilight
 set guioptions=-rLbc
 "set guifont=VL\ ゴシック\ 9
 "set guifont=Inconsolata\ Medium\ 9

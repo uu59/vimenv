@@ -35,7 +35,7 @@ Bundle 'https://github.com/tomasr/molokai'
 Bundle 'https://github.com/sjl/gundo.vim.git'
 Bundle 'https://github.com/t9md/vim-surround_custom_mapping'
 Bundle 'https://github.com/vim-scripts/Lucius'
-Bundle 'https://github.com/ChrisKempson/Tomorrow-Theme', {'rtp': 'Vim/'}
+Bundle 'https://github.com/ChrisKempson/Vim-Tomorrow-Theme'
 Bundle 'https://github.com/vim-scripts/mrkn256.vim'
 Bundle 'https://github.com/ujihisa/unite-font'
 Bundle 'https://github.com/flazz/vim-colorschemes'
@@ -47,6 +47,7 @@ Bundle 'https://github.com/kana/vim-textobj-user'
 Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
 Bundle 'https://github.com/kchmck/vim-coffee-script'
 Bundle 'https://github.com/briancollins/vim-jst'
+Bundle 'https://github.com/kien/ctrlp.vim'
 filetype plugin indent on " required!
 " ### vundle end ###
 " }}}
@@ -108,6 +109,8 @@ au BufEnter *.mkd,*.markdown setlocal wrap
 noremap j gj
 noremap k gk
 inoremap <S-Insert> <C-r><C-o>+<C-[>
+"noremap <C-f> :<C-u>echo expand('%:p')<CR>
+"inoremap <C-f> <C-r>=expand('%:p')<CR>
 " }}}
 
 " ### color setting ### {{{
@@ -115,14 +118,15 @@ inoremap <S-Insert> <C-r><C-o>+<C-[>
 "set t_Co=256
 "colo jellybeans
 "colo twilight
-let g:zenburn_high_Contrast = 1
-colo zenburn
+"let g:zenburn_high_Contrast = 1
+"colo zenburn
+colo Tomorrow-Night
 " }}}
 
 " ### plugin setting ### {{{
 " gist.vim
 let g:gist_open_browser_after_post = 1
-let g:gist_browser_command = 'chromium-browser %URL%'
+"let g:gist_browser_command = 'chromium-browser %URL%'
 let g:gist_detect_filetype = 1
 
 " neocomplcache
@@ -130,9 +134,9 @@ let g:gist_detect_filetype = 1
 "let g:neocomplcache_enable_at_startup = 1
 
 " yanktmp.vim
-map <silent> Sy :call YanktmpYank()<CR>
-map <silent> Sp :call YanktmpPaste_p()<CR>
-map <silent> SP :call YanktmpPaste_P()<CR>
+"map <silent> Sy :call YanktmpYank()<CR>
+"map <silent> Sp :call YanktmpPaste_p()<CR>
+"map <silent> SP :call YanktmpPaste_P()<CR>
 
 " quickrun
 let g:quickrun_config = {}
@@ -143,7 +147,7 @@ let g:quickrun_config['markdown'] = {
 
 
 " Rename.vim
-cmap w<Space> <C-u>Rename<Space>
+"cmap w<Space> <C-u>Rename<Space>
 
 " fuf
 "map <Leader>b :FufBuffer<CR>
@@ -167,6 +171,9 @@ nnoremap U :<C-u>GundoToggle<CR>
 "vnoremap ss :<C-u>VimShellSendString<CR>
 " }}}
 
+" -- ctrlp.vim
+let g:ctrlp_map = '<c-f>'
+
 " ### misc ### {{{
 
 set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,sjis,cp932,utf-8
@@ -183,5 +190,4 @@ if has("gui_running")
 endif
 
 " }}}
-
 

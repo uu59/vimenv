@@ -1,0 +1,1 @@
+/home/clover/.vim/bundle/187578/h2u_dark.vim
