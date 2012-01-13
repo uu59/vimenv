@@ -48,6 +48,7 @@ Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
 Bundle 'https://github.com/kchmck/vim-coffee-script'
 Bundle 'https://github.com/briancollins/vim-jst'
 Bundle 'https://github.com/kien/ctrlp.vim'
+Bundle 'https://github.com/vim-scripts/sudo.vim'
 filetype plugin indent on " required!
 " ### vundle end ###
 " }}}
@@ -120,7 +121,7 @@ inoremap <S-Insert> <C-r><C-o>+<C-[>
 "colo twilight
 "let g:zenburn_high_Contrast = 1
 "colo zenburn
-colo Tomorrow-Night
+colo zmrok
 " }}}
 
 " ### plugin setting ### {{{
