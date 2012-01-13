@@ -85,6 +85,12 @@ set cmdheight=1
 set showcmd
 "set linespace=0
 set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
+
+" http://vim-users.jp/2010/07/hack162/
+if has('persistent_undo')
+    set undodir=~/.vimundo
+    set undofile
+endif
 " }}}
 
 " ### filetype setting ### {{{
