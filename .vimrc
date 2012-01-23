@@ -113,8 +113,9 @@ au BufEnter *.mkd,*.markdown setlocal wrap
 " }}}
 
 " ### key mapping ### {{{
-noremap j gj
-noremap k gk
+let mapleader = " "
+nnoremap j gj
+nnoremap k gk
 inoremap <S-Insert> <C-r><C-o>+<C-[>
 "noremap <C-f> :<C-u>echo expand('%:p')<CR>
 "inoremap <C-f> <C-r>=expand('%:p')<CR>
@@ -152,16 +153,6 @@ let g:quickrun_config['markdown'] = {
       \ 'type': 'markdown/redcarpet'
       \ }
 
-
-" Rename.vim
-"cmap w<Space> <C-u>Rename<Space>
-
-" fuf
-"map <Leader>b :FufBuffer<CR>
-"map <Leader>f :FufFile<CR>
-"map <Leader>l :FufLine<CR>
-"au FileType fuf echo %
-
 " unite.vim
 let g:unite_enable_start_insert=1
 noremap <Leader>u :Unite 
@@ -176,10 +167,11 @@ nnoremap U :<C-u>GundoToggle<CR>
 "noremap ,sh :<C-u>VimShell<CR>
 "noremap ,irb :<C-u>VimShellInteractive irb<CR>
 "vnoremap ss :<C-u>VimShellSendString<CR>
-" }}}
 
 " -- ctrlp.vim
-let g:ctrlp_map = '<c-f>'
+let g:ctrlp_map = '<Leader><C-f>'
+
+" }}}
 
 " ### misc ### {{{
 
