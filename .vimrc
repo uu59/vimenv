@@ -18,7 +18,7 @@ Bundle 'https://github.com/altercation/solarized'
 Bundle 'https://github.com/ujihisa/unite-colorscheme.git'
 Bundle 'git://gist.github.com/187578.git'
 Bundle 'https://github.com/Shougo/vimproc'
-Bundle 'https://github.com/Shougo/vimshell'
+"Bundle 'https://github.com/Shougo/vimshell'
 Bundle 'https://github.com/othree/html5.vim'
 Bundle 'https://github.com/h1mesuke/unite-outline'
 Bundle 'https://github.com/mattn/gist-vim'
@@ -42,13 +42,18 @@ Bundle 'https://github.com/flazz/vim-colorschemes'
 Bundle 'https://github.com/thinca/vim-fontzoom'
 Bundle 'https://github.com/tyru/open-browser.vim'
 Bundle 'https://github.com/vim-scripts/yanktmp.vim'
-Bundle 'https://github.com/Shougo/neocomplcache'
+"Bundle 'https://github.com/Shougo/neocomplcache'
 Bundle 'https://github.com/kana/vim-textobj-user'
 Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
 Bundle 'https://github.com/kchmck/vim-coffee-script'
 Bundle 'https://github.com/briancollins/vim-jst'
 Bundle 'https://github.com/kien/ctrlp.vim'
 Bundle 'https://github.com/vim-scripts/sudo.vim'
+Bundle 'https://github.com/scrooloose/syntastic'
+Bundle 'https://github.com/nathanaelkane/vim-indent-guides'
+Bundle 'https://github.com/aereal/vim-magica-colors'
+Bundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
+Bundle 'https://github.com/liquidz/vim-colors-uochan'
 filetype plugin indent on " required!
 " ### vundle end ###
 " }}}
@@ -170,6 +175,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 
 " -- ctrlp.vim
 let g:ctrlp_map = '<Leader><C-f>'
+let g:ctrlp_arg_map = 1
 
 " }}}
 
