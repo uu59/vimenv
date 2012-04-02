@@ -134,8 +134,8 @@ inoremap <S-Insert> <C-r><C-o>+<C-[>
 "colo jellybeans
 "colo twilight
 "let g:zenburn_high_Contrast = 1
-"colo zenburn
-colo zmrok
+colo zenburn
+"colo zmrok
 " }}}
 
 " ### plugin setting ### {{{
