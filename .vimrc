@@ -89,7 +89,7 @@ set laststatus=2
 set cmdheight=1
 set showcmd
 "set linespace=0
-set statusline=%<[%n]%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %r%=%m%F
+set statusline=%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%m%F
 
 " http://vim-users.jp/2010/07/hack162/
 if has('persistent_undo')
