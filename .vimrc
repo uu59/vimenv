@@ -21,6 +21,7 @@ Bundle 'https://github.com/Shougo/vimproc'
 "Bundle 'https://github.com/Shougo/vimshell'
 Bundle 'https://github.com/othree/html5.vim'
 Bundle 'https://github.com/h1mesuke/unite-outline'
+Bundle 'https://github.com/mattn/webapi-vim'
 Bundle 'https://github.com/mattn/gist-vim'
 Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'https://github.com/thinca/vim-quickrun'
@@ -178,6 +179,9 @@ nnoremap U :<C-u>GundoToggle<CR>
 " -- ctrlp.vim
 let g:ctrlp_map = '<Leader><C-f>'
 let g:ctrlp_arg_map = 1
+
+" -- yankring.vim
+let g:yankring_manual_clipboard_check = 0
 
 " }}}
 
