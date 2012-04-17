@@ -10,10 +10,12 @@ set guioptions=-rLbc
 "set guifont=Inconsolata\ Medium\ 9
 "set guifontwide=VL\ ゴシック\ 9
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
-set guifont=DejaVu\ Sans\ Mono\ 9
 "set guifontwide=Takao\ ゴシック\ 9
-set guifontwide=MotoyaLCedar\ 9
-set linespace=1
+"set guifont=DejaVu\ Sans\ Mono\ 11
+"set guifontwide=MotoyaLCedar\ 11
+set guifont=Rounded\ M+\ 1m\ Regular\ 10
+set guifontwide=Rounded\ M+\ 1m\ Regular\ 10
+set linespace=-2
 set novb
 set lines=40
 set columns=130
