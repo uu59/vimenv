@@ -61,6 +61,8 @@ filetype plugin indent on " required!
 
 " ### set variables ### {{{
 syntax enable
+set showmatch
+set matchtime=0
 set ambiwidth=double
 set mouse=a
 set history=100000
