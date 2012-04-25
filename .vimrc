@@ -115,6 +115,8 @@ au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
 \ | execute "9"
 
 au BufEnter *.mkd,*.markdown setlocal wrap
+
+au BufEnter *.php setlocal noexpandtab
 " }}}
 
 " ### key mapping ### {{{
