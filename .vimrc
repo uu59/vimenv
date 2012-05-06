@@ -55,6 +55,8 @@ Bundle 'https://github.com/nathanaelkane/vim-indent-guides'
 Bundle 'https://github.com/aereal/vim-magica-colors'
 Bundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 Bundle 'https://github.com/liquidz/vim-colors-uochan'
+Bundle 'https://github.com/thinca/vim-ref'
+Bundle 'https://github.com/kana/vim-textobj-indent'
 filetype plugin indent on " required!
 " ### vundle end ###
 " }}}
