@@ -1,7 +1,8 @@
 let g:loaded_gvimrc = 1
 let g:molokai_original = 1
 "colo magica
-colo molokai
+"colo molokai
+colo blackdust
 "colo xoria256
 "colo github256
 "colo vilight
