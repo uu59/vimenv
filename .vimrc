@@ -105,6 +105,9 @@ endif
 au BufEnter *   execute ":lcd " . expand("%:p:h")
 au BufEnter *.erubis execute "setlocal ft=eruby"
 
+au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
+\ | execute "17"
+
 au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
 \ | execute "10"
 \ | " move to last line

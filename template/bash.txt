@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -u
+
+usage_exit () {
+  echo "Usage: $0" >&2
+  exit 1
+}
+
+while getopts "h" flag; do
+  case "$flag" in
+    h) usage_exit;;
+  esac
+done
+shift $(( $OPTIND - 1 ))
+
+echo $*
