@@ -64,7 +64,7 @@ syntax enable
 set showmatch
 set matchtime=0
 set ambiwidth=double
-set mouse=a
+set mouse=
 set history=100000
 set title
 set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
