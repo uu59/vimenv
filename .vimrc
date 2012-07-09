@@ -94,7 +94,7 @@ set laststatus=2
 set cmdheight=1
 set showcmd
 "set linespace=0
-set statusline=%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%m%F
+set statusline=%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%F
 
 " http://vim-users.jp/2010/07/hack162/
 if has('persistent_undo')
@@ -173,7 +173,7 @@ let g:unite_enable_start_insert=1
 noremap <Leader>u :Unite 
 noremap <Leader>b :Unite buffer<CR>
 noremap <Leader>o :Unite outline<CR>
-noremap <Leader>f :Unite file buffer<CR>
+"noremap <Leader>f :Unite file buffer<CR>
 
 " gundo
 nnoremap U :<C-u>GundoToggle<CR>
@@ -184,7 +184,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 "vnoremap ss :<C-u>VimShellSendString<CR>
 
 " -- ctrlp.vim
-let g:ctrlp_map = '<Leader><C-f>'
+let g:ctrlp_map = '<Leader>f'
 let g:ctrlp_arg_map = 1
 
 " -- yankring.vim
