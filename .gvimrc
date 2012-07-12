@@ -2,7 +2,8 @@ let g:loaded_gvimrc = 1
 let g:molokai_original = 1
 "colo magica
 "colo molokai
-colo blackdust
+colo lucius
+"colo blackdust
 "colo xoria256
 "colo github256
 "colo vilight
@@ -14,8 +15,8 @@ set guioptions=-rLbc
 "set guifontwide=Takao\ ゴシック\ 9
 "set guifont=DejaVu\ Sans\ Mono\ 11
 "set guifontwide=MotoyaLCedar\ 11
-set guifont=Rounded\ M+\ 1m\ Regular\ 10
-set guifontwide=Rounded\ M+\ 1m\ Regular\ 10
+set guifont=Rounded\ M+\ 2m\ Regular\ 11
+set guifontwide=Rounded\ M+\ 2m\ Regular\ 11
 set linespace=-2
 set novb
 set lines=40
