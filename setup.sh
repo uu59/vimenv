@@ -12,4 +12,4 @@ for dotfile in `find $DIR -maxdepth 1 -type f -name ".*" -a -not -name ".git*"`;
 done
 
 read -p "Press Enter for go BundleInstall or C-c"
-vim -c 'BundleInstall'
+vim '+BundleInstall' '+qall'
