@@ -1,1 +1,0 @@
-/home/clover/.vim/bundle/Tomorrow-Theme/Vim/Tomorrow.vim
