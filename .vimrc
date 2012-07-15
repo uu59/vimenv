@@ -36,7 +36,7 @@ Bundle 'https://github.com/tomasr/molokai'
 Bundle 'https://github.com/sjl/gundo.vim.git'
 Bundle 'https://github.com/t9md/vim-surround_custom_mapping'
 Bundle 'https://github.com/vim-scripts/Lucius'
-Bundle 'https://github.com/ChrisKempson/Vim-Tomorrow-Theme'
+Bundle "https://github.com/chriskempson/vim-tomorrow-theme"
 Bundle 'https://github.com/vim-scripts/mrkn256.vim'
 Bundle 'https://github.com/ujihisa/unite-font'
 "Bundle 'https://github.com/flazz/vim-colorschemes'
