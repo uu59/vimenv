@@ -104,27 +104,30 @@ endif
 " }}}
 
 " ### filetype setting ### {{{
-au BufEnter *   execute ":lcd " . expand("%:p:h")
-au BufEnter *.erubis execute "setlocal ft=eruby"
+augroup FileTypes
+  autocmd!
+  au BufEnter *   execute ":lcd " . expand("%:p:h")
+  au BufEnter *.erubis execute "setlocal ft=eruby"
 
-au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
-\ | execute "17"
+  au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
+  \ | execute "17"
 
-au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
-\ | execute "10"
-\ | " move to last line
+  au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
+  \ | execute "10"
+  \ | " move to last line
 
-au BufNewFile *.html 0r ~/.vim/template/html.txt
-\ | execute "9d"
-\ | execute "7"
+  au BufNewFile *.html 0r ~/.vim/template/html.txt
+  \ | execute "9d"
+  \ | execute "7"
 
-au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
-\ | execute "11d"
-\ | execute "9"
+  au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
+  \ | execute "11d"
+  \ | execute "9"
 
-au BufEnter *.mkd,*.markdown setlocal wrap
+  au BufEnter *.mkd,*.markdown setlocal wrap
 
-au BufEnter *.php setlocal noexpandtab
+  au BufEnter *.php setlocal noexpandtab
+augroup END
 " }}}
 
 " ### key mapping ### {{{
