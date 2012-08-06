@@ -12,6 +12,7 @@ Bundle 'https://github.com/gmarik/vundle.git'
 Bundle 'https://github.com/Shougo/unite.vim.git'
 Bundle 'https://github.com/hakobe/unite-script'
 Bundle 'https://github.com/trapd00r/neverland-vim-theme.git'
+Bundle 'https://github.com/hail2u/vim-css-syntax'
 Bundle 'https://github.com/hail2u/vim-css3-syntax.git'
 Bundle 'https://github.com/sjl/gundo.vim.git'
 Bundle 'https://github.com/altercation/solarized'
@@ -57,6 +58,7 @@ Bundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 Bundle 'https://github.com/liquidz/vim-colors-uochan'
 Bundle 'https://github.com/thinca/vim-ref'
 Bundle 'https://github.com/kana/vim-textobj-indent'
+Bundle "https://github.com/nanotech/jellybeans.vim"
 filetype plugin indent on " required!
 " ### vundle end ###
 " }}}
