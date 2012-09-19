@@ -41,6 +41,8 @@ Bundle 'https://github.com/briancollins/vim-jst'
 Bundle 'https://github.com/othree/html5.vim'
 Bundle 'https://github.com/hail2u/vim-css-syntax'
 Bundle 'https://github.com/hail2u/vim-css3-syntax.git'
+" testing
+Bundle 'https://github.com/airblade/vim-rooter'
 " colorschemes
 Bundle 'git://gist.github.com/187578.git'
 Bundle 'https://github.com/vim-scripts/Zenburn'
