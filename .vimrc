@@ -201,6 +201,32 @@ let g:yankring_manual_clipboard_check = 0
 " -- indent-guides
 nnoremap <C-i> :<C-u>IndentGuidesToggle<CR>
 
+" -- ref.vim
+let g:ref_source_webdict_sites = {
+\   'je': {
+\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
+\     'line': 21,
+\   },
+\   'ej': {
+\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+\     'line': 21,
+\   },
+\   'urban': {
+\     'url': 'http://www.urbandictionary.com/define.php?term=%s',
+\     'line': 13,
+\   },
+\   'ruby-class': {
+\     'url': 'http://doc.ruby-lang.org/ja/1.9.3/class/%s.html',
+\   },
+\   'twitter': {
+\     'url': 'https://mobile.twitter.com/search?q=%s',
+\     'line': 8,
+\     'cache': 0,
+\   },
+\ }
+nnoremap <Leader>d :<C-u>Ref webdict 
+let g:ref_source_webdict_use_cache = 1
+
 " }}}
 
 " ### misc ### {{{
