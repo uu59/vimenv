@@ -198,6 +198,9 @@ let g:ctrlp_arg_map = 1
 " -- yankring.vim
 let g:yankring_manual_clipboard_check = 0
 
+" -- indent-guides
+nnoremap <C-i> :<C-u>IndentGuidesToggle<CR>
+
 " }}}
 
 " ### misc ### {{{
