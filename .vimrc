@@ -212,6 +212,18 @@ let g:ref_source_webdict_sites = {
 \     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
 \     'line': 21,
 \   },
+\   'naver': {
+\     'url': 'http://endic.naver.jp/srch/all/N/%s?sm=etp_enh',
+\     'line': 40,
+\   },
+\   'weblio': {
+\     'url': 'http://www.weblio.jp/content/%s',
+\     'line': 14,
+\   },
+\   'thesaurus': {
+\     'url': 'http://thesaurus.weblio.jp/content/%s',
+\     'line': 27,
+\   },
 \   'urban': {
 \     'url': 'http://www.urbandictionary.com/define.php?term=%s',
 \     'line': 13,
