@@ -200,7 +200,7 @@ let g:ctrlp_arg_map = 1
 let g:yankring_manual_clipboard_check = 0
 
 " -- indent-guides
-nnoremap <C-i> :<C-u>IndentGuidesToggle<CR>
+nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
 
 " -- ref.vim
 let g:ref_source_webdict_sites = {
