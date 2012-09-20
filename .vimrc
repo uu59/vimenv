@@ -228,6 +228,10 @@ let g:ref_source_webdict_sites = {
 nnoremap <Leader>d :<C-u>Ref webdict 
 let g:ref_source_webdict_use_cache = 1
 
+" -- syntastic.vim
+let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
+let g:syntastic_warning_symbol='⚐' " ☹  ⚠
+
 " }}}
 
 " ### misc ### {{{
