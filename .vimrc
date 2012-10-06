@@ -59,7 +59,7 @@ Bundle 'https://github.com/liquidz/vim-colors-uochan'
 Bundle 'https://github.com/ricardovaleriano/vim-github-theme'
 " pending
 "Bundle 'https://github.com/thinca/vim-fontzoom'
-"Bundle 'https://github.com/Shougo/vimshell'
+Bundle 'https://github.com/Shougo/vimshell'
 "Bundle 'https://github.com/flazz/vim-colorschemes'
 "Bundle 'https://github.com/Shougo/neocomplcache'
 "Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
@@ -188,11 +188,6 @@ noremap <Leader>o :Unite outline<CR>
 " gundo
 nnoremap U :<C-u>GundoToggle<CR>
 
-" -- VimShell
-"noremap ,sh :<C-u>VimShell<CR>
-"noremap ,irb :<C-u>VimShellInteractive irb<CR>
-"vnoremap ss :<C-u>VimShellSendString<CR>
-
 " -- ctrlp.vim
 let g:ctrlp_map = '<Leader>f'
 let g:ctrlp_arg_map = 1
@@ -248,6 +243,23 @@ let g:ref_source_webdict_use_cache = 1
 " -- syntastic.vim
 let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
 let g:syntastic_warning_symbol='⚐' " ☹  ⚠
+
+" -- VimShell
+" cecutils.vim uses <Leader>sqp mapping
+" http://www.jukie.net/~bart/conf/vim/plugin/cecutil.vim
+" so <Leader>s will wait for `timeoutlen` msec for more input
+" note: You can unmap by after/* or remove cecutil.vim
+set timeoutlen=150
+nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
+function! s:vimshell_keymap()
+  nmap <buffer><silent> <C-d> <Plug>(vimshell_hide)
+  imap <buffer><silent> <C-d> <Plug>(vimshell_hide)
+endfunction
+
+augroup VimShell
+  autocmd!
+  au FileType vimshell call s:vimshell_keymap()
+augroup END
 
 " }}}
 
