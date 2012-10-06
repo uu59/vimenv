@@ -225,6 +225,10 @@ let g:ref_source_webdict_sites = {
 \     'url': 'http://thesaurus.weblio.jp/content/%s',
 \     'line': 27,
 \   },
+\   'thesaurus-en': {
+\     'url': 'http://thesaurus.com/browse/%s?s=t',
+\     'line': 76,
+\   },
 \   'urban': {
 \     'url': 'http://www.urbandictionary.com/define.php?term=%s',
 \     'line': 13,
