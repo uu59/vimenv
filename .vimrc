@@ -253,7 +253,7 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 set timeoutlen=150
 nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
-  imap <buffer><silent> <C-d> <Plug>(vimshell_hide)
+  imap <buffer><silent> <C-d> exit<CR>
 endfunction
 
 augroup VimShell
