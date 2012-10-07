@@ -108,6 +108,7 @@ if has('persistent_undo')
     set undodir=~/.vimundo
     set undofile
 endif
+
 " }}}
 
 " ### filetype setting ### {{{
@@ -252,7 +253,6 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 set timeoutlen=150
 nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
-  nmap <buffer><silent> <C-d> <Plug>(vimshell_hide)
   imap <buffer><silent> <C-d> <Plug>(vimshell_hide)
 endfunction
 

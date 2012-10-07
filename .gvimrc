@@ -21,3 +21,6 @@ set linespace=-2
 set novb
 set lines=40
 set columns=130
+
+" for vimshell on gvim
+let $PATH=system('echo $PATH')
