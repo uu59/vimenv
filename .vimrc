@@ -41,7 +41,7 @@ Bundle 'https://github.com/othree/html5.vim'
 Bundle 'https://github.com/hail2u/vim-css-syntax'
 Bundle 'https://github.com/hail2u/vim-css3-syntax'
 " testing
-Bundle 'https://github.com/airblade/vim-rooter'
+Bundle 'https://github.com/Shougo/vimshell'
 " colorschemes
 Bundle 'git://gist.github.com/187578.git'
 Bundle 'https://github.com/vim-scripts/Zenburn'
@@ -59,7 +59,6 @@ Bundle 'https://github.com/liquidz/vim-colors-uochan'
 Bundle 'https://github.com/ricardovaleriano/vim-github-theme'
 " pending
 "Bundle 'https://github.com/thinca/vim-fontzoom'
-Bundle 'https://github.com/Shougo/vimshell'
 "Bundle 'https://github.com/flazz/vim-colorschemes'
 "Bundle 'https://github.com/Shougo/neocomplcache'
 "Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
