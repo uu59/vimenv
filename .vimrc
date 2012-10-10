@@ -57,6 +57,7 @@ Bundle 'https://github.com/aereal/vim-magica-colors'
 Bundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 Bundle 'https://github.com/liquidz/vim-colors-uochan'
 Bundle 'https://github.com/ricardovaleriano/vim-github-theme'
+Bundle 'https://github.com/uu59/vim-herokudoc-theme'
 " pending
 "Bundle 'https://github.com/thinca/vim-fontzoom'
 "Bundle 'https://github.com/flazz/vim-colorschemes'

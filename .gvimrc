@@ -6,7 +6,8 @@ let g:molokai_original = 1
 "colo blackdust
 "colo xoria256
 "colo vilight
-colo github
+"colo github
+colo herokudoc
 set guioptions=-rLbc
 "set guifont=VL\ ゴシック\ 9
 "set guifont=Inconsolata\ Medium\ 9
