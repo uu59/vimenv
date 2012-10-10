@@ -143,6 +143,10 @@ let mapleader = " "
 nnoremap j gj
 nnoremap k gk
 inoremap <S-Insert> <C-r><C-o>+<C-[>
+nnoremap <silent> <C-Up> :<C-u>resize +1<CR>
+nnoremap <silent> <C-Down> :<C-u>resize -1<CR>
+nnoremap <silent> <C-Right> :<C-u>vertical resize +1<CR>
+nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
 "noremap <C-f> :<C-u>echo expand('%:p')<CR>
 "inoremap <C-f> <C-r>=expand('%:p')<CR>
 " }}}
