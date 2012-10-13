@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -u
+set -ue
 
 usage_exit () {
   echo "Usage: $0" >&2

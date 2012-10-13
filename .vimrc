@@ -125,8 +125,8 @@ augroup FileTypes
   \ | " move to last line
 
   au BufNewFile *.html 0r ~/.vim/template/html.txt
-  \ | execute "9d"
-  \ | execute "7"
+  \ | execute "10d"
+  \ | execute "8"
 
   au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
   \ | execute "11d"
