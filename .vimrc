@@ -16,8 +16,6 @@ Bundle 'https://github.com/ujihisa/unite-colorscheme'
 Bundle 'https://github.com/h1mesuke/unite-outline'
 Bundle 'https://github.com/ujihisa/unite-font'
 Bundle 'https://github.com/sjl/gundo.vim'
-Bundle 'https://github.com/mattn/webapi-vim'
-Bundle 'https://github.com/mattn/gist-vim'
 Bundle 'https://github.com/tpope/vim-surround'
 Bundle 'https://github.com/thinca/vim-quickrun'
 Bundle 'https://github.com/vim-scripts/YankRing.vim'
@@ -162,10 +160,6 @@ colo zenburn
 " }}}
 
 " ### plugin setting ### {{{
-" gist.vim
-let g:gist_open_browser_after_post = 1
-"let g:gist_browser_command = 'chromium-browser %URL%'
-let g:gist_detect_filetype = 1
 
 " neocomplcache
 "let g:acp_enableAtStartup = 0
