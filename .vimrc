@@ -164,43 +164,46 @@ colo zenburn
 
 " ### plugin setting ### {{{
 
-" neocomplcache
-"let g:acp_enableAtStartup = 0
-"let g:neocomplcache_enable_at_startup = 1
-
-" yanktmp.vim
+" yanktmp.vim {{{
 "map <silent> Sy :call YanktmpYank()<CR>
 "map <silent> Sp :call YanktmpPaste_p()<CR>
 "map <silent> SP :call YanktmpPaste_P()<CR>
+" }}}
 
-" quickrun
+" quickrun.vim {{{
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
       \ 'outputter': 'browser',
       \ 'type': 'markdown/redcarpet'
       \ }
+" }}}
 
-" unite.vim
+" unite.vim {{{
 let g:unite_enable_start_insert=1
 noremap <Leader>u :Unite 
 noremap <Leader>b :Unite buffer<CR>
 noremap <Leader>o :Unite outline<CR>
 "noremap <Leader>f :Unite file buffer<CR>
+" }}}
 
-" gundo
+" gundo.vim {{{
 nnoremap U :<C-u>GundoToggle<CR>
+" }}}
 
-" -- ctrlp.vim
+" -- ctrlp.vim {{{
 let g:ctrlp_map = '<Leader>f'
 let g:ctrlp_arg_map = 1
+" }}}
 
-" -- yankring.vim
+" -- yankring.vim {{{
 let g:yankring_manual_clipboard_check = 0
+" }}}
 
-" -- indent-guides
+" -- indent-guides.vim {{{
 nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
+" }}}
 
-" -- ref.vim
+" -- ref.vim {{{
 let g:ref_source_webdict_sites = {
 \   'je': {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
@@ -241,12 +244,14 @@ let g:ref_source_webdict_sites = {
 \ }
 nnoremap <Leader>d :<C-u>Ref webdict 
 let g:ref_source_webdict_use_cache = 1
+" }}}
 
-" -- syntastic.vim
+" -- syntastic.vim {{{
 let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
 let g:syntastic_warning_symbol='⚐' " ☹  ⚠
+" }}}
 
-" -- VimShell
+" -- VimShell {{{
 " cecutils.vim uses <Leader>sqp mapping
 " http://www.jukie.net/~bart/conf/vim/plugin/cecutil.vim
 " so <Leader>s will wait for `timeoutlen` msec for more input
@@ -261,6 +266,7 @@ augroup VimShell
   autocmd!
   au FileType vimshell call s:vimshell_keymap()
 augroup END
+" }}}
 
 " }}}
 
