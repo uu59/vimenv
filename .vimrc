@@ -40,6 +40,7 @@ Bundle 'https://github.com/hail2u/vim-css3-syntax'
 Bundle 'https://github.com/jelera/vim-javascript-syntax'
 " testing
 Bundle 'https://github.com/Shougo/vimshell'
+Bundle 'https://github.com/airblade/vim-rooter'
 " colorschemes
 Bundle 'git://gist.github.com/187578.git'
 Bundle 'https://github.com/vim-scripts/Zenburn'
@@ -112,7 +113,7 @@ endif
 " ### filetype setting ### {{{
 augroup FileTypes
   autocmd!
-  au BufEnter *   execute ":lcd " . expand("%:p:h")
+  "au BufEnter *   execute ":lcd " . expand("%:p:h")
   au BufEnter *.erubis execute "setlocal ft=eruby"
   au BufEnter Gemfile execute "setlocal ft=ruby"
   au BufEnter Rakefile execute "setlocal ft=ruby"
@@ -266,6 +267,11 @@ augroup VimShell
   autocmd!
   au FileType vimshell call s:vimshell_keymap()
 augroup END
+" }}}
+
+" vim-rooter.vim {{{
+let g:rooter_patterns = ['Rakefile', '.git/', "Gemfile"]
+let g:rooter_use_lcd = 1
 " }}}
 
 " }}}
