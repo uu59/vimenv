@@ -114,6 +114,9 @@ augroup FileTypes
   autocmd!
   au BufEnter *   execute ":lcd " . expand("%:p:h")
   au BufEnter *.erubis execute "setlocal ft=eruby"
+  au BufEnter Gemfile execute "setlocal ft=ruby"
+  au BufEnter Rakefile execute "setlocal ft=ruby"
+  au BufEnter config.ru execute "setlocal ft=ruby"
 
   au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
   \ | execute "17"
