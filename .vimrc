@@ -113,7 +113,7 @@ endif
 " ### filetype setting ### {{{
 augroup FileTypes
   autocmd!
-  "au BufEnter *   execute ":lcd " . expand("%:p:h")
+  au BufEnter *   execute ":lcd " . expand("%:p:h")
   au BufEnter *.erubis execute "setlocal ft=eruby"
   au BufEnter Gemfile execute "setlocal ft=ruby"
   au BufEnter Rakefile execute "setlocal ft=ruby"
@@ -270,8 +270,12 @@ augroup END
 " }}}
 
 " vim-rooter.vim {{{
-let g:rooter_patterns = ['Rakefile', '.git/', "Gemfile"]
+let g:rooter_patterns = ['.git/', "spec/", "Gemfile", 'Rakefile', "manifest.json", "package.json"]
 let g:rooter_use_lcd = 1
+augroup rooter
+  autocmd!
+  autocmd BufEnter * :Rooter
+augroup END
 " }}}
 
 " }}}
