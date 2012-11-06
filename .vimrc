@@ -134,6 +134,10 @@ augroup FileTypes
   \ | execute "11d"
   \ | execute "9"
 
+  au BufNewFile manifest.json 0r ~/.vim/template/manifest.json
+  au BufNewFile Gemfile 0r ~/.vim/template/Gemfile
+  au BufNewFile spec_helper.rb 0r ~/.vim/template/spec_helper.rb
+
   au BufEnter *.mkd,*.markdown setlocal wrap
 
   au BufEnter *.php setlocal noexpandtab
