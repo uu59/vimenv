@@ -37,7 +37,7 @@ Bundle 'https://github.com/briancollins/vim-jst'
 Bundle 'https://github.com/othree/html5.vim'
 Bundle 'https://github.com/hail2u/vim-css-syntax'
 Bundle 'https://github.com/hail2u/vim-css3-syntax'
-Bundle 'https://github.com/jelera/vim-javascript-syntax'
+"Bundle 'https://github.com/jelera/vim-javascript-syntax'
 " testing
 Bundle 'https://github.com/Shougo/vimshell'
 Bundle 'https://github.com/airblade/vim-rooter'
