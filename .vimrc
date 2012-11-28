@@ -28,7 +28,6 @@ NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/thinca/vim-quickrun'
 NeoBundle 'https://github.com/vim-scripts/YankRing.vim'
-NeoBundle 'https://github.com/vim-scripts/yanktmp.vim'
 NeoBundle 'https://github.com/othree/eregex.vim'
 NeoBundle 'https://github.com/tsaleh/vim-align'
 NeoBundle 'https://github.com/vim-scripts/Rename'
@@ -108,7 +107,7 @@ set showmatch
 set matchtime=0
 set ambiwidth=double
 set mouse=
-set history=100000
+set history=1000
 set title
 set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
 set completeopt=menuone,preview
@@ -136,6 +135,7 @@ set cmdheight=1
 set showcmd
 "set linespace=0
 set statusline=%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%F
+set report=0
 
 " http://vim-users.jp/2010/07/hack162/
 if has('persistent_undo')
@@ -204,12 +204,6 @@ colo zenburn
 " }}}
 
 " ### plugin setting ### {{{
-
-" yanktmp.vim {{{
-"map <silent> Sy :call YanktmpYank()<CR>
-"map <silent> Sp :call YanktmpPaste_p()<CR>
-"map <silent> SP :call YanktmpPaste_P()<CR>
-" }}}
 
 " quickrun.vim {{{
 let g:quickrun_config = {}
