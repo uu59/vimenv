@@ -295,9 +295,5 @@ augroup InsModeAu
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
-if has("gui_running")
-  source ~/.gvimrc
-endif
-
 " }}}
 
