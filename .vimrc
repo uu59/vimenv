@@ -3,68 +3,103 @@
 
 set nocompatible
 
-" ### vundle start ### {{{
+" ### neobundle start ### {{{
 filetype off " required!
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/vundle/
-call vundle#rc()
-Bundle 'https://github.com/gmarik/vundle'
-Bundle 'https://github.com/Shougo/vimproc'
-Bundle 'https://github.com/Shougo/unite.vim'
-Bundle 'https://github.com/hakobe/unite-script'
-Bundle 'https://github.com/ujihisa/unite-colorscheme'
-Bundle 'https://github.com/h1mesuke/unite-outline'
-Bundle 'https://github.com/ujihisa/unite-font'
-Bundle 'https://github.com/sjl/gundo.vim'
-Bundle 'https://github.com/tpope/vim-surround'
-Bundle 'https://github.com/thinca/vim-quickrun'
-Bundle 'https://github.com/vim-scripts/YankRing.vim'
-Bundle 'https://github.com/vim-scripts/yanktmp.vim'
-Bundle 'https://github.com/othree/eregex.vim'
-Bundle 'https://github.com/tsaleh/vim-align'
-Bundle 'https://github.com/vim-scripts/Rename'
-Bundle 'https://github.com/t9md/vim-surround_custom_mapping'
-Bundle 'https://github.com/kana/vim-textobj-user'
-Bundle 'https://github.com/kana/vim-textobj-indent'
-Bundle 'https://github.com/kien/ctrlp.vim'
-Bundle 'https://github.com/vim-scripts/sudo.vim'
-Bundle 'https://github.com/scrooloose/syntastic'
-Bundle 'https://github.com/nathanaelkane/vim-indent-guides'
-Bundle 'https://github.com/thinca/vim-ref'
+if has('vim_starting')
+  set runtimepath+=~/.vim/neobundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/neobundle/'))
+
+" core/generic
+NeoBundle 'https://github.com/Shougo/vimproc', {
+  \ 'build' : {
+  \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \    },
+  \ }
+NeoBundle 'https://github.com/Shougo/unite.vim'
+NeoBundle 'https://github.com/hakobe/unite-script'
+NeoBundle 'https://github.com/ujihisa/unite-colorscheme'
+NeoBundle 'https://github.com/h1mesuke/unite-outline'
+NeoBundle 'https://github.com/ujihisa/unite-font'
+NeoBundle 'https://github.com/sjl/gundo.vim'
+NeoBundle 'https://github.com/tpope/vim-surround'
+NeoBundle 'https://github.com/thinca/vim-quickrun'
+NeoBundle 'https://github.com/vim-scripts/YankRing.vim'
+NeoBundle 'https://github.com/vim-scripts/yanktmp.vim'
+NeoBundle 'https://github.com/othree/eregex.vim'
+NeoBundle 'https://github.com/tsaleh/vim-align'
+NeoBundle 'https://github.com/vim-scripts/Rename'
+NeoBundle 'https://github.com/t9md/vim-surround_custom_mapping'
+NeoBundle 'https://github.com/kana/vim-textobj-user'
+NeoBundle 'https://github.com/kana/vim-textobj-indent'
+NeoBundle 'https://github.com/kien/ctrlp.vim'
+NeoBundle 'https://github.com/vim-scripts/sudo.vim'
+NeoBundle 'https://github.com/scrooloose/syntastic'
+NeoBundle 'https://github.com/nathanaelkane/vim-indent-guides'
+NeoBundle 'https://github.com/thinca/vim-ref'
+NeoBundleLazy 'https://github.com/godlygeek/csapprox'
+if !has('gui_running')
+  NeoBundleSource csapprox
+end
+
 " syntax
-Bundle 'https://github.com/kchmck/vim-coffee-script'
-Bundle 'https://github.com/briancollins/vim-jst'
-Bundle 'https://github.com/othree/html5.vim'
-Bundle 'https://github.com/hail2u/vim-css-syntax'
-Bundle 'https://github.com/hail2u/vim-css3-syntax'
-"Bundle 'https://github.com/jelera/vim-javascript-syntax'
+NeoBundleLazy 'https://github.com/kchmck/vim-coffee-script'
+NeoBundleLazy 'https://github.com/briancollins/vim-jst'
+NeoBundleLazy 'https://github.com/othree/html5.vim'
+NeoBundleLazy 'https://github.com/hail2u/vim-css-syntax'
+NeoBundleLazy 'https://github.com/hail2u/vim-css3-syntax'
+augroup LazyLoadFiletypes
+  autocmd FileType coffee NeoBundleSource vim-coffee-script
+  autocmd FileType jst NeoBundleSource vim-jst
+  autocmd FileType html,css NeoBundleSource html5.vim
+  autocmd FileType css NeoBundleSource vim-css-syntax
+  autocmd FileType css NeoBundleSource vim-css3-syntax
+augroup END
+"NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
+
+" gui only
+NeoBundleLazy 'https://github.com/Shougo/vimshell'
+augroup LazyLoadGui
+  autocmd GUIEnter * NeoBundleSource vimshell
+augroup END
+
 " testing
-Bundle 'https://github.com/Shougo/vimshell'
-Bundle 'https://github.com/airblade/vim-rooter'
+NeoBundle 'https://github.com/airblade/vim-rooter'
+
 " colorschemes
-Bundle 'git://gist.github.com/187578.git'
-Bundle 'https://github.com/vim-scripts/Zenburn'
-Bundle 'https://github.com/vim-scripts/darkburn'
-Bundle "https://github.com/nanotech/jellybeans.vim"
-Bundle 'https://github.com/vim-scripts/Lucius'
-Bundle "https://github.com/chriskempson/vim-tomorrow-theme"
-Bundle 'https://github.com/vim-scripts/mrkn256.vim'
-Bundle 'https://github.com/trapd00r/neverland-vim-theme'
-Bundle 'https://github.com/altercation/solarized'
-Bundle 'https://github.com/tomasr/molokai'
-Bundle 'https://github.com/aereal/vim-magica-colors'
-Bundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
-Bundle 'https://github.com/liquidz/vim-colors-uochan'
-Bundle 'https://github.com/ricardovaleriano/vim-github-theme'
-Bundle 'https://github.com/uu59/vim-herokudoc-theme'
+NeoBundle 'git://gist.github.com/187578.git'
+NeoBundle 'https://github.com/vim-scripts/Zenburn'
+NeoBundle 'https://github.com/vim-scripts/darkburn'
+NeoBundle "https://github.com/nanotech/jellybeans.vim"
+NeoBundle 'https://github.com/vim-scripts/Lucius'
+NeoBundle "https://github.com/chriskempson/vim-tomorrow-theme"
+NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
+NeoBundle 'https://github.com/trapd00r/neverland-vim-theme'
+NeoBundle 'https://github.com/altercation/solarized'
+NeoBundle 'https://github.com/tomasr/molokai'
+NeoBundle 'https://github.com/aereal/vim-magica-colors'
+NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
+NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
+NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
+NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
 " pending
-"Bundle 'https://github.com/thinca/vim-fontzoom'
-"Bundle 'https://github.com/flazz/vim-colorschemes'
-"Bundle 'https://github.com/Shougo/neocomplcache'
-"Bundle 'https://github.com/vim-scripts/textobj-rubyblock'
-"Bundle 'https://github.com/tpope/vim-pathogen'
+"NeoBundle 'https://github.com/thinca/vim-fontzoom'
+"NeoBundle 'https://github.com/flazz/vim-colorschemes'
+"NeoBundle 'https://github.com/Shougo/neocomplcache'
+"NeoBundle 'https://github.com/vim-scripts/textobj-rubyblock'
+"NeoBundle 'https://github.com/tpope/vim-pathogen'
+
 filetype plugin indent on " required!
-" ### vundle end ###
+
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+        \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoNeoBundleInstall" command.'
+endif
 " }}}
 
 " ### set variables ### {{{
@@ -115,6 +150,7 @@ augroup FileTypes
   autocmd!
   au BufEnter *   execute ":lcd " . expand("%:p:h")
   au BufEnter *.erubis execute "setlocal ft=eruby"
+  au BufEnter *.coffee execute "setlocal ft=coffee"
   au BufEnter Gemfile execute "setlocal ft=ruby"
   au BufEnter Rakefile execute "setlocal ft=ruby"
   au BufEnter config.ru execute "setlocal ft=ruby"
