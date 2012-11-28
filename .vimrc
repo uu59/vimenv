@@ -43,6 +43,7 @@ NeoBundle 'https://github.com/thinca/vim-ref'
 " conditional load
 NeoBundleLazy 'https://github.com/godlygeek/csapprox'
 NeoBundleLazy 'https://github.com/Shougo/vimshell'
+NeoBundleLazy 'https://github.com/mattn/benchvimrc-vim'
 
 " syntax
 NeoBundleLazy 'https://github.com/kchmck/vim-coffee-script'
@@ -90,7 +91,9 @@ if has('gui_running')
   NeoBundleSource vimshell
 end
 if !has('gui_running')
-  NeoBundleSource csapprox
+  " csapprox takes 63 msec(25% of all) for startup vim on my machine.
+  " if you need csapprox power, comment in below line
+  "NeoBundleSource csapprox
 end
 
 filetype plugin indent on " required!
