@@ -39,10 +39,10 @@ NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/scrooloose/syntastic'
 NeoBundle 'https://github.com/nathanaelkane/vim-indent-guides'
 NeoBundle 'https://github.com/thinca/vim-ref'
+
+" conditional load
 NeoBundleLazy 'https://github.com/godlygeek/csapprox'
-if !has('gui_running')
-  NeoBundleSource csapprox
-end
+NeoBundleLazy 'https://github.com/Shougo/vimshell'
 
 " syntax
 NeoBundleLazy 'https://github.com/kchmck/vim-coffee-script'
@@ -58,12 +58,6 @@ augroup LazyLoadFiletypes
   autocmd FileType css NeoBundleSource vim-css3-syntax
 augroup END
 "NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
-
-" gui only
-NeoBundleLazy 'https://github.com/Shougo/vimshell'
-augroup LazyLoadGui
-  autocmd GUIEnter * NeoBundleSource vimshell
-augroup END
 
 " testing
 NeoBundle 'https://github.com/airblade/vim-rooter'
@@ -90,6 +84,14 @@ NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
 "NeoBundle 'https://github.com/Shougo/neocomplcache'
 "NeoBundle 'https://github.com/vim-scripts/textobj-rubyblock'
 "NeoBundle 'https://github.com/tpope/vim-pathogen'
+
+" gui or not
+if has('gui_running')
+  NeoBundleSource vimshell
+end
+if !has('gui_running')
+  NeoBundleSource csapprox
+end
 
 filetype plugin indent on " required!
 
