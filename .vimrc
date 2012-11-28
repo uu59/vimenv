@@ -6,7 +6,7 @@ set nocompatible
 " ### neobundle start ### {{{
 filetype off " required!
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle/neobundle.vim/
+  set runtimepath+=~/.vim/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/neobundle/'))
 
