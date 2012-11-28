@@ -11,5 +11,7 @@ for dotfile in `find $DIR -maxdepth 1 -type f -name ".*" -a -not -name ".git*"`;
   fi
 done
 
+cd $DIR
+git submodule update --init
 read -p "Press Enter for go BundleInstall or C-c"
 vim '+NeoBundleInstall' '+qall'
