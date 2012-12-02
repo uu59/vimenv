@@ -263,6 +263,7 @@ let g:ref_source_webdict_use_cache = 1
 " }}}
 
 " -- syntastic.vim {{{
+let g:syntastic_javascript_jshint_conf = "~/.vim/jshintrc"
 let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
 let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 " }}}

@@ -1,0 +1,28 @@
+// vim: set ft=javascript:
+{
+  // https://github.com/jshint/jshint/blob/ff6318d8679baf2a4e14bd8b772966ec23c6232e/src/stable/jshint.js#L70
+  // http://www.jshint.com/docs/
+  "forin": true,
+  "immed": true, // wrapper such as (function(a){..})(arg)
+  "latedef": true, // check use `foo` before `var foo`
+  "noarg": true, // check arguments.{caller,callee}
+  "undef": true,
+  "unused": true,
+  "asi": true, // semicolon check
+  "eqeqeq": true,
+  "boss": true, // ban if(a=10)
+  "browser": true,
+  "es5": true,
+  "esnext": true,
+  "expr": true, // ??
+  "funcscope": true,
+  "lastsemic": true,
+  "laxbreak": true,
+  "laxcomma": true,
+  "loopfunc": true,
+  "regexdash": true,
+  "shadow": true, // check variable name used outer scope
+
+  "debug": true, // allow debugger statement
+  "devel": true // allow console.*
+}
