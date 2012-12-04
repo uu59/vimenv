@@ -22,6 +22,7 @@
   "loopfunc": true,
   "regexdash": true,
   "shadow": true, // check variable name used outer scope
+  "white": false,
 
   "debug": true, // allow debugger statement
   "devel": true // allow console.*
