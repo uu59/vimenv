@@ -39,22 +39,24 @@ NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/scrooloose/syntastic'
 NeoBundle 'https://github.com/nathanaelkane/vim-indent-guides'
 NeoBundle 'https://github.com/thinca/vim-ref'
+NeoBundle 'https://github.com/airblade/vim-rooter'
 
 " conditional load
 NeoBundleLazy 'https://github.com/godlygeek/csapprox'
 NeoBundleLazy 'https://github.com/Shougo/vimshell'
 NeoBundleLazy 'https://github.com/mattn/benchvimrc-vim'
 
-" syntax
+" syntax / language specific
 NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 NeoBundle 'https://github.com/briancollins/vim-jst'
 NeoBundle 'https://github.com/othree/html5.vim'
 NeoBundle 'https://github.com/hail2u/vim-css-syntax'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
+NeoBundle 'https://github.com/teramako/jscomplete-vim'
 "NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
 
 " testing
-NeoBundle 'https://github.com/airblade/vim-rooter'
+NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 
 " colorschemes
 NeoBundle 'git://gist.github.com/187578.git'
@@ -176,6 +178,8 @@ augroup FileTypes
   au BufEnter *.mkd,*.markdown setlocal wrap
 
   au BufEnter *.php setlocal noexpandtab
+
+  au FileType javascript setlocal omnifunc=jscomplete#CompleteJS
 augroup END
 " }}}
 
@@ -308,13 +312,17 @@ augroup VimShell
 augroup END
 " }}}
 
-" vim-rooter.vim {{{
+" -- vim-rooter.vim {{{
 let g:rooter_patterns = ['.git/', "spec/", "Gemfile", 'Rakefile', "manifest.json", "package.json"]
 let g:rooter_use_lcd = 1
 augroup rooter
   autocmd!
   autocmd BufEnter * :Rooter
 augroup END
+" }}}
+
+" -- jscomplete-vim {{{
+let g:jscomplete_use = ["dom", "es6th"]
 " }}}
 
 " }}}
