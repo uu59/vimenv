@@ -228,6 +228,12 @@ let g:quickrun_config['markdown'] = {
       \ 'outputter': 'browser',
       \ 'type': 'markdown/redcarpet'
       \ }
+let g:quickrun_config['sass'] = {
+      \ 'cmdopt': '`compass imports`'
+      \ }
+let g:quickrun_config['scss'] = {
+      \ 'cmdopt': '`compass imports`'
+      \ }
 " }}}
 
 " unite.vim {{{
