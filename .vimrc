@@ -141,12 +141,11 @@ set report=0
 
 function! s:cfi_status_line()
   if exists("g:loaded_cfi")
-    let &statusline= "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%{cfi#get_func_name()}%< %=%F"
+    let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%{cfi#get_func_name()}%< %=%F"
   else
-    let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%F"
+    let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%< %=%F"
   endif
 endfunction
-call s:cfi_status_line()
 
 augroup StatusLine
   autocmd!
