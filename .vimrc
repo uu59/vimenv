@@ -22,7 +22,8 @@ NeoBundle 'https://github.com/Shougo/vimproc', {
 NeoBundle 'https://github.com/Shougo/unite.vim'
 NeoBundle 'https://github.com/hakobe/unite-script'
 NeoBundle 'https://github.com/ujihisa/unite-colorscheme'
-NeoBundle 'https://github.com/h1mesuke/unite-outline'
+NeoBundle 'https://github.com/Shougo/unite-outline'
+NeoBundle 'https://github.com/thinca/vim-unite-history'
 NeoBundle 'https://github.com/ujihisa/unite-font'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/tpope/vim-surround'
@@ -57,6 +58,7 @@ NeoBundle 'https://github.com/teramako/jscomplete-vim'
 
 " testing
 NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
+NeoBundle 'https://github.com/tyru/current-func-info.vim'
 
 " colorschemes
 NeoBundle 'git://gist.github.com/187578.git'
@@ -135,8 +137,21 @@ set laststatus=2
 set cmdheight=1
 set showcmd
 "set linespace=0
-set statusline=%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%F
 set report=0
+
+function! s:cfi_status_line()
+  if exists("g:loaded_cfi")
+    let &statusline= "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%{cfi#get_func_name()}%< %=%F"
+  else
+    let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%<\ %=%F"
+  endif
+endfunction
+call s:cfi_status_line()
+
+augroup StatusLine
+  autocmd!
+  au VimEnter * call s:cfi_status_line()
+augroup END
 
 " http://vim-users.jp/2010/07/hack162/
 if has('persistent_undo')
@@ -222,7 +237,9 @@ noremap <Leader>u :Unite
 noremap <Leader>b :Unite buffer<CR>
 noremap <Leader>o :Unite outline<CR>
 "noremap <Leader>f :Unite file buffer<CR>
+noremap <Leader>h :Unite history/command<CR>
 " }}}
+
 
 " gundo.vim {{{
 nnoremap U :<C-u>GundoToggle<CR>
