@@ -59,6 +59,7 @@ NeoBundle 'https://github.com/teramako/jscomplete-vim'
 " testing
 NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 NeoBundle 'https://github.com/tyru/current-func-info.vim'
+NeoBundle 'https://github.com/kana/vim-operator-user'
 
 " colorschemes
 NeoBundle 'git://gist.github.com/187578.git'
@@ -206,6 +207,77 @@ nnoremap <silent> <C-Up> :<C-u>resize +1<CR>
 nnoremap <silent> <C-Down> :<C-u>resize -1<CR>
 nnoremap <silent> <C-Right> :<C-u>vertical resize +1<CR>
 nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
+
+
+function! g:datauri(motion_wise)
+  " v, V, <C-v>のどれで選択したのかで変わる
+  " ここではvで選択したときだけ実行する
+  if a:motion_wise !=# 'char'
+    return
+  endif
+
+  " base64コマンドがなければどうしようもないので何もしない
+  if executable('base64') == 0
+    return
+  endif
+
+  " zレジスタを後で元に戻す用
+  let backup_z = getreg('z', 1)
+  let backup_ztype = getregtype('z')
+
+  " zレジスタに選択範囲を入れる
+  execute 'silent normal! `[v`]"zy'
+
+  " `set path?`の中身を考慮しつつフルパスを探る
+  " setlocal path=/project/public,. なとき、"/icons/foo.png"を選択して実行されると
+  " /project/public/foo.png と ./icons/foo.png をチェックする
+  let filename = getreg('z', 1)
+  let filepath = ""
+  for dir in split(&path, ',')
+    let tmp = substitute(dir . "/" . filename, "//", "/", "g")
+    if filereadable(tmp) == 1
+      let filepath = tmp
+    endif
+  endfor
+
+  " 見つからなかったので何もせずに終わり
+  if empty(filepath)
+    call setreg('z', backup_z, backup_ztype)
+    return
+  end
+
+  " 場合によっては数秒かかるのでメッセージを出しておく
+  echo "Encoding " . filepath . " .."
+
+  " mimetypeコマンドがない場合のデフォルト
+  let mime = ""
+  " あればvimprocを使う
+  if exists('*vimproc#system()') == 1
+    if executable('mimetype') == 1
+      let mime = vimproc#system('mimetype -b '. filepath) . ";"
+    endif
+    let body = vimproc#system('base64 -w 0 ' . filepath)
+  else
+    if executable('mimetype') == 1
+      let mime = vimproc#system('mimetype -b '. filepath) . ";"
+    endif
+    let body = system('base64 -w 0 ' . filepath)
+  endif
+  let uri = "data:" . mime . "base64," . body
+
+  " いったんzレジスタに突っ込んで選択範囲をそれで置き換える
+  exec setreg('z', substitute(uri, "\n", "", "g"))
+  silent normal! gv"zp
+
+  " zレジスタの中身を実行前のものに差し戻して終わり
+  call setreg('z', backup_z, backup_ztype)
+endfunction
+
+" operator-user.vimに登録
+call operator#user#define('datauri', 'g:datauri')
+
+vmap B <Plug>(operator-datauri)
+
 "noremap <C-f> :<C-u>echo expand('%:p')<CR>
 "inoremap <C-f> <C-r>=expand('%:p')<CR>
 " }}}
