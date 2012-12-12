@@ -58,7 +58,6 @@ NeoBundle 'https://github.com/teramako/jscomplete-vim'
 
 " testing
 NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
-NeoBundle 'https://github.com/tyru/current-func-info.vim'
 NeoBundle 'https://github.com/kana/vim-operator-user'
 
 " colorschemes
