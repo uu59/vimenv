@@ -287,7 +287,11 @@ vmap B <Plug>(operator-datauri)
 "colo jellybeans
 "colo twilight
 "let g:zenburn_high_Contrast = 1
-colo zenburn
+if has('gui_running')
+  colo herokudoc
+else
+  colo zenburn
+endif
 "colo zmrok
 " }}}
 

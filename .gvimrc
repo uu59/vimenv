@@ -1,5 +1,4 @@
-let g:loaded_gvimrc = 1
-let g:molokai_original = 1
+"let g:molokai_original = 1
 "colo magica
 "colo molokai
 "colo lucius
@@ -7,7 +6,6 @@ let g:molokai_original = 1
 "colo xoria256
 "colo vilight
 "colo github
-colo herokudoc
 set guioptions=-rLbc
 "set guifont=VL\ ゴシック\ 9
 "set guifont=Inconsolata\ Medium\ 9
