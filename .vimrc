@@ -75,7 +75,16 @@ NeoBundle 'https://github.com/aereal/vim-magica-colors'
 NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
 NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
-NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
+
+if empty(finddir('vim-herokudoc-theme', $HOME.'/works'))
+  NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
+else
+  " for my development
+  NeoBundle 'https://github.com/uu59/vim-herokudoc-theme', {
+        \ 'rtp': $HOME . '/works/vim-herokudoc-theme/'
+        \ }
+endif
+
 " pending
 "NeoBundle 'https://github.com/thinca/vim-fontzoom'
 "NeoBundle 'https://github.com/flazz/vim-colorschemes'
@@ -282,15 +291,14 @@ vmap B <Plug>(operator-datauri)
 " }}}
 
 " ### color setting ### {{{
-"set bg=dark
-"set t_Co=256
-"colo jellybeans
 "colo twilight
-"let g:zenburn_high_Contrast = 1
 if has('gui_running')
   colo herokudoc
 else
-  colo zenburn
+  "let g:zenburn_high_Contrast = 1
+  "NeoBundleSource csapprox
+  "set t_Co=256
+  colo herokudoc
 endif
 "colo zmrok
 " }}}
