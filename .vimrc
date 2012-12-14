@@ -215,7 +215,7 @@ nnoremap <silent> <C-Up> :<C-u>resize +1<CR>
 nnoremap <silent> <C-Down> :<C-u>resize -1<CR>
 nnoremap <silent> <C-Right> :<C-u>vertical resize +1<CR>
 nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
-
+nnoremap <silent> gf gF
 
 function! g:datauri(motion_wise)
   " v, V, <C-v>のどれで選択したのかで変わる
@@ -423,6 +423,8 @@ let g:rooter_use_lcd = 1
 augroup rooter
   autocmd!
   autocmd BufEnter * :Rooter
+  autocmd FileType html,ruby,scss,css,javascript execute ':setlocal path+=' .expand('%:p:h')
+  autocmd FileType html,ruby,scss,css,javascript setlocal includeexpr=substitute(v:fname,'^\\/','','')
 augroup END
 " }}}
 
