@@ -1,5 +1,4 @@
 " /* vim: set fdm=marker: */
-" map z[ocRM]
 
 set nocompatible
 
@@ -95,8 +94,7 @@ endif
 " gui or not
 if has('gui_running')
   NeoBundleSource vimshell
-end
-if !has('gui_running')
+else
   NeoBundleSource benchvimrc-vim
   " csapprox takes 63 msec(25% of all) for startup vim on my machine.
   " if you need csapprox power, comment in below line
@@ -124,7 +122,6 @@ set title
 set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
 set completeopt=menuone,preview
 set lazyredraw
-set nu
 set expandtab
 set ts=2 sw=2
 set incsearch
@@ -147,24 +144,12 @@ set cmdheight=1
 set showcmd
 "set linespace=0
 set report=0
-
-function! s:cfi_status_line()
-  if exists("g:loaded_cfi")
-    let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%{cfi#get_func_name()}%< %=%F"
-  else
-    let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%< %=%F"
-  endif
-endfunction
-
-augroup StatusLine
-  autocmd!
-  au VimEnter * call s:cfi_status_line()
-augroup END
+let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%< %=%F"
 
 " http://vim-users.jp/2010/07/hack162/
 if has('persistent_undo')
-    set undodir=~/.vimundo
-    set undofile
+  set undodir=~/.vimundo
+  set undofile
 endif
 
 " }}}
@@ -172,19 +157,21 @@ endif
 " ### filetype setting ### {{{
 augroup FileTypes
   autocmd!
-  au BufEnter *   execute ":lcd " . expand("%:p:h")
-  au BufEnter *.erubis execute "setlocal ft=eruby"
-  au BufEnter *.coffee execute "setlocal ft=coffee"
-  au BufEnter Gemfile execute "setlocal ft=ruby"
-  au BufEnter Rakefile execute "setlocal ft=ruby"
-  au BufEnter config.ru execute "setlocal ft=ruby"
+
+  au BufEnter * execute ":lcd" . expand("%:p:h")
+
+  au BufEnter *.erubis   setlocal ft=eruby
+  au BufEnter *.coffee   setlocal ft=coffee
+  au BufEnter Gemfile    setlocal ft=ruby
+  au BufEnter Rakefile   setlocal ft=ruby
+  au BufEnter config.ru  setlocal ft=ruby
+  au BufEnter *.md,*.mkd setlocal ft=markdown " .md is not modula2
 
   au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
   \ | execute "17"
 
   au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
   \ | execute "10"
-  \ | " move to last line
 
   au BufNewFile *.html 0r ~/.vim/template/html.txt
   \ | execute "10d"
@@ -198,10 +185,8 @@ augroup FileTypes
   au BufNewFile Gemfile 0r ~/.vim/template/Gemfile
   au BufNewFile spec_helper.rb 0r ~/.vim/template/spec_helper.rb
 
-  au BufEnter *.mkd,*.markdown setlocal wrap
-
-  au BufEnter *.php setlocal noexpandtab
-
+  au FileType markdown setlocal wrap
+  au FileType php setlocal noexpandtab
   au FileType javascript setlocal omnifunc=jscomplete#CompleteJS
 augroup END
 " }}}
@@ -215,8 +200,162 @@ nnoremap <silent> <C-Up> :<C-u>resize +1<CR>
 nnoremap <silent> <C-Down> :<C-u>resize -1<CR>
 nnoremap <silent> <C-Right> :<C-u>vertical resize +1<CR>
 nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
-nnoremap <silent> gf gF
+nnoremap <silent> gf <C-w>f
+nnoremap <silent> gF <C-w>F
 
+" operator-user.vimに登録
+call operator#user#define('datauri', 'g:datauri')
+vmap B <Plug>(operator-datauri)
+
+"noremap <C-f> :<C-u>echo expand('%:p')<CR>
+"inoremap <C-f> <C-r>=expand('%:p')<CR>
+" }}}
+
+" ### color setting ### {{{
+"colo twilight
+"colo zmrok
+if has('gui_running')
+  colo herokudoc
+else
+  "let g:zenburn_high_Contrast = 1
+  "NeoBundleSource csapprox
+  "set t_Co=256
+  colo herokudoc
+endif
+" }}}
+
+" ### plugin setting ### {{{
+
+" -- quickrun.vim {{{
+let g:quickrun_config = {}
+let g:quickrun_config['markdown'] = {
+      \ 'outputter': 'browser',
+      \ 'type': 'markdown/redcarpet'
+      \ }
+let g:quickrun_config['sass'] = {
+      \ 'cmdopt': '`compass imports`'
+      \ }
+let g:quickrun_config['scss'] = {
+      \ 'cmdopt': '`compass imports`'
+      \ }
+" }}}
+
+" -- unite.vim {{{
+let g:unite_enable_start_insert=1
+noremap <Leader>u :Unite 
+noremap <Leader>b :Unite buffer<CR>
+noremap <Leader>o :Unite outline<CR>
+"noremap <Leader>f :Unite file buffer<CR>
+noremap <Leader>h :Unite history/command<CR>
+" }}}
+
+" -- gundo.vim {{{
+nnoremap U :<C-u>GundoToggle<CR>
+" }}}
+
+" -- ctrlp.vim {{{
+let g:ctrlp_map = '<Leader>f'
+let g:ctrlp_arg_map = 1
+" }}}
+
+" -- yankring.vim {{{
+let g:yankring_manual_clipboard_check = 0
+" }}}
+
+" -- indent-guides.vim {{{
+nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
+" }}}
+
+" -- ref.vim {{{
+let g:ref_source_webdict_sites = {
+\   'je': {
+\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
+\     'line': 21,
+\   },
+\   'ej': {
+\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+\     'line': 21,
+\   },
+\   'naver': {
+\     'url': 'http://endic.naver.jp/srch/all/N/%s?sm=etp_enh',
+\     'line': 40,
+\   },
+\   'weblio': {
+\     'url': 'http://www.weblio.jp/content/%s',
+\     'line': 14,
+\   },
+\   'thesaurus': {
+\     'url': 'http://thesaurus.weblio.jp/content/%s',
+\     'line': 27,
+\   },
+\   'thesaurus-en': {
+\     'url': 'http://thesaurus.com/browse/%s?s=t',
+\     'line': 76,
+\   },
+\   'urban': {
+\     'url': 'http://www.urbandictionary.com/define.php?term=%s',
+\     'line': 13,
+\   },
+\   'ruby-class': {
+\     'url': 'http://doc.ruby-lang.org/ja/1.9.3/class/%s.html',
+\   },
+\   'twitter': {
+\     'url': 'https://mobile.twitter.com/search?q=%s',
+\     'line': 8,
+\     'cache': 0,
+\   },
+\   'caniuse': {
+\     'url': 'http://caniuse.com/%s/embed/agents=desktop',
+\     'line': 20,
+\   },
+\ }
+nnoremap <Leader>d :<C-u>Ref webdict 
+let g:ref_source_webdict_use_cache = 1
+" }}}
+
+" -- syntastic.vim {{{
+let g:syntastic_javascript_jshint_conf = "~/.vim/jshintrc"
+let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
+let g:syntastic_warning_symbol='⚐' " ☹  ⚠
+" }}}
+
+" -- VimShell {{{
+" cecutils.vim uses <Leader>sqp mapping
+" http://www.jukie.net/~bart/conf/vim/plugin/cecutil.vim
+" so <Leader>s will wait for `timeoutlen` msec for more input
+" note: You can unmap by after/* or remove cecutil.vim
+set timeoutlen=150
+nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
+function! s:vimshell_keymap()
+  imap <buffer><silent> <C-d> exit<CR>
+endfunction
+
+augroup VimShell
+  autocmd!
+  au FileType vimshell call s:vimshell_keymap()
+augroup END
+" }}}
+
+" -- vim-rooter.vim {{{
+let g:rooter_patterns = ['.git/', "spec/", "Gemfile", 'Rakefile', "manifest.json", "package.json"]
+let g:rooter_use_lcd = 1
+augroup rooter
+  autocmd!
+  autocmd BufEnter * :Rooter
+  autocmd FileType html,ruby,scss,css,javascript execute ':setlocal path+=' .expand('%:p:h')
+  autocmd FileType html,ruby,scss,css,javascript setlocal includeexpr=substitute(v:fname,'^\\/','','')
+augroup END
+" }}}
+
+" -- jscomplete-vim {{{
+let g:jscomplete_use = ["dom", "es6th"]
+" }}}
+
+" }}}
+
+" ### functions ### {{{
+
+" -- g:datauri() {{{
 function! g:datauri(motion_wise)
   " v, V, <C-v>のどれで選択したのかで変わる
   " ここではvで選択したときだけ実行する
@@ -280,156 +419,6 @@ function! g:datauri(motion_wise)
   " zレジスタの中身を実行前のものに差し戻して終わり
   call setreg('z', backup_z, backup_ztype)
 endfunction
-
-" operator-user.vimに登録
-call operator#user#define('datauri', 'g:datauri')
-
-vmap B <Plug>(operator-datauri)
-
-"noremap <C-f> :<C-u>echo expand('%:p')<CR>
-"inoremap <C-f> <C-r>=expand('%:p')<CR>
-" }}}
-
-" ### color setting ### {{{
-"colo twilight
-if has('gui_running')
-  colo herokudoc
-else
-  "let g:zenburn_high_Contrast = 1
-  "NeoBundleSource csapprox
-  "set t_Co=256
-  colo herokudoc
-endif
-"colo zmrok
-" }}}
-
-" ### plugin setting ### {{{
-
-" quickrun.vim {{{
-let g:quickrun_config = {}
-let g:quickrun_config['markdown'] = {
-      \ 'outputter': 'browser',
-      \ 'type': 'markdown/redcarpet'
-      \ }
-let g:quickrun_config['sass'] = {
-      \ 'cmdopt': '`compass imports`'
-      \ }
-let g:quickrun_config['scss'] = {
-      \ 'cmdopt': '`compass imports`'
-      \ }
-" }}}
-
-" unite.vim {{{
-let g:unite_enable_start_insert=1
-noremap <Leader>u :Unite 
-noremap <Leader>b :Unite buffer<CR>
-noremap <Leader>o :Unite outline<CR>
-"noremap <Leader>f :Unite file buffer<CR>
-noremap <Leader>h :Unite history/command<CR>
-" }}}
-
-
-" gundo.vim {{{
-nnoremap U :<C-u>GundoToggle<CR>
-" }}}
-
-" -- ctrlp.vim {{{
-let g:ctrlp_map = '<Leader>f'
-let g:ctrlp_arg_map = 1
-" }}}
-
-" -- yankring.vim {{{
-let g:yankring_manual_clipboard_check = 0
-" }}}
-
-" -- indent-guides.vim {{{
-nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
-" }}}
-
-" -- ref.vim {{{
-let g:ref_source_webdict_sites = {
-\   'je': {
-\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
-\     'line': 21,
-\   },
-\   'ej': {
-\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
-\     'line': 21,
-\   },
-\   'naver': {
-\     'url': 'http://endic.naver.jp/srch/all/N/%s?sm=etp_enh',
-\     'line': 40,
-\   },
-\   'weblio': {
-\     'url': 'http://www.weblio.jp/content/%s',
-\     'line': 14,
-\   },
-\   'thesaurus': {
-\     'url': 'http://thesaurus.weblio.jp/content/%s',
-\     'line': 27,
-\   },
-\   'thesaurus-en': {
-\     'url': 'http://thesaurus.com/browse/%s?s=t',
-\     'line': 76,
-\   },
-\   'urban': {
-\     'url': 'http://www.urbandictionary.com/define.php?term=%s',
-\     'line': 13,
-\   },
-\   'ruby-class': {
-\     'url': 'http://doc.ruby-lang.org/ja/1.9.3/class/%s.html',
-\   },
-\   'twitter': {
-\     'url': 'https://mobile.twitter.com/search?q=%s',
-\     'line': 8,
-\     'cache': 0,
-\   },
-\   'caniuse': {
-\     'url': 'http://caniuse.com/%s/embed/agents=desktop',
-\     'line': 8,
-\     'cache': 0,
-\   },
-\ }
-nnoremap <Leader>d :<C-u>Ref webdict 
-let g:ref_source_webdict_use_cache = 1
-" }}}
-
-" -- syntastic.vim {{{
-let g:syntastic_javascript_jshint_conf = "~/.vim/jshintrc"
-let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
-let g:syntastic_warning_symbol='⚐' " ☹  ⚠
-" }}}
-
-" -- VimShell {{{
-" cecutils.vim uses <Leader>sqp mapping
-" http://www.jukie.net/~bart/conf/vim/plugin/cecutil.vim
-" so <Leader>s will wait for `timeoutlen` msec for more input
-" note: You can unmap by after/* or remove cecutil.vim
-set timeoutlen=150
-nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
-function! s:vimshell_keymap()
-  imap <buffer><silent> <C-d> exit<CR>
-endfunction
-
-augroup VimShell
-  autocmd!
-  au FileType vimshell call s:vimshell_keymap()
-augroup END
-" }}}
-
-" -- vim-rooter.vim {{{
-let g:rooter_patterns = ['.git/', "spec/", "Gemfile", 'Rakefile', "manifest.json", "package.json"]
-let g:rooter_use_lcd = 1
-augroup rooter
-  autocmd!
-  autocmd BufEnter * :Rooter
-  autocmd FileType html,ruby,scss,css,javascript execute ':setlocal path+=' .expand('%:p:h')
-  autocmd FileType html,ruby,scss,css,javascript setlocal includeexpr=substitute(v:fname,'^\\/','','')
-augroup END
-" }}}
-
-" -- jscomplete-vim {{{
-let g:jscomplete_use = ["dom", "es6th"]
 " }}}
 
 " }}}
@@ -440,9 +429,9 @@ set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,sj
 
 " http://blog.blueblack.net/item_393
 augroup InsModeAu
-    autocmd!
-    autocmd InsertEnter,CmdwinEnter * set noimdisable
-    autocmd InsertLeave,CmdwinLeave * set imdisable
+  autocmd!
+  autocmd InsertEnter,CmdwinEnter * set noimdisable
+  autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
 " }}}
