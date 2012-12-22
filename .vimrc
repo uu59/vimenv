@@ -40,6 +40,7 @@ NeoBundle 'https://github.com/scrooloose/syntastic'
 NeoBundle 'https://github.com/nathanaelkane/vim-indent-guides'
 NeoBundle 'https://github.com/thinca/vim-ref'
 NeoBundle 'https://github.com/airblade/vim-rooter'
+NeoBundle 'https://github.com/mattn/webapi-vim'
 
 " conditional load
 NeoBundleLazy 'https://github.com/godlygeek/csapprox'
@@ -205,7 +206,9 @@ nnoremap <silent> gF <C-w>F
 
 " operator-user.vimに登録
 call operator#user#define('datauri', 'g:datauri')
+call operator#user#define('markdownlink', 'g:markdownlink')
 vmap B <Plug>(operator-datauri)
+vmap T <Plug>(operator-markdownlink)
 
 "noremap <C-f> :<C-u>echo expand('%:p')<CR>
 "inoremap <C-f> <C-r>=expand('%:p')<CR>
@@ -354,6 +357,24 @@ let g:jscomplete_use = ["dom", "es6th"]
 " }}}
 
 " ### functions ### {{{
+
+" -- g:markdownlink() {{{
+function! g:markdownlink(motion_wise)
+  if a:motion_wise !=# 'char'
+    return
+  endif
+  let backup_z = getreg('z', 1)
+  let backup_ztype = getregtype('z')
+  execute 'silent normal! `[v`]"zy'
+  let url = getreg('z', 1)
+  echo "Fetching ".url." ..."
+  let html = webapi#http#get(url)
+  let title = webapi#html#parse(html.content).find('title').value()
+  exec setreg('z', substitute("[".title."](".url.")", "\n", "", "g"))
+  silent normal! gv"zp
+  call setreg('z', backup_z, backup_ztype)
+endfunction
+" }}}
 
 " -- g:datauri() {{{
 function! g:datauri(motion_wise)
