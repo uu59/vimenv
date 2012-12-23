@@ -175,11 +175,11 @@ augroup FileTypes
   \ | execute "10"
 
   au BufNewFile *.html 0r ~/.vim/template/html.txt
-  \ | execute "10d"
-  \ | execute "8"
+  \ | execute "silent 11d"
+  \ | execute "9"
 
   au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
-  \ | execute "11d"
+  \ | execute "silent 11d"
   \ | execute "9"
 
   au BufNewFile manifest.json 0r ~/.vim/template/manifest.json
