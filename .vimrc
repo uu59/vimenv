@@ -55,6 +55,7 @@ NeoBundle 'https://github.com/hail2u/vim-css-syntax'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
 NeoBundle 'https://github.com/teramako/jscomplete-vim'
 "NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
+NeoBundle 'https://github.com/zaiste/tmux.vim'
 
 " testing
 NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
