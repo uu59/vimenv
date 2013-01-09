@@ -260,6 +260,24 @@ nnoremap U :<C-u>GundoToggle<CR>
 " -- ctrlp.vim {{{
 let g:ctrlp_map = '<Leader>f'
 let g:ctrlp_arg_map = 1
+let g:ctrlp_max_height = 8
+let g:ctrlp_cache_dir = '/tmp/ctrlp'
+let g:ctrlp_user_command =
+  \ 'find %s -type f | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
+
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtSelectMove("j")': ['<C-n>'],
+  \ 'PrtSelectMove("k")': ['<C-p>'],
+  \ 'PrtHistory(-1)': [],
+  \ 'PrtHistory(1)':  [],
+  \ 'PrtClearCache()':      ['<F5>', '<S-space>'],
+  \ 'PrtBS()':              ['<bs>', '<c-]>', '<C-h>'],
+  \ 'PrtCurLeft()':         ['<C-b>', '<left>', '<c-^>'],
+  \ 'PrtCurRight()':        ['<C-f>', '<right>'],
+  \ 'ToggleType(1)':        ['<C-Tab>', '<c-up>'],
+  \ 'MarkToOpen()':         ['<C-v>', '<c-z>'],
+  \ 'AcceptSelection("v")': [],
+  \ }
 " }}}
 
 " -- yankring.vim {{{
