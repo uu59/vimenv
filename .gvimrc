@@ -14,9 +14,20 @@ set guioptions=-rLbc
 "set guifontwide=Takao\ ゴシック\ 9
 "set guifont=DejaVu\ Sans\ Mono\ 11
 "set guifontwide=MotoyaLCedar\ 11
-set guifont=Rounded\ M+\ 2m\ Regular\ 11
-set guifontwide=Rounded\ M+\ 2m\ Regular\ 11
-set linespace=-2
+
+if has('unix') && !has('mac')
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+  set guifontwide=MotoyaLCedar\ 9
+  set linespace=-2
+endif
+
+if has('mac')
+  "set guifontwide=MotoyaLCedar\ 9
+  set guifont=Osaka−等幅:h14
+  set linespace=1
+  colo herokudoc "MacVim can't read if has('gui_running') in .vimrc :(
+endif
+
 set novb
 set lines=40
 set columns=130
