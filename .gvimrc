@@ -33,4 +33,6 @@ set lines=40
 set columns=130
 
 " for vimshell on gvim
-let $PATH=system('echo $PATH')
+if has('unix') && !has('mac')
+  let $PATH=system('echo $PATH')
+endif
