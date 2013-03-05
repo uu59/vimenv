@@ -60,6 +60,12 @@ NeoBundle 'https://github.com/zaiste/tmux.vim'
 " testing
 NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 NeoBundle 'https://github.com/kana/vim-operator-user'
+NeoBundle 'https://github.com/basyura/TweetVim', {
+      \ 'rev':'dev'
+      \ }
+NeoBundle 'https://github.com/mattn/favstar-vim'
+NeoBundle 'https://github.com/tyru/open-browser.vim'
+NeoBundle 'https://github.com/basyura/twibill.vim'
 
 " colorschemes
 NeoBundle 'git://gist.github.com/187578.git'
@@ -76,6 +82,7 @@ NeoBundle 'https://github.com/aereal/vim-magica-colors'
 NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
 NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
+NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
 
 if empty(finddir('vim-herokudoc-theme', $HOME.'/works'))
   NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
@@ -230,6 +237,34 @@ endif
 
 " ### plugin setting ### {{{
 
+" -- TweetVim{{{
+let g:tweetvim_tweet_per_page = 200
+let g:tweetvim_include_rts    = 1
+let g:tweetvim_display_source = 1
+let g:tweetvim_display_time   = 1
+let g:tweetvim_display_icon = 1
+let g:tweetvim_expand_t_co = 1
+
+function! s:tweetvim_keymap()
+  nnoremap <buffer><silent> t :Unite tweetvim<CR>
+  nnoremap <buffer><silent> I :<C-u>TweetVimSay<CR>
+  nmap <silent><buffer> <leader>f  <NOP>
+  nmap <silent><buffer> <leader>uf <NOP>
+  nmap <silent><buffer> F <Plug>(tweetvim_action_favstar)
+  nmap <buffer><silent> <C-m> :<C-u>source ~/.vimrc.tweetvim<CR>
+  nmap <silent><buffer> <C-r> <Plug>(tweetvim_action_reload)
+endfunction
+
+augroup TweetVim
+  autocmd!
+  au FileType tweetvim call s:tweetvim_keymap()
+  au FileType tweetvim setlocal wrap
+augroup END
+
+nmap <Space>tw :<C-u>TweetVimHomeTimeline<CR><C-m>
+
+" }}}
+
 " -- quickrun.vim {{{
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
@@ -241,6 +276,9 @@ let g:quickrun_config['sass'] = {
       \ }
 let g:quickrun_config['scss'] = {
       \ 'cmdopt': '`compass imports`'
+      \ }
+let g:quickrun_config['coffee'] = {
+      \ 'cmdopt': '-p'
       \ }
 " }}}
 
