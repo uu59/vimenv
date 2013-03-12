@@ -66,6 +66,8 @@ NeoBundle 'https://github.com/basyura/TweetVim', {
 NeoBundle 'https://github.com/mattn/favstar-vim'
 NeoBundle 'https://github.com/tyru/open-browser.vim'
 NeoBundle 'https://github.com/basyura/twibill.vim'
+"NeoBundle 'https://github.com/airblade/vim-gitgutter'
+"NeoBundle 'https://github.com/akiomik/git-gutter-vim'
 
 " colorschemes
 NeoBundle 'git://gist.github.com/187578.git'
