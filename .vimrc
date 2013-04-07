@@ -66,6 +66,7 @@ NeoBundle 'https://github.com/basyura/TweetVim', {
 NeoBundle 'https://github.com/mattn/favstar-vim'
 NeoBundle 'https://github.com/tyru/open-browser.vim'
 NeoBundle 'https://github.com/basyura/twibill.vim'
+NeoBundle "https://github.com/sgur/unite-git_grep"
 "NeoBundle 'https://github.com/airblade/vim-gitgutter'
 "NeoBundle 'https://github.com/akiomik/git-gutter-vim'
 
@@ -297,6 +298,7 @@ noremap <Leader>b :Unite buffer<CR>
 noremap <Leader>o :Unite outline<CR>
 "noremap <Leader>f :Unite file buffer<CR>
 noremap <Leader>h :Unite history/command<CR>
+noremap <Leader>g :Unite vcs_grep<CR>
 " }}}
 
 " -- gundo.vim {{{
