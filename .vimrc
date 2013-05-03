@@ -215,15 +215,17 @@ nnoremap <silent> <C-Right> :<C-u>vertical resize +1<CR>
 nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
 nnoremap <silent> gf <C-w>f
 nnoremap <silent> gF <C-w>F
+cnoremap <C-g> <C-r>=expand('%:p:h')<CR>/
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
 
 " operator-user.vimに登録
 call operator#user#define('datauri', 'g:datauri')
 call operator#user#define('markdownlink', 'g:markdownlink')
 vmap B <Plug>(operator-datauri)
 vmap T <Plug>(operator-markdownlink)
-
-"noremap <C-f> :<C-u>echo expand('%:p')<CR>
-"inoremap <C-f> <C-r>=expand('%:p')<CR>
 " }}}
 
 " ### color setting ### {{{
