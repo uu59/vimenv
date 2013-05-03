@@ -66,7 +66,8 @@ NeoBundle 'https://github.com/basyura/TweetVim', {
 NeoBundle 'https://github.com/mattn/favstar-vim'
 NeoBundle 'https://github.com/tyru/open-browser.vim'
 NeoBundle 'https://github.com/basyura/twibill.vim'
-NeoBundle "https://github.com/sgur/unite-git_grep"
+"NeoBundle "https://github.com/sgur/unite-git_grep"
+NeoBundle "https://github.com/osyo-manga/vim-anzu"
 "NeoBundle 'https://github.com/airblade/vim-gitgutter'
 "NeoBundle 'https://github.com/akiomik/git-gutter-vim'
 
@@ -421,6 +422,13 @@ augroup END
 
 " -- jscomplete-vim {{{
 let g:jscomplete_use = ["dom", "es6th"]
+" }}}
+
+" -- anzu {{{
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
 " }}}
