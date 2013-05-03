@@ -399,7 +399,6 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 " http://www.jukie.net/~bart/conf/vim/plugin/cecutil.vim
 " so <Leader>s will wait for `timeoutlen` msec for more input
 " note: You can unmap by after/* or remove cecutil.vim
-set timeoutlen=150
 nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
   imap <buffer><silent> <C-d> exit<CR>
@@ -417,8 +416,8 @@ let g:rooter_use_lcd = 1
 augroup rooter
   autocmd!
   autocmd BufEnter * :Rooter
-  autocmd FileType html,ruby,scss,css,javascript execute ':setlocal path+=' .expand('%:p:h')
-  autocmd FileType html,ruby,scss,css,javascript setlocal includeexpr=substitute(v:fname,'^\\/','','')
+  autocmd FileType html,ruby,scss,css,javascript,coffee execute ':setlocal path+=' .expand('%:p:h')
+  autocmd FileType html,ruby,scss,css,javascript,coffee setlocal includeexpr=substitute(v:fname,'^\\/','','')
 augroup END
 " }}}
 
