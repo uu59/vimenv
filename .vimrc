@@ -205,7 +205,9 @@ augroup END
 " }}}
 
 " ### key mapping ### {{{
-let mapleader = " "
+let mapleader = ","
+map <Space> [Space]
+noremap [Space] <Nop>
 nnoremap j gj
 nnoremap k gk
 inoremap <S-Insert> <C-r><C-o>+<C-[>
@@ -267,7 +269,7 @@ augroup TweetVim
   au FileType tweetvim setlocal wrap
 augroup END
 
-nmap <Space>tw :<C-u>TweetVimHomeTimeline<CR><C-m>
+nmap [Space]tw :<C-u>TweetVimHomeTimeline<CR><C-m>
 
 " }}}
 
@@ -296,12 +298,12 @@ let g:quickrun_config['coffee'] = {
 
 " -- unite.vim {{{
 let g:unite_enable_start_insert=1
-noremap <Leader>u :Unite 
-noremap <Leader>b :Unite buffer<CR>
-noremap <Leader>o :Unite outline<CR>
-"noremap <Leader>f :Unite file buffer<CR>
-noremap <Leader>h :Unite history/command<CR>
-noremap <Leader>g :Unite vcs_grep<CR>
+noremap [Space]u :Unite 
+noremap [Space]b :Unite buffer<CR>
+noremap [Space]o :Unite outline<CR>
+"noremap [Space]f :Unite file buffer<CR>
+noremap [Space]h :Unite history/command<CR>
+noremap [Space]g :Unite vcs_grep<CR>
 " }}}
 
 " -- gundo.vim {{{
@@ -309,7 +311,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 " }}}
 
 " -- ctrlp.vim {{{
-let g:ctrlp_map = '<Leader>f'
+let g:ctrlp_map = '[Space]f'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_max_height = 8
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
@@ -384,7 +386,7 @@ let g:ref_source_webdict_sites = {
 \     'line': 20,
 \   },
 \ }
-nnoremap <Leader>d :<C-u>Ref webdict 
+nnoremap [Space]d :<C-u>Ref webdict 
 let g:ref_source_webdict_use_cache = 1
 " }}}
 
@@ -395,11 +397,7 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 " }}}
 
 " -- VimShell {{{
-" cecutils.vim uses <Leader>sqp mapping
-" http://www.jukie.net/~bart/conf/vim/plugin/cecutil.vim
-" so <Leader>s will wait for `timeoutlen` msec for more input
-" note: You can unmap by after/* or remove cecutil.vim
-nnoremap <silent> <Leader>s :<C-u>VimShell -popup<CR>
+nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
   imap <buffer><silent> <C-d> exit<CR>
 endfunction
