@@ -223,6 +223,11 @@ cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 
+" Undoable <C-w> and <C-u>.
+" http://whileimautomaton.net/2007/10/21095500
+inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-u>  <C-g>u<C-u>
+
 " operator-user.vimに登録
 call operator#user#define('datauri', 'g:datauri')
 call operator#user#define('markdownlink', 'g:markdownlink')
