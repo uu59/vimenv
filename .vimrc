@@ -231,8 +231,10 @@ inoremap <C-u>  <C-g>u<C-u>
 " operator-user.vimに登録
 call operator#user#define('datauri', 'g:datauri')
 call operator#user#define('markdownlink', 'g:markdownlink')
+call operator#user#define('ginger', 'g:ginger_user_op')
 vmap B <Plug>(operator-datauri)
 vmap T <Plug>(operator-markdownlink)
+vmap G <Plug>(operator-ginger)
 " }}}
 
 " ### color setting ### {{{
@@ -439,6 +441,36 @@ nmap # <Plug>(anzu-sharp-with-echo)
 
 " ### functions ### {{{
 
+" -- s:operator_user_text() {{{
+function! s:operator_user_text(motion_wiseness)
+  " https://github.com/tyru/operator-html-escape.vim/blob/master/autoload/operator/html_escape.vim
+  try
+    " For saving &selection. See :help :map-operator
+    let sel_save = &l:selection
+    let &l:selection = "inclusive"
+    " Save @@.
+    let reg_save     = getreg('z', 1)
+    let regtype_save = getregtype('z')
+
+    if a:motion_wiseness == 'char'
+        let ex = '`[v`]"zy'
+    elseif a:motion_wiseness == 'line'
+        let ex = '`[V`]"zy'
+    elseif a:motion_wiseness == 'block'
+        let ex = '`[' . "\<C-v>" . '`]"zy'
+    else
+        " silent execute 'normal! `<' . a:motion_wiseness . '`>'
+        echoerr 'internal error, sorry: this block never be reached'
+    endif
+    execute 'silent normal!' ex
+    return @z
+  finally
+    let &l:selection = sel_save
+    call setreg('z', reg_save, regtype_save)
+  endtry
+endfunction
+" }}}
+
 " -- g:markdownlink() {{{
 function! g:markdownlink(motion_wise)
   if a:motion_wise !=# 'char'
@@ -520,6 +552,51 @@ function! g:datauri(motion_wise)
 
   " zレジスタの中身を実行前のものに差し戻して終わり
   call setreg('z', backup_z, backup_ztype)
+endfunction
+" }}}
+
+" -- g:ginger() {{{
+" based on https://gist.github.com/mattn/5457352
+function! g:ginger(text)
+  let s:endpoint = 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText'
+  let s:apikey = '6ae0c3a0-afdc-4532-a810-82ded0054236'
+  let res = webapi#json#decode(webapi#http#get(s:endpoint, {
+        \ 'lang': 'US',
+        \ 'clientVersion': '2.0',
+        \ 'apiKey': s:apikey,
+        \ 'text': a:text}).content)
+  let i = 0
+  let correct = ''
+  echon "Mistake: "
+  for rs in res['LightGingerTheTextResult']
+    let [from, to] = [rs['From'], rs['To']]
+    if i < from
+      echon a:text[i : from-1]
+      let correct .= a:text[i : from-1]
+    endif
+    if len(rs['Suggestions']) > 0 && has_key(rs['Suggestions'][0], 'Text')
+      echohl WarningMsg
+      echon a:text[from : to]
+      echohl None
+      let correct .= rs['Suggestions'][0]['Text']
+    else
+      echon a:text[from : to]
+      let correct .= a:text[from : to]
+    endif
+    let i = to + 1
+  endfor
+  if i < len(a:text)
+    echon a:text[i :]
+    let correct .= a:text[i :]
+  endif
+  echon "\nCorrect: ".correct
+  " this is
+  " Edit memcached
+endfunction
+
+function! g:ginger_user_op(motion_wise)
+  let text = s:operator_user_text(a:motion_wise)
+  call g:ginger(text)
 endfunction
 " }}}
 
