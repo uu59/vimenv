@@ -232,9 +232,9 @@ inoremap <C-u>  <C-g>u<C-u>
 call operator#user#define('datauri', 'g:datauri')
 call operator#user#define('markdownlink', 'g:markdownlink')
 call operator#user#define('ginger', 'g:ginger_user_op')
-vmap B <Plug>(operator-datauri)
-vmap T <Plug>(operator-markdownlink)
-vmap G <Plug>(operator-ginger)
+"vmap B <Plug>(operator-datauri)
+"vmap T <Plug>(operator-markdownlink)
+vmap T <Plug>(operator-ginger)
 " }}}
 
 " ### color setting ### {{{
