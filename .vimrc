@@ -53,40 +53,39 @@ NeoBundle 'https://github.com/briancollins/vim-jst'
 NeoBundle 'https://github.com/othree/html5.vim'
 NeoBundle 'https://github.com/hail2u/vim-css-syntax'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
-NeoBundle 'https://github.com/teramako/jscomplete-vim'
+NeoBundleLazy 'https://github.com/teramako/jscomplete-vim', {
+      \ 'autoload': {
+      \   'filetypes': ['javascript']
+      \  }
+      \ }
 "NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
 NeoBundle 'https://github.com/zaiste/tmux.vim'
 
 " testing
-NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
+"NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 NeoBundle 'https://github.com/kana/vim-operator-user'
-NeoBundle 'https://github.com/basyura/TweetVim', {
-      \ 'rev':'dev'
-      \ }
-NeoBundle 'https://github.com/mattn/favstar-vim'
 NeoBundle 'https://github.com/tyru/open-browser.vim'
-NeoBundle 'https://github.com/basyura/twibill.vim'
 "NeoBundle "https://github.com/sgur/unite-git_grep"
 NeoBundle "https://github.com/osyo-manga/vim-anzu"
 "NeoBundle 'https://github.com/airblade/vim-gitgutter'
 "NeoBundle 'https://github.com/akiomik/git-gutter-vim'
 
 " colorschemes
-NeoBundle 'git://gist.github.com/187578.git'
-NeoBundle 'https://github.com/vim-scripts/Zenburn'
-NeoBundle 'https://github.com/vim-scripts/darkburn'
-NeoBundle "https://github.com/nanotech/jellybeans.vim"
-NeoBundle 'https://github.com/vim-scripts/Lucius'
+"NeoBundle 'git://gist.github.com/187578.git'
+"NeoBundle 'https://github.com/vim-scripts/Zenburn'
+"NeoBundle 'https://github.com/vim-scripts/darkburn'
+"NeoBundle "https://github.com/nanotech/jellybeans.vim"
+"NeoBundle 'https://github.com/vim-scripts/Lucius'
 NeoBundle "https://github.com/chriskempson/vim-tomorrow-theme"
-NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
-NeoBundle 'https://github.com/trapd00r/neverland-vim-theme'
-NeoBundle 'https://github.com/altercation/solarized'
-NeoBundle 'https://github.com/tomasr/molokai'
-NeoBundle 'https://github.com/aereal/vim-magica-colors'
-NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
-NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
-NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
-NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
+"NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
+"NeoBundle 'https://github.com/trapd00r/neverland-vim-theme'
+"NeoBundle 'https://github.com/altercation/solarized'
+"NeoBundle 'https://github.com/tomasr/molokai'
+"NeoBundle 'https://github.com/aereal/vim-magica-colors'
+"NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
+"NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
+"NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
+"NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
 
 if empty(finddir('vim-herokudoc-theme', $HOME.'/works'))
   NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
@@ -407,6 +406,9 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
   imap <buffer><silent> <C-d> exit<CR>
+
+  " for gvim + rbenv
+  let $PATH=system('echo $PATH')
 endfunction
 
 augroup VimShell
