@@ -16,7 +16,6 @@ NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
       \    'mappings'  : "<Plug>(openbrowser-smart-search)"
       \  },
       \}
-NeoBundle "https://github.com/osyo-manga/vim-anzu"
 NeoBundle 'https://github.com/thinca/vim-ref'
 
 if g:tinyvim == 0
