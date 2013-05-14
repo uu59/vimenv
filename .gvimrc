@@ -26,6 +26,9 @@ if has('mac')
   set guifont=Osaka−等幅:h14
   set linespace=1
   colo herokudoc "MacVim can't read if has('gui_running') in .vimrc :(
+  if has('gui_running')
+    set transparency=25
+  endif
 endif
 
 set novb
