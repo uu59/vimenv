@@ -39,6 +39,7 @@ augroup FileTypes
   au FileType markdown setlocal wrap
   au FileType php setlocal noexpandtab
   au FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+  au FileType text setlocal textwidth=0
 augroup END
 " }}}
 
