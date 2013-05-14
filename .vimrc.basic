@@ -1,0 +1,264 @@
+" /* vim: set fdm=marker: */
+
+set nocompatible
+
+if !exists('g:tinyvim')
+  let g:tinyvim = 1
+endif
+
+colo desert
+
+source $HOME/.vimrc.neobundle
+
+" ### set variables ### {{{
+syntax enable
+set showmatch
+set matchtime=0
+set ambiwidth=double
+set mouse=
+set history=1000
+set title
+set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
+set completeopt=menuone,preview
+set lazyredraw
+set expandtab
+set ts=2 sw=2
+set incsearch
+set ignorecase
+set smartcase
+set autoindent
+set nowrap
+set nobackup
+set hidden
+set noswapfile
+set backspace=2
+set visualbell
+set number
+set wildmode=list:longest,full
+set listchars=tab:\|\ 
+set list
+set scrolloff=0
+set laststatus=2
+set cmdheight=1
+set showcmd
+"set linespace=0
+set report=0
+let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%< %=%F"
+
+" http://vim-users.jp/2010/07/hack162/
+if has('persistent_undo')
+  set undodir=~/.vimundo
+  set undofile
+endif
+
+" }}}
+
+" ### key mapping ### {{{
+let mapleader = ","
+map <Space> [Space]
+noremap [Space] <Nop>
+nnoremap j gj
+nnoremap k gk
+inoremap <S-Insert> <C-r><C-o>+<C-[>
+nnoremap <silent> <C-Up> :<C-u>resize +1<CR>
+nnoremap <silent> <C-Down> :<C-u>resize -1<CR>
+nnoremap <silent> <C-Right> :<C-u>vertical resize +1<CR>
+nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
+nnoremap <silent> gf <C-w>f
+nnoremap <silent> gF <C-w>F
+cnoremap <C-g> <C-r>=expand('%:p:h')<CR>/
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+
+" Undoable <C-w> and <C-u>.
+" http://whileimautomaton.net/2007/10/21095500
+inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-u>  <C-g>u<C-u>
+
+" operator-user.vimに登録
+"call operator#user#define('datauri', 'g:datauri')
+"call operator#user#define('markdownlink', 'g:markdownlink')
+call operator#user#define('ginger', 'g:ginger_user_op')
+"vmap B <Plug>(operator-datauri)
+"vmap T <Plug>(operator-markdownlink)
+vmap T <Plug>(operator-ginger)
+" }}}
+
+" ### functions ### {{{
+
+" -- s:operator_user_text() {{{
+function! s:operator_user_text(motion_wiseness)
+  " https://github.com/tyru/operator-html-escape.vim/blob/master/autoload/operator/html_escape.vim
+  try
+    " For saving &selection. See :help :map-operator
+    let sel_save = &l:selection
+    let &l:selection = "inclusive"
+    " Save @@.
+    let reg_save     = getreg('z', 1)
+    let regtype_save = getregtype('z')
+
+    if a:motion_wiseness == 'char'
+        let ex = '`[v`]"zy'
+    elseif a:motion_wiseness == 'line'
+        let ex = '`[V`]"zy'
+    elseif a:motion_wiseness == 'block'
+        let ex = '`[' . "\<C-v>" . '`]"zy'
+    else
+        " silent execute 'normal! `<' . a:motion_wiseness . '`>'
+        echoerr 'internal error, sorry: this block never be reached'
+    endif
+    execute 'silent normal!' ex
+    return @z
+  finally
+    let &l:selection = sel_save
+    call setreg('z', reg_save, regtype_save)
+  endtry
+endfunction
+" }}}
+
+" -- g:markdownlink() {{{
+function! g:markdownlink(motion_wise)
+  if a:motion_wise !=# 'char'
+    return
+  endif
+  let backup_z = getreg('z', 1)
+  let backup_ztype = getregtype('z')
+  execute 'silent normal! `[v`]"zy'
+  let url = getreg('z', 1)
+  echo "Fetching ".url." ..."
+  let html = webapi#http#get(url)
+  let title = webapi#html#parse(html.content).find('title').value()
+  exec setreg('z', substitute("[".title."](".url.")", "\n", "", "g"))
+  silent normal! gv"zp
+  call setreg('z', backup_z, backup_ztype)
+endfunction
+" }}}
+
+" -- g:datauri() {{{
+function! g:datauri(motion_wise)
+  " v, V, <C-v>のどれで選択したのかで変わる
+  " ここではvで選択したときだけ実行する
+  if a:motion_wise !=# 'char'
+    return
+  endif
+
+  " base64コマンドがなければどうしようもないので何もしない
+  if executable('base64') == 0
+    return
+  endif
+
+  " zレジスタを後で元に戻す用
+  let backup_z = getreg('z', 1)
+  let backup_ztype = getregtype('z')
+
+  " zレジスタに選択範囲を入れる
+  execute 'silent normal! `[v`]"zy'
+
+  " `set path?`の中身を考慮しつつフルパスを探る
+  " setlocal path=/project/public,. なとき、"/icons/foo.png"を選択して実行されると
+  " /project/public/foo.png と ./icons/foo.png をチェックする
+  let filename = getreg('z', 1)
+  let filepath = ""
+  for dir in split(&path, ',')
+    let tmp = substitute(dir . "/" . filename, "//", "/", "g")
+    if filereadable(tmp) == 1
+      let filepath = tmp
+    endif
+  endfor
+
+  " 見つからなかったので何もせずに終わり
+  if empty(filepath)
+    call setreg('z', backup_z, backup_ztype)
+    return
+  end
+
+  " 場合によっては数秒かかるのでメッセージを出しておく
+  echo "Encoding " . filepath . " .."
+
+  " mimetypeコマンドがない場合のデフォルト
+  let mime = ""
+  " あればvimprocを使う
+  if exists('*vimproc#system()') == 1
+    if executable('mimetype') == 1
+      let mime = vimproc#system('mimetype -b '. filepath) . ";"
+    endif
+    let body = vimproc#system('base64 -w 0 ' . filepath)
+  else
+    if executable('mimetype') == 1
+      let mime = vimproc#system('mimetype -b '. filepath) . ";"
+    endif
+    let body = system('base64 -w 0 ' . filepath)
+  endif
+  let uri = "data:" . mime . "base64," . body
+
+  " いったんzレジスタに突っ込んで選択範囲をそれで置き換える
+  exec setreg('z', substitute(uri, "\n", "", "g"))
+  silent normal! gv"zp
+
+  " zレジスタの中身を実行前のものに差し戻して終わり
+  call setreg('z', backup_z, backup_ztype)
+endfunction
+" }}}
+
+" -- g:ginger() {{{
+" based on https://gist.github.com/mattn/5457352
+function! g:ginger(text)
+  let s:endpoint = 'http://services.gingersoftware.com/Ginger/correct/json/GingerTheText'
+  let s:apikey = '6ae0c3a0-afdc-4532-a810-82ded0054236'
+  let res = webapi#json#decode(webapi#http#get(s:endpoint, {
+        \ 'lang': 'US',
+        \ 'clientVersion': '2.0',
+        \ 'apiKey': s:apikey,
+        \ 'text': a:text}).content)
+  let i = 0
+  let correct = ''
+  echon "Mistake: "
+  for rs in res['LightGingerTheTextResult']
+    let [from, to] = [rs['From'], rs['To']]
+    if i < from
+      echon a:text[i : from-1]
+      let correct .= a:text[i : from-1]
+    endif
+    if len(rs['Suggestions']) > 0 && has_key(rs['Suggestions'][0], 'Text')
+      echohl WarningMsg
+      echon a:text[from : to]
+      echohl None
+      let correct .= rs['Suggestions'][0]['Text']
+    else
+      echon a:text[from : to]
+      let correct .= a:text[from : to]
+    endif
+    let i = to + 1
+  endfor
+  if i < len(a:text)
+    echon a:text[i :]
+    let correct .= a:text[i :]
+  endif
+  echon "\nCorrect: ".correct
+  " this is
+  " Edit memcached
+endfunction
+
+function! g:ginger_user_op(motion_wise)
+  let text = s:operator_user_text(a:motion_wise)
+  call g:ginger(text)
+endfunction
+" }}}
+
+" }}}
+
+" ### misc ### {{{
+
+set fileencodings=ucs-bom,utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+
+" http://blog.blueblack.net/item_393
+augroup InsModeAu
+  autocmd!
+  autocmd InsertEnter,CmdwinEnter * set noimdisable
+  autocmd InsertLeave,CmdwinLeave * set imdisable
+augroup END
+
+" }}}
+
