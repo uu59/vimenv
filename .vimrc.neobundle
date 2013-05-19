@@ -1,7 +1,6 @@
 " /* vim: set fdm=marker: */
 
 " ### neobundle start ### {{{
-filetype off " required!
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.vim/
 endif
@@ -25,9 +24,5 @@ endif
 filetype plugin indent on " required!
 
 " Installation check.
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoNeoBundleInstall" command.'
-endif
+NeoBundleCheck
 " }}}
