@@ -1,3 +1,5 @@
+" /* vim: set fdm=marker: */
+
 "let g:molokai_original = 1
 "colo magica
 "colo molokai
@@ -34,3 +36,26 @@ endif
 set novb
 set lines=40
 set columns=130
+
+" syntastic color setting
+hi SyntasticErrorSign guibg=#ff6666 guifg=#000000
+hi SyntasticWarningSign guibg=#ffff99 guifg=#000000
+
+" -- fix $PATH {{{
+" なぜかgvimで$PATHがzshrcの定義と違う（nodebrewとrbenvのPATHが通ってない）
+" ので必要に応じてsystemのPATHを再セットする
+
+function! s:correct_path()
+  if !exists('g:restored_path')
+    let $PATH=system('echo $PATH')
+    let g:restored_path = 1
+  endif
+endfunction
+
+if has('unix') && !has('mac')
+  augroup CorrectPath
+    autocmd!
+    au FileType javascript,ruby,vimshell call s:correct_path()
+  augroup END
+endif
+" }}}
