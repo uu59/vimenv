@@ -52,7 +52,7 @@ else
   "let g:zenburn_high_Contrast = 1
   "NeoBundleSource csapprox
   "set t_Co=256
-  colo Tomorrow-Night
+  colo Tomorrow-Night-Bright
 endif
 " }}}
 
