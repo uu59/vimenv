@@ -87,6 +87,7 @@ nmap [Space]tw :<C-u>TweetVimHomeTimeline<CR><C-m>
 " }}}
 
 " -- quickrun.vim {{{
+map <Space>r <Plug>(quickrun)
 let g:quickrun_config = {}
 let g:quickrun_config = {
       \   "_" : {
