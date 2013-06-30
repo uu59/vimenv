@@ -11,6 +11,11 @@ for dotfile in `find $DIR -maxdepth 1 -type f -name ".*" -a -not -name ".git*"`;
   fi
 done
 
+if [ ! -d "$HOME/.vimundo" ];then
+  echo "mkdir $HOME/.vimundo for persistent_undo"
+  mkdir $HOME/.vimundo
+fi
+
 cd $DIR
 git submodule update --init
 read -p "Press Enter for go BundleInstall or C-c"
