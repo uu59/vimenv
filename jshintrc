@@ -24,6 +24,15 @@
   "shadow": true, // check variable name used outer scope
   "white": false,
 
+  "camelcase": true,
+  "nonew": true, // warn if no variable assigned new statement such as `new Foo();`
+  "strict": true, // all functions should have "use strict"
+  "sub": false, // if true, warning if obj["foo"] detected and obj.foo can be used
+
+  // some global objects define
+  "jquery": true,
+  "node": true,
+
   "debug": true, // allow debugger statement
   "devel": true // allow console.*
 }
