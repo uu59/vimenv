@@ -172,4 +172,15 @@ augroup InsModeAu
   autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
+" http://d.hatena.ne.jp/spiritloose/20060519/1147970872
+function s:AddExecmod()
+  let line = getline(1)
+  if strpart(line, 0, 2) == "#!"
+    call system("chmod +x ". expand("%"))
+  endif
+endfunction
+augroup executable
+  autocmd BufWritePost * :call s:AddExecmod()
+augroup END
+
 " }}}
