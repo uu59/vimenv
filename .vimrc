@@ -123,6 +123,12 @@ let g:unite_source_find_command =
     \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 let g:unite_source_rec_async_command =
     \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  imap <silent><buffer><expr> <C-o>s     unite#do_action('split')
+  imap <silent><buffer><expr> <C-o>v     unite#do_action('vsplit')
+endfunction
 " }}}
 
 " -- unite-git_grep.vim {{{
