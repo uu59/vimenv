@@ -173,7 +173,7 @@ augroup InsModeAu
 augroup END
 
 " http://d.hatena.ne.jp/spiritloose/20060519/1147970872
-function s:AddExecmod()
+function! s:AddExecmod()
   let line = getline(1)
   if strpart(line, 0, 2) == "#!"
     call system("chmod +x ". expand("%"))
