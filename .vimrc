@@ -112,14 +112,16 @@ let g:quickrun_config['coffee'] = {
 
 " -- unite.vim {{{
 let g:unite_enable_start_insert=1
-noremap [Space]u :Unite 
-noremap [Space]b :Unite buffer<CR>
-noremap [Space]o :Unite outline<CR>
-"noremap [Space]f :Unite file buffer<CR>
-noremap [Space]h :Unite history/command<CR>
-noremap [Space]g :Unite vcs_grep/git<CR>
+noremap [Space]u :<C-u>Unite 
+noremap [Space]b :<C-u>Unite buffer<CR>
+noremap [Space]o :<C-u>Unite outline<CR>
+noremap [Space]f :<C-u>Unite file_rec/async<CR>
+noremap [Space]h :<C-u>Unite history/command<CR>
+noremap [Space]g :<C-u>Unite vcs_grep/git<CR>
 
 let g:unite_source_find_command =
+    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
+let g:unite_source_rec_async_command =
     \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 " }}}
 
@@ -133,7 +135,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 " }}}
 
 " -- ctrlp.vim {{{
-let g:ctrlp_map = '[Space]f'
+"let g:ctrlp_map = '[Space]f'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_max_height = 8
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
