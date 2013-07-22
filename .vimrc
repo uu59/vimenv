@@ -117,7 +117,15 @@ noremap [Space]b :Unite buffer<CR>
 noremap [Space]o :Unite outline<CR>
 "noremap [Space]f :Unite file buffer<CR>
 noremap [Space]h :Unite history/command<CR>
-noremap [Space]g :Unite vcs_grep<CR>
+noremap [Space]g :Unite vcs_grep/git<CR>
+
+let g:unite_source_find_command =
+    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
+" }}}
+
+" -- unite-git_grep.vim {{{
+let g:unite_source_git_grep_required_pattern_length = 1
+let g:unite_source_hg_grep_required_pattern_length = 1
 " }}}
 
 " -- gundo.vim {{{
