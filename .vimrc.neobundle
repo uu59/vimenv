@@ -16,7 +16,7 @@ NeoBundle 'https://github.com/Shougo/vimproc', {
   \ }
 NeoBundle 'https://github.com/kana/vim-operator-user'
 NeoBundle 'https://github.com/mattn/webapi-vim'
-NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
+NeoBundle 'https://github.com/tyru/open-browser.vim', {
       \ 'autoload': {
       \    'functions' : "OpenBrowser",
       \    'commands'  : ["OpenBrowser", "OpenBrowserSearch"],

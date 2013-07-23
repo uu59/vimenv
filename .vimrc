@@ -97,7 +97,7 @@ let g:quickrun_config = {
       \ }
 let g:quickrun_config['markdown'] = {
       \ 'outputter': 'browser',
-      \ 'type': 'markdown/redcarpet'
+      \ 'command': 'github-markup'
       \ }
 let g:quickrun_config['sass'] = {
       \ 'cmdopt': '`compass imports`'
