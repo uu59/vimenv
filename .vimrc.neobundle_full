@@ -46,6 +46,7 @@ NeoBundle "https://github.com/osyo-manga/vim-anzu"
 "NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 "NeoBundle "https://github.com/sgur/unite-git_grep"
 NeoBundle "https://github.com/itchyny/lightline.vim"
+NeoBundle "https://github.com/tpope/vim-fugitive"
 "NeoBundle 'https://github.com/airblade/vim-gitgutter'
 "NeoBundle 'https://github.com/akiomik/git-gutter-vim'
 

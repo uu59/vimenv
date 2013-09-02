@@ -263,5 +263,67 @@ nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
+" -- lightline.vim {{{
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste'],
+      \             [ 'fugitive', 'readonly', 'modified', 'absolutepath' ] ],
+      \   'right': [ [ 'filetype'], ['fileformat', 'fileencoding'] ],
+      \ },
+      \ 'inactive': {
+      \   'left': [ ['mode', 'fugitive'],
+      \             [ 'fugitive', 'readonly', 'modified', 'absolutepath' ] ],
+      \   'right': [ [ 'filetype'], ['fileformat', 'fileencoding'] ],
+      \ },
+      \ 'component': {
+      \   'fugitive': '%{LightlineSpecialBuffer() ? fugitive#head() :""}',
+      \ },
+      \ 'component_function': {
+      \   'mode': 'LightlineMode',
+      \   'filetype': 'LightlineFiletype',
+      \   'fileformat': 'LightlineFileformat',
+      \   'fileencoding': 'LightlineFileencoding',
+      \   'absolutepath': 'LightlineFilepath',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
+
+function! LightlineSpecialBuffer()
+  return LightlineMode() == lightline#mode()
+endfunction
+
+function! LightlineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'ref-webdict' ? 'webdict' :
+        \ fname =~ 'quickrun' ? 'quickrun' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth('.') > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineFileformat()
+  return LightlineSpecialBuffer() ? &ff : ''
+endfunction
+
+function! LightlineFiletype()
+  return LightlineSpecialBuffer() ? &ft : ''
+endfunction
+
+function! LightlineFileencoding()
+  return LightlineSpecialBuffer() ? &fenc : ''
+endfunction
+
+function! LightlineFilepath()
+  return LightlineSpecialBuffer() ? substitute(expand('%:p'), $HOME, "~", "") : ''
+endfunction
+" }}}
+
 " }}}
 
