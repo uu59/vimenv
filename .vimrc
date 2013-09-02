@@ -265,7 +265,7 @@ nmap # <Plug>(anzu-sharp-with-echo)
 
 " -- lightline.vim {{{
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'colorscheme': has('gui_running') ? 'solarized_dark' : 'Tomorrow_Night',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'],
       \             [ 'fugitive', 'readonly', 'modified', 'absolutepath' ] ],
