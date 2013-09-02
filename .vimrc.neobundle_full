@@ -40,11 +40,12 @@ NeoBundleLazy 'https://github.com/teramako/jscomplete-vim', {
       \ }
 "NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
 NeoBundle 'https://github.com/zaiste/tmux.vim'
+NeoBundle "https://github.com/osyo-manga/vim-anzu"
 
 " testing
 "NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 "NeoBundle "https://github.com/sgur/unite-git_grep"
-NeoBundle "https://github.com/osyo-manga/vim-anzu"
+NeoBundle "https://github.com/itchyny/lightline.vim"
 "NeoBundle 'https://github.com/airblade/vim-gitgutter'
 "NeoBundle 'https://github.com/akiomik/git-gutter-vim'
 
