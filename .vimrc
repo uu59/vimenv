@@ -115,7 +115,7 @@ let g:unite_enable_start_insert=1
 noremap [Space]u :<C-u>Unite 
 noremap [Space]b :<C-u>Unite buffer<CR>
 noremap [Space]o :<C-u>Unite outline<CR>
-noremap [Space]f :<C-u>Unite file_rec/async<CR>
+"noremap [Space]f :<C-u>Unite file_rec/async<CR>
 noremap [Space]h :<C-u>Unite history/command<CR>
 noremap [Space]g :<C-u>Unite vcs_grep/git<CR>
 
@@ -132,8 +132,8 @@ endfunction
 " }}}
 
 " -- unite-git_grep.vim {{{
-let g:unite_source_git_grep_required_pattern_length = 1
-let g:unite_source_hg_grep_required_pattern_length = 1
+let g:unite_source_git_grep_required_pattern_length = 2
+let g:unite_source_hg_grep_required_pattern_length = 2
 " }}}
 
 " -- gundo.vim {{{
@@ -141,7 +141,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 " }}}
 
 " -- ctrlp.vim {{{
-"let g:ctrlp_map = '[Space]f'
+let g:ctrlp_map = '[Space]f'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_max_height = 8
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
