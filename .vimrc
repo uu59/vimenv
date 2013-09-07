@@ -4,7 +4,6 @@ let g:tinyvim = 0
 
 source $HOME/.vimrc.basic
 
-
 " ### filetype setting ### {{{
 augroup FileTypes
   autocmd!
@@ -268,30 +267,31 @@ let g:lightline = {
       \ 'colorscheme': has('gui_running') ? 'solarized_dark' : 'Tomorrow_Night',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'],
-      \             [ 'fugitive', 'readonly', 'modified', 'absolutepath' ] ],
-      \   'right': [ [ 'filetype'], ['fileformat', 'fileencoding'] ],
+      \             [ 'readonly', 'modified', 'fugitive' ] ],
+      \   'right': [ ['absolutepath' ], [ 'fileformat', 'filetype', 'fileencoding'] ],
       \ },
       \ 'inactive': {
-      \   'left': [ ['mode', 'fugitive'],
-      \             [ 'fugitive', 'readonly', 'modified', 'absolutepath' ] ],
-      \   'right': [ [ 'filetype'], ['fileformat', 'fileencoding'] ],
+      \   'left': [ ['mode'] ],
+      \   'right': [ ['absolutepath' ], [ 'fileformat', 'filetype', 'fileencoding'] ],
       \ },
       \ 'component': {
-      \   'fugitive': '%{LightlineSpecialBuffer() ? fugitive#head() :""}',
+      \   'fugitive': '%{LightlineSpecialBuffer() ? "" : fugitive#head()}',
+      \   'modified': '%{&modified? "➕" : ""}',
+      \   'filetype': '%{LightlineSpecialBuffer() ? "" : &ft}',
+      \   'fileformat': '%{LightlineSpecialBuffer() ? "" : &ff == "unix" ? "" : &ff}',
+      \   'fileencoding': '%{LightlineSpecialBuffer() ? "" : &fenc == "utf-8" ? "" : &fenc}',
+      \   'readonly': '%{&readonly ? "⛌" :""}',
+      \   'absolutepath': '%{LightlineSpecialBuffer() ? "" : substitute(expand("%:p"), $HOME, "~", "")}',
       \ },
       \ 'component_function': {
       \   'mode': 'LightlineMode',
-      \   'filetype': 'LightlineFiletype',
-      \   'fileformat': 'LightlineFileformat',
-      \   'fileencoding': 'LightlineFileencoding',
-      \   'absolutepath': 'LightlineFilepath',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 
 function! LightlineSpecialBuffer()
-  return LightlineMode() == lightline#mode()
+  return LightlineMode() != lightline#mode()
 endfunction
 
 function! LightlineMode()
@@ -306,22 +306,6 @@ function! LightlineMode()
         \ &ft == 'vimfiler' ? 'VimFiler' :
         \ &ft == 'vimshell' ? 'VimShell' :
         \ winwidth('.') > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightlineFileformat()
-  return LightlineSpecialBuffer() ? &ff : ''
-endfunction
-
-function! LightlineFiletype()
-  return LightlineSpecialBuffer() ? &ft : ''
-endfunction
-
-function! LightlineFileencoding()
-  return LightlineSpecialBuffer() ? &fenc : ''
-endfunction
-
-function! LightlineFilepath()
-  return LightlineSpecialBuffer() ? substitute(expand('%:p'), $HOME, "~", "") : ''
 endfunction
 " }}}
 
