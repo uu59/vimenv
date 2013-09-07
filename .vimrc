@@ -290,22 +290,25 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 
+function! LightlineModeString()
+  let l:fname = expand('%:t')
+  return  l:fname == '__Tagbar__' ? 'Tagbar' :
+        \ l:fname == 'ControlP' ? 'CtrlP' :
+        \ l:fname == '__Gundo__' ? 'Gundo' :
+        \ l:fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ l:fname =~ 'ref-webdict' ? 'webdict' :
+        \ l:fname =~ 'quickrun' ? 'quickrun' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' : lightline#mode()
+endfunction
+
 function! LightlineSpecialBuffer()
-  return LightlineMode() != lightline#mode()
+  return LightlineModeString() != lightline#mode()
 endfunction
 
 function! LightlineMode()
-  let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == 'ControlP' ? 'CtrlP' :
-        \ fname == '__Gundo__' ? 'Gundo' :
-        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ fname =~ 'ref-webdict' ? 'webdict' :
-        \ fname =~ 'quickrun' ? 'quickrun' :
-        \ &ft == 'unite' ? 'Unite' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ &ft == 'vimshell' ? 'VimShell' :
-        \ winwidth('.') > 60 ? lightline#mode() : ''
+  return winwidth('.') > 60 ? LightlineModeString() : ""
 endfunction
 " }}}
 
