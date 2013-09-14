@@ -263,12 +263,14 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
 " -- lightline.vim {{{
+source $HOME/.vim/lightline-herokudoc.vim
+      " \ 'colorscheme': has('gui_running') ? 'herokudoc' : 'Tomorrow_Night',
 let g:lightline = {
       \ 'colorscheme': has('gui_running') ? 'solarized_dark' : 'Tomorrow_Night',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'],
-      \             [ 'readonly', 'modified', 'fugitive' ] ],
-      \   'right': [ ['absolutepath' ], [ 'filetype'], ['fileformat', 'fileencoding'] ],
+      \             [ 'readonly', 'fugitive' ] ],
+      \   'right': [ [ 'modified', 'absolutepath' ], [ 'filetype'], ['fileformat', 'fileencoding'] ],
       \ },
       \ 'inactive': {
       \   'left': [ ['mode'] ],
@@ -308,7 +310,7 @@ function! LightlineSpecialBuffer()
 endfunction
 
 function! LightlineMode()
-  return winwidth('.') > 60 ? LightlineModeString() : ""
+  return !LightlineSpecialBuffer() && winwidth('.') < 60 ? "" : LightlineModeString()
 endfunction
 " }}}
 

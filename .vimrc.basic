@@ -2,6 +2,9 @@
 
 set nocompatible
 
+" for tmux: http://stackoverflow.com/a/15095377
+set t_ut=
+
 if !exists('g:tinyvim')
   let g:tinyvim = 1
 endif
