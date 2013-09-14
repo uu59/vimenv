@@ -268,11 +268,11 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'],
       \             [ 'readonly', 'modified', 'fugitive' ] ],
-      \   'right': [ ['absolutepath' ], [ 'fileformat', 'filetype', 'fileencoding'] ],
+      \   'right': [ ['absolutepath' ], [ 'filetype'], ['fileformat', 'fileencoding'] ],
       \ },
       \ 'inactive': {
       \   'left': [ ['mode'] ],
-      \   'right': [ ['absolutepath' ], [ 'fileformat', 'filetype', 'fileencoding'] ],
+      \   'right': [ ['absolutepath' ], [ 'filetype'], ['fileformat', 'fileencoding'] ],
       \ },
       \ 'component': {
       \   'fugitive': '%{LightlineSpecialBuffer() ? "" : fugitive#head()}',
