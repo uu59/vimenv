@@ -43,6 +43,7 @@ NeoBundle 'https://github.com/zaiste/tmux.vim'
 NeoBundle "https://github.com/osyo-manga/vim-anzu"
 
 " testing
+NeoBundle "https://github.com/cocopon/colorswatch.vim"
 "NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
 "NeoBundle "https://github.com/sgur/unite-git_grep"
 NeoBundle "https://github.com/itchyny/lightline.vim"
