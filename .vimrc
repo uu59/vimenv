@@ -226,7 +226,7 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 " }}}
 
 " -- VimShell {{{
-nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
+"nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
   imap <buffer><silent> <C-d> exit<CR>
 
@@ -318,15 +318,17 @@ endfunction
 let g:signify_diffoptions = { 'git': '-w' }
 nnoremap <silent> [Signify]s :<C-u>call sy#toggle()<CR>
 nnoremap <silent> [Signify]S :<C-u>call sy#highlight#line_toggle()<CR>
+nmap [Signify]j <plug>(signify-next-hunk)
+nmap [Signify]k <plug>(signify-prev-hunk)
 " }}}
 
 " -- submode {{{
 let g:submode_timeout = 0
-if exists('*sy#toggle')
-  call submode#enter_with('signify', 'n', 'r', '[Space]s', '[Signify]s')
-  call submode#map('signify', 'n', 'r', 's', '[Signify]s')
-  call submode#map('signify', 'n', 'r', 'S', '[Signify]S')
-endif
+call submode#enter_with('signify', 'n', 'r', '[Space]s', '[Signify]s')
+call submode#map('signify', 'n', 'r', 's', '[Signify]s')
+call submode#map('signify', 'n', 'r', 'S', '[Signify]S')
+call submode#map('signify', 'n', 'r', 'j', '[Signify]j')
+call submode#map('signify', 'n', 'r', 'k', '[Signify]k')
 " }}}
 
 " }}}
