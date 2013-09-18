@@ -19,7 +19,7 @@ set matchtime=0
 set ambiwidth=double
 set mouse=
 set history=1000
-set title
+set notitle
 set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
 set completeopt=menuone,preview
 set lazyredraw
