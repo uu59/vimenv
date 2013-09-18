@@ -314,5 +314,20 @@ function! LightlineMode()
 endfunction
 " }}}
 
+" -- signify {{{
+let g:signify_diffoptions = { 'git': '-w' }
+nnoremap <silent> [Signify]s :<C-u>call sy#toggle()<CR>
+nnoremap <silent> [Signify]S :<C-u>call sy#highlight#line_toggle()<CR>
+" }}}
+
+" -- submode {{{
+let g:submode_timeout = 0
+if exists('*sy#toggle')
+  call submode#enter_with('signify', 'n', 'r', '[Space]s', '[Signify]s')
+  call submode#map('signify', 'n', 'r', 's', '[Signify]s')
+  call submode#map('signify', 'n', 'r', 'S', '[Signify]S')
+endif
+" }}}
+
 " }}}
 
