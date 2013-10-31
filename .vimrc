@@ -315,6 +315,7 @@ endfunction
 " }}}
 
 " -- signify {{{
+let g:signify_disable_by_default = 1
 let g:signify_diffoptions = { 'git': '-w' }
 nnoremap <silent> [Signify]s :<C-u>call sy#toggle()<CR>
 nnoremap <silent> [Signify]S :<C-u>call sy#highlight#line_toggle()<CR>
