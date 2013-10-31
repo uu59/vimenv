@@ -263,8 +263,6 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
 " -- lightline.vim {{{
-source $HOME/.vim/lightline-herokudoc.vim
-      " \ 'colorscheme': has('gui_running') ? 'herokudoc' : 'Tomorrow_Night',
 let g:lightline = {
       \ 'colorscheme': has('gui_running') ? 'solarized_dark' : 'Tomorrow_Night',
       \ 'active': {
