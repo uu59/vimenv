@@ -37,7 +37,6 @@ augroup FileTypes
 
   au FileType markdown setlocal wrap
   au FileType php setlocal noexpandtab
-  au FileType javascript setlocal omnifunc=jscomplete#CompleteJS
   au FileType text setlocal textwidth=0
 augroup END
 " }}}
@@ -249,10 +248,6 @@ augroup rooter
   autocmd FileType html,ruby,scss,css,javascript,coffee execute ':setlocal path+=' .expand('%:p:h')
   autocmd FileType html,ruby,scss,css,javascript,coffee setlocal includeexpr=substitute(v:fname,'^\\/','','')
 augroup END
-" }}}
-
-" -- jscomplete-vim {{{
-let g:jscomplete_use = ["dom", "es6th"]
 " }}}
 
 " -- anzu {{{
