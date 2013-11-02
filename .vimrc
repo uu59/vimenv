@@ -232,9 +232,6 @@ let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 "nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
 function! s:vimshell_keymap()
   imap <buffer><silent> <C-d> exit<CR>
-
-  " for gvim + rbenv
-  let $PATH=system('echo $PATH')
 endfunction
 
 augroup VimShell

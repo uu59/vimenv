@@ -42,20 +42,12 @@ hi SyntasticErrorSign guibg=#ff6666 guifg=#000000
 hi SyntasticWarningSign guibg=#ffff99 guifg=#000000
 
 " -- fix $PATH {{{
-" なぜかgvimで$PATHがzshrcの定義と違う（nodebrewとrbenvのPATHが通ってない）
+" gvimで$PATHがzshrcの定義と違う（nodebrewやrbenvのPATHが通ってない）
 " ので必要に応じてsystemのPATHを再セットする
 
-function! s:correct_path()
-  if !exists('g:restored_path')
-    let $PATH=system('echo $PATH')
-    let g:restored_path = 1
-  endif
-endfunction
-
 if has('unix') && !has('mac')
-  augroup CorrectPath
-    autocmd!
-    au FileType javascript,ruby,vimshell call s:correct_path()
-  augroup END
+  if has('vim_starting')
+    let $PATH=system('echo $PATH')
+  endif
 endif
 " }}}
