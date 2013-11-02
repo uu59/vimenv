@@ -1,6 +1,5 @@
 " /* vim: set fdm=marker: */
 
-" ### neobundle start ### {{{
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.vim/
 endif
@@ -26,11 +25,120 @@ NeoBundle 'https://github.com/tyru/open-browser.vim', {
 NeoBundle 'https://github.com/thinca/vim-ref'
 
 if g:tinyvim == 0
-  source $HOME/.vimrc.neobundle_full
+" neobundle full {{{
+
+" core/generic {{{
+NeoBundle 'https://github.com/Shougo/unite.vim'
+NeoBundle 'https://github.com/sgur/unite-git_grep'
+NeoBundle 'https://github.com/hakobe/unite-script'
+NeoBundle 'https://github.com/ujihisa/unite-colorscheme'
+NeoBundle 'https://github.com/Shougo/unite-outline'
+NeoBundle 'https://github.com/thinca/vim-unite-history'
+NeoBundle 'https://github.com/ujihisa/unite-font'
+NeoBundle 'https://github.com/sjl/gundo.vim'
+NeoBundle 'https://github.com/tpope/vim-surround'
+NeoBundle 'https://github.com/thinca/vim-quickrun'
+NeoBundle 'https://github.com/LeafCage/yankround.vim'
+NeoBundle 'https://github.com/othree/eregex.vim'
+NeoBundle 'https://github.com/tsaleh/vim-align'
+NeoBundle 'https://github.com/vim-scripts/Rename'
+NeoBundle 'https://github.com/t9md/vim-surround_custom_mapping'
+NeoBundle 'https://github.com/kana/vim-textobj-user'
+NeoBundle 'https://github.com/kana/vim-textobj-indent'
+NeoBundle 'https://github.com/kien/ctrlp.vim'
+NeoBundle 'https://github.com/vim-scripts/sudo.vim'
+NeoBundle 'https://github.com/scrooloose/syntastic'
+NeoBundle 'https://github.com/nathanaelkane/vim-indent-guides'
+NeoBundle 'https://github.com/airblade/vim-rooter'
+" }}}
+
+" syntax / language specific {{{
+NeoBundle 'https://github.com/kchmck/vim-coffee-script'
+NeoBundle 'https://github.com/briancollins/vim-jst'
+NeoBundle 'https://github.com/othree/html5.vim'
+NeoBundle 'https://github.com/JulesWang/css.vim'
+NeoBundle 'https://github.com/hail2u/vim-css3-syntax'
+NeoBundleLazy 'marijnh/tern_for_vim', {
+      \  'build': {
+      \    'others': 'npm install'
+      \  },
+      \ 'autoload': {
+      \   'filetypes': ['javascript']
+      \  }
+      \ }
+"NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
+NeoBundle 'https://github.com/zaiste/tmux.vim'
+NeoBundle "https://github.com/osyo-manga/vim-anzu"
+" }}}
+
+" testing {{{
+NeoBundle "https://github.com/kana/vim-submode"
+NeoBundle "https://github.com/mhinz/vim-signify"
+NeoBundle "https://github.com/cocopon/colorswatch.vim"
+"NeoBundle 'https://github.com/rhysd/vim-textobj-ruby'
+"NeoBundle "https://github.com/sgur/unite-git_grep"
+NeoBundle "https://github.com/itchyny/lightline.vim"
+NeoBundle "https://github.com/tpope/vim-fugitive"
+"NeoBundle 'https://github.com/sgur/vim-gitgutter'
+"NeoBundle 'https://github.com/akiomik/git-gutter-vim'
+" }}}
+
+" colorschemes {{{
+"NeoBundle 'git://gist.github.com/187578.git'
+"NeoBundle 'https://github.com/vim-scripts/Zenburn'
+"NeoBundle 'https://github.com/vim-scripts/darkburn'
+"NeoBundle "https://github.com/nanotech/jellybeans.vim"
+"NeoBundle 'https://github.com/vim-scripts/Lucius'
+NeoBundle "https://github.com/chriskempson/vim-tomorrow-theme"
+"NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
+"NeoBundle 'https://github.com/trapd00r/neverland-vim-theme'
+"NeoBundle 'https://github.com/altercation/solarized'
+"NeoBundle 'https://github.com/tomasr/molokai'
+"NeoBundle 'https://github.com/aereal/vim-magica-colors'
+"NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
+"NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
+"NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
+"NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
+
+if empty(finddir('vim-herokudoc-theme', $HOME.'/works'))
+  NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
+else
+  " for my development
+  NeoBundle 'https://github.com/uu59/vim-herokudoc-theme', {
+        \ 'rtp': $HOME . '/works/vim-herokudoc-theme/'
+        \ }
+endif
+" }}}
+
+" pending {{{
+"NeoBundle 'https://github.com/thinca/vim-fontzoom'
+"NeoBundle 'https://github.com/flazz/vim-colorschemes'
+"NeoBundle 'https://github.com/Shougo/neocomplcache'
+"NeoBundle 'https://github.com/vim-scripts/textobj-rubyblock'
+"NeoBundle 'https://github.com/tpope/vim-pathogen'
+" }}}
+
+" conditional load {{{
+NeoBundleLazy 'https://github.com/godlygeek/csapprox'
+NeoBundleLazy 'https://github.com/Shougo/vimshell'
+NeoBundleLazy 'https://github.com/mattn/benchvimrc-vim'
+" }}}
+
+" gui or not {{{
+if has('gui_running')
+  NeoBundleSource vimshell
+else
+  NeoBundleSource benchvimrc-vim
+  " csapprox takes 63 msec(25% of all) for startup vim on my machine.
+  " if you need csapprox power, comment in below line
+  "NeoBundleSource csapprox
+end
+" }}}
+
+" }}}
 endif
 
 filetype plugin indent on " required!
 
 " Installation check.
 NeoBundleCheck
-" }}}
