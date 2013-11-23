@@ -314,12 +314,20 @@ nmap [Signify]k <plug>(signify-prev-hunk)
 " }}}
 
 " -- submode {{{
+" http://d.hatena.ne.jp/osyo-manga/20130324/1364128144
+map [Space] ^S
 let g:submode_timeout = 0
 call submode#enter_with('signify', 'n', 'r', '[Space]s', '[Signify]s')
 call submode#map('signify', 'n', 'r', 's', '[Signify]s')
 call submode#map('signify', 'n', 'r', 'S', '[Signify]S')
 call submode#map('signify', 'n', 'r', 'j', '[Signify]j')
 call submode#map('signify', 'n', 'r', 'k', '[Signify]k')
+
+call submode#enter_with('fontsize', 'n', 'r', '^S+', '<Plug>FontsizeBegin')
+call submode#enter_with('fontsize', 'n', 'r', '^S-', '<Plug>FontsizeBegin')
+call submode#map('fontsize', 'n', 'r', '+', '<Plug>FontsizeInc')
+call submode#map('fontsize', 'n', 'r', '-', '<Plug>FontsizeDec')
+call submode#map('fontsize', 'n', 'r', '0', '<Plug>FontsizeDefault')
 " }}}
 
 " }}}

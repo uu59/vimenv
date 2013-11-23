@@ -72,6 +72,7 @@ NeoBundle 'https://github.com/zaiste/tmux.vim'
 " }}}
 
 " testing {{{
+NeoBundle "https://github.com/drmikehenry/vim-fontsize"
 NeoBundle "https://github.com/kana/vim-submode"
 NeoBundle "https://github.com/mhinz/vim-signify"
 NeoBundle "https://github.com/cocopon/colorswatch.vim"
@@ -90,12 +91,12 @@ NeoBundle "https://github.com/tpope/vim-fugitive"
 NeoBundle "https://github.com/chriskempson/vim-tomorrow-theme"
 "NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
 "NeoBundle 'https://github.com/trapd00r/neverland-vim-theme'
-"NeoBundle 'https://github.com/altercation/solarized'
-"NeoBundle 'https://github.com/tomasr/molokai'
-"NeoBundle 'https://github.com/aereal/vim-magica-colors'
+NeoBundle 'https://github.com/altercation/solarized'
+NeoBundle 'https://github.com/tomasr/molokai'
+NeoBundle 'https://github.com/aereal/vim-magica-colors'
 "NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
-"NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
-"NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
+NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
+NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
 "NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
 
 if empty(finddir('vim-herokudoc-theme', $HOME.'/works'))
