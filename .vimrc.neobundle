@@ -98,6 +98,9 @@ NeoBundle 'https://github.com/aereal/vim-magica-colors'
 NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
 NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
 "NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
+NeoBundle 'https://github.com/daylerees/colour-schemes', {
+      \ 'rtp': 'vim-themes'
+      \ }
 
 if empty(finddir('vim-herokudoc-theme', $HOME.'/works'))
   NeoBundle 'https://github.com/uu59/vim-herokudoc-theme'
