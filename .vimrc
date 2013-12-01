@@ -141,11 +141,13 @@ nnoremap U :<C-u>GundoToggle<CR>
 " -- ctrlp.vim {{{
 let g:ctrlp_map = '[Space]f'
 let g:ctrlp_arg_map = 1
-let g:ctrlp_max_height = 8
+let g:ctrlp_max_height = 12
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
 if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
   let g:ctrlp_user_command =
-    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -10000 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
+    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f' .
+    \ '| head -1000' .
+    \ '| grep -v -i -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 endif
 
 let g:ctrlp_prompt_mappings = {
@@ -157,7 +159,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtBS()':              ['<bs>', '<c-]>', '<C-h>'],
   \ 'PrtCurLeft()':         ['<C-b>', '<left>', '<c-^>'],
   \ 'PrtCurRight()':        ['<C-f>', '<right>'],
-  \ 'ToggleType(1)':        ['<C-Tab>', '<c-up>'],
+  \ 'ToggleType(1)':        ['<Tab>'],
   \ 'MarkToOpen()':         ['<C-v>', '<c-z>'],
   \ 'AcceptSelection("v")': [],
   \ }
