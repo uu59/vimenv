@@ -332,5 +332,14 @@ call submode#map('fontsize', 'n', 'r', '-', '<Plug>FontsizeDec')
 call submode#map('fontsize', 'n', 'r', '0', '<Plug>FontsizeDefault')
 " }}}
 
+" EasyMotion {{{
+let g:EasyMotion_leader_key = ','
+let g:EasyMotion_startofline = 0
+map F <Plug>(easymotion-s)
+map <Space>j <Plug>(easymotion-bd-jk)
+map <Space>k <Plug>(easymotion-bd-jk)
+let g:EasyMotion_keys='ghrieodlvna;skfj'
+" }}}
+
 " }}}
 
