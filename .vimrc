@@ -180,12 +180,16 @@ nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
 " -- ref.vim {{{
 let g:ref_source_webdict_sites = {
 \   'je': {
-\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
-\     'line': 21,
+\     'url': 'http://dictionary.goo.ne.jp/srch/je/%s/m0u/',
+\     'line': 32,
 \   },
 \   'ej': {
-\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
-\     'line': 21,
+\     'url': 'http://dictionary.goo.ne.jp/srch/ej/%s/m0u/',
+\     'line': 32,
+\   },
+\   'alc': {
+\     'url': 'http://eow.alc.co.jp/search?q=%s',
+\     'line': 31,
 \   },
 \   'weblio': {
 \     'url': 'http://www.weblio.jp/content/%s',
@@ -204,7 +208,7 @@ let g:ref_source_webdict_sites = {
 \     'line': 13,
 \   },
 \   'ruby-class': {
-\     'url': 'http://doc.ruby-lang.org/ja/1.9.3/class/%s.html',
+\     'url': 'http://doc.ruby-lang.org/ja/2.1.0/class/%s.html',
 \   },
 \   'twitter': {
 \     'url': 'https://mobile.twitter.com/search?q=%s',
@@ -217,7 +221,7 @@ let g:ref_source_webdict_sites = {
 \   },
 \ }
 nnoremap [Space]d :<C-u>Ref webdict 
-let g:ref_source_webdict_use_cache = 1
+let g:ref_source_webdict_use_cache = 0
 " }}}
 
 " -- syntastic.vim {{{
