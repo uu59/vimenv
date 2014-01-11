@@ -339,10 +339,13 @@ call submode#map('fontsize', 'n', 'r', '0', '<Plug>FontsizeDefault')
 " EasyMotion {{{
 let g:EasyMotion_leader_key = ','
 let g:EasyMotion_startofline = 0
-map F <Plug>(easymotion-s)
+let g:EasyMotion_keys='kotpasdwneifj' " 最後の数文字が2文字以上のHaHのprefixになる
+let g:EasyMotion_smartcase = 1
+
+" C-f使わないのでEasyMotion用にあてがう
+map <C-f> <Plug>(easymotion-s)
 map <Space>j <Plug>(easymotion-bd-jk)
 map <Space>k <Plug>(easymotion-bd-jk)
-let g:EasyMotion_keys='ghrieodlvna;skfj'
 " }}}
 
 " }}}
