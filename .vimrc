@@ -8,7 +8,7 @@ source $HOME/.vimrc.basic
 augroup FileTypes
   autocmd!
 
-  au BufEnter * execute ":lcd" . expand("%:p:h")
+  "au BufEnter * execute ":lcd" . expand("%:p:h")
 
   au BufEnter *.erubis   setlocal ft=eruby
   au BufEnter *.coffee   setlocal ft=coffee
