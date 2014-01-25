@@ -348,5 +348,9 @@ map <Space>j <Plug>(easymotion-bd-jk)
 map <Space>k <Plug>(easymotion-bd-jk)
 " }}}
 
+" extradite {{{
+nnoremap [Space]p :<C-u>Extradite<CR>
+" }}}
+
 " }}}
 
