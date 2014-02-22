@@ -68,6 +68,9 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
       \ }
 "NeoBundle 'https://github.com/jelera/vim-javascript-syntax'
 NeoBundle 'https://github.com/zaiste/tmux.vim'
+NeoBundle 'https://github.com/dotcloud/docker', {
+      \ "rtp": "contrib/syntax/vim"
+      \ }
 " }}}
 
 " testing {{{
