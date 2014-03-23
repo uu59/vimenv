@@ -352,5 +352,20 @@ map <Space>k <Plug>(easymotion-bd-jk)
 nnoremap [Space]p :<C-u>Extradite<CR>
 " }}}
 
+" wildfire.vim {{{
+" This selects the next closest text object.
+let g:wildfire_fuel_map = "<Enter>"
+
+" This selects the previous closest text object.
+let g:wildfire_water_map = "<S-Enter>"
+
+" use '*' to mean 'all other filetypes'
+" in this example, html and xml share the same text objects
+let g:wildfire_objects = {
+    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+    \ "html,xml" : ["at"],
+\ }
+" }}}
+
 " }}}
 

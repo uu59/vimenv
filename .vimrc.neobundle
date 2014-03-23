@@ -5,6 +5,7 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/.vim/neobundle/'))
 
+NeoBundle 'https://github.com/gcmt/wildfire.vim'
 NeoBundle 'https://github.com/Shougo/vimproc', {
   \ 'build' : {
   \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
