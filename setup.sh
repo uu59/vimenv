@@ -7,7 +7,7 @@ for dotfile in `find $DIR -maxdepth 1 -type f -name ".*" -a -not -name ".git*"`;
   if [ -f "$dst" ];then
     echo "$dst exists. skip"
   else
-    ln -s $dotfile $dst
+    ln -sf $dotfile $dst
   fi
 done
 
