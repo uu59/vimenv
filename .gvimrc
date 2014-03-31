@@ -18,7 +18,7 @@ set guioptions=-rLbc
 "set guifontwide=MotoyaLCedar\ 11
 
 if has('unix') && !has('mac')
-  set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
+  set guifont=VLGothic\ 10
   set guifontwide=VLGothic\ 10
   set linespace=0
 endif
