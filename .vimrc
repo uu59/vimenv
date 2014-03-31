@@ -18,7 +18,7 @@ augroup FileTypes
   au BufEnter *.md,*.mkd setlocal ft=markdown " .md is not modula2
 
   au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
-  \ | execute "17"
+  \ | execute ":normal GV{{"
 
   au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
   \ | execute "10"
