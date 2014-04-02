@@ -12,6 +12,7 @@ augroup FileTypes
 
   au BufEnter *.erubis   setlocal ft=eruby
   au BufEnter *.coffee   setlocal ft=coffee
+  au BufEnter *.bats     setlocal ft=sh
   au BufEnter Gemfile    setlocal ft=ruby
   au BufEnter Rakefile   setlocal ft=ruby
   au BufEnter config.ru  setlocal ft=ruby
