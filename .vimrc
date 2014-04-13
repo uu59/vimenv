@@ -17,12 +17,15 @@ augroup FileTypes
   au BufEnter Rakefile   setlocal ft=ruby
   au BufEnter config.ru  setlocal ft=ruby
   au BufEnter *.md,*.mkd setlocal ft=markdown " .md is not modula2
+  au BufEnter PKGBUILD   setlocal ft=sh
 
   au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
   \ | execute ":normal GV{{"
 
   au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
   \ | execute "10"
+
+  au BufNewFile PKGBUILD execute "0r ~/.vim/template/PKGBUILD"
 
   au BufNewFile *.html 0r ~/.vim/template/html.txt
   \ | execute "silent 11d"

@@ -1,0 +1,19 @@
+# Maintainer: uu59 <k@uu59.org>
+
+pkgname=xxxx
+pkgrel=1
+pkgver=xxxx
+arch=('x86_64', 'i686')
+license=()
+url=""
+source=()
+md5sums=()
+
+conflicts=()
+provides=()
+
+# build() {
+# }
+
+# package() {
+# }
