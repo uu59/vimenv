@@ -345,15 +345,13 @@ let g:EasyMotion_leader_key = ','
 let g:EasyMotion_startofline = 0
 let g:EasyMotion_keys='kotpasdwneifj' " 最後の数文字が2文字以上のHaHのprefixになる
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping = 0
 
 " C-f使わないのでEasyMotion用にあてがう
-map <C-f> <Plug>(easymotion-s)
-map <Space>j <Plug>(easymotion-bd-jk)
-map <Space>k <Plug>(easymotion-bd-jk)
-" }}}
-
-" extradite {{{
-nnoremap [Space]p :<C-u>Extradite<CR>
+"map <C-f> <Plug>(easymotion-s)
+map <C-f> <Plug>(easymotion-s2)
+"map <Space>j <Plug>(easymotion-bd-jk)
+"map <Space>k <Plug>(easymotion-bd-jk)
 " }}}
 
 " wildfire.vim {{{
@@ -366,7 +364,7 @@ let g:wildfire_water_map = "<S-Enter>"
 " use '*' to mean 'all other filetypes'
 " in this example, html and xml share the same text objects
 let g:wildfire_objects = {
-    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+    \ '*' : ['i"', "i'", 'i)', 'i]'],
     \ "html,xml" : ["at"],
 \ }
 " }}}
