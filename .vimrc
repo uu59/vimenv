@@ -223,6 +223,10 @@ let g:ref_source_webdict_sites = {
 \     'url': 'http://caniuse.com/%s/embed/agents=desktop',
 \     'line': 20,
 \   },
+\   'codic': {
+\     'url': 'http://codic.jp/search?q=%s',
+\     'line': 17,
+\   },
 \ }
 nnoremap [Space]d :<C-u>Ref webdict 
 let g:ref_source_webdict_use_cache = 0
