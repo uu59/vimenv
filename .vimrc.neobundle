@@ -24,9 +24,13 @@ NeoBundle 'https://github.com/tyru/open-browser.vim', {
       \  },
       \}
 NeoBundle 'https://github.com/thinca/vim-ref'
+
 if has('unix') && !has('mac')
   NeoBundle 'https://github.com/vim-scripts/fcitx.vim'
 endif
+
+" testing
+NeoBundle "https://github.com/rhysd/committia.vim"
 
 if g:tinyvim == 0
 " neobundle full {{{

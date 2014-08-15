@@ -380,5 +380,16 @@ let g:openbrowser_browser_commands = [
       \ ]
 " }}}
 
+" committia.vim {{{
+"let g:committia_hooks = {}
+"function! g:committia_hooks.edit_open(info)
+"    " Additional settings
+"    setlocal spell
+"
+"    " If no commit message, start with insert mode
+"    if a:info.vcs ==# 'git' && getline(1) ==# ''
+"        startinsert
+"    end
+"endfunction
 " }}}
-
+" }}}
