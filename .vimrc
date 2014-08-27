@@ -374,10 +374,16 @@ let g:wildfire_objects = {
 " }}}
 
 " open-browser.vim {{{
-let g:openbrowser_browser_commands = [
-      \ {"name": "w3m", "args": ["{browser}", "{uri}"] },
-      \ {"name": "firefox", "args": ["{browser}", "{uri}"] }
-      \ ]
+if has("mac")
+  let g:openbrowser_browser_commands = [
+        \ {"name": "open", "args": ["{browser}", "{uri}"] }
+        \ ]
+else
+  let g:openbrowser_browser_commands = [
+        \ {"name": "w3m", "args": ["{browser}", "{uri}"] },
+        \ {"name": "firefox", "args": ["{browser}", "{uri}"] }
+        \ ]
+endif
 " }}}
 
 " committia.vim {{{
