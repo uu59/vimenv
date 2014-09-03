@@ -72,7 +72,9 @@ NeoBundle 'https://github.com/dotcloud/docker', {
       \ "rtp": "contrib/syntax/vim"
       \ }
 NeoBundle 'https://github.com/slim-template/vim-slim'
+NeoBundle 'https://github.com/tpope/vim-haml'
 NeoBundle 'https://github.com/vim-scripts/PKGBUILD'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 " }}}
 
 " testing {{{
