@@ -186,11 +186,11 @@ nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
 let g:ref_source_webdict_sites = {
 \   'je': {
 \     'url': 'http://dictionary.goo.ne.jp/srch/je/%s/m0u/',
-\     'line': 32,
+\     'line': 43,
 \   },
 \   'ej': {
 \     'url': 'http://dictionary.goo.ne.jp/srch/ej/%s/m0u/',
-\     'line': 32,
+\     'line': 43,
 \   },
 \   'alc': {
 \     'url': 'http://eow.alc.co.jp/search?q=%s',
