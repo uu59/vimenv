@@ -49,7 +49,8 @@ augroup END
 "colo twilight
 "colo zmrok
 if has('gui_running')
-  colo herokudoc " MacVim doesn't reach here
+  "colo herokudoc " MacVim doesn't reach here
+  colo flatland
 else
   "let g:zenburn_high_Contrast = 1
   "NeoBundleSource csapprox

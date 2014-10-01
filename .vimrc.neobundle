@@ -99,6 +99,8 @@ NeoBundle 'https://github.com/int3/vim-extradite'
 "NeoBundle "https://github.com/nanotech/jellybeans.vim"
 "NeoBundle 'https://github.com/vim-scripts/Lucius'
 NeoBundle "https://github.com/chriskempson/vim-tomorrow-theme"
+NeoBundle "https://github.com/jonathanfilip/vim-lucius"
+NeoBundle "https://github.com/hail2u/h2u_colorscheme"
 "NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
 "NeoBundle 'https://github.com/trapd00r/neverland-vim-theme'
 NeoBundle 'https://github.com/altercation/solarized'
@@ -107,6 +109,9 @@ NeoBundle 'https://github.com/aereal/vim-magica-colors'
 "NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
 NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
+NeoBundle 'https://github.com/thinkpixellab/flatland', {
+      \ 'rtp': 'Vim'
+      \ }
 "NeoBundle 'https://github.com/vol2223/vim-colorblind-colorscheme'
 NeoBundle 'https://github.com/daylerees/colour-schemes', {
       \ 'rtp': 'vim'
