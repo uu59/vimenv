@@ -17,6 +17,9 @@ set guioptions=-rLbc
 "set guifont=DejaVu\ Sans\ Mono\ 11
 "set guifontwide=MotoyaLCedar\ 11
 
+set lines=40
+set columns=130
+
 if has('unix') && !has('mac')
   set guifont=VLGothic\ 10
   set guifontwide=VLGothic\ 10
@@ -28,15 +31,15 @@ if has('mac')
   set guifont=Osaka−等幅:h14
   set linespace=1
   " colo herokudoc "MacVim can't read if has('gui_running') in .vimrc :(
-  colo Tomorrow-Night
+  colo flatland
   if has('gui_running')
     set transparency=10
+    set lines=75
+    set columns=240
   endif
 endif
 
 set novb
-set lines=40
-set columns=130
 
 " syntastic color setting
 hi SyntasticErrorSign guibg=#ff6666 guifg=#000000
