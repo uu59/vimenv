@@ -100,7 +100,8 @@ let g:quickrun_config = {
       \ }
 let g:quickrun_config['markdown'] = {
       \ 'outputter': 'browser',
-      \ 'command': 'github-markup'
+      \ 'command': 'kramdown',
+      \ 'cmdopt': '-i GFM'
       \ }
 let g:quickrun_config['sass'] = {
       \ 'cmdopt': '`compass imports`'
