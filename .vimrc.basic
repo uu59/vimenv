@@ -69,10 +69,18 @@ nnoremap <silent> <C-Left> :<C-u>vertical resize -1<CR>
 nnoremap <silent> gf <C-w>f
 nnoremap <silent> gF <C-w>F
 cnoremap <C-g> <C-r>=expand('%:p:h')<CR>/
+
+" like Emacs
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
+" http://vim.g.hatena.ne.jp/tyru/20100116
+cnoremap <C-k> <C-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos()-2]<CR>
+inoremap <expr> <C-k> "\<C-g>u".(col('.') == col('$') ? '<C-o>gJ' : '<C-o>D')
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
+inoremap <C-d> <Delete>
 
 " Undoable <C-w> and <C-u>.
 " http://whileimautomaton.net/2007/10/21095500
