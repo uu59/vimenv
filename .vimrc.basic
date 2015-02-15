@@ -80,7 +80,6 @@ cnoremap <C-k> <C-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos()-2]<CR>
 inoremap <expr> <C-k> "\<C-g>u".(col('.') == col('$') ? '<C-o>gJ' : '<C-o>D')
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
-inoremap <C-d> <Delete>
 
 " Undoable <C-w> and <C-u>.
 " http://whileimautomaton.net/2007/10/21095500
