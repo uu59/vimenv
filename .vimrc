@@ -13,6 +13,7 @@ augroup FileTypes
   au BufEnter *.erubis   setlocal ft=eruby
   au BufEnter *.coffee   setlocal ft=coffee
   au BufEnter *.bats     setlocal ft=sh
+  au BufEnter *.es6      setlocal ft=javascript
   au BufEnter Gemfile    setlocal ft=ruby
   au BufEnter Rakefile   setlocal ft=ruby
   au BufEnter config.ru  setlocal ft=ruby
@@ -113,6 +114,9 @@ let g:quickrun_config['scss'] = {
       \ }
 let g:quickrun_config['coffee'] = {
       \ 'cmdopt': '-p'
+      \ }
+let g:quickrun_config['javascript'] = {
+      \ 'command': 'babel'
       \ }
 " }}}
 
