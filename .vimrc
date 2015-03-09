@@ -50,7 +50,9 @@ augroup END
 "colo zmrok
 if has('gui_running')
   "colo herokudoc " MacVim doesn't reach here
-  colo flatland
+  "colo flatland
+  colo hybrid
+  "colo grunge
 else
   "let g:zenburn_high_Contrast = 1
   "NeoBundleSource csapprox
