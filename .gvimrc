@@ -40,6 +40,7 @@ if has('mac')
 endif
 
 set novb
+set noballooneval
 
 " syntastic color setting
 hi SyntasticErrorSign guibg=#ff6666 guifg=#000000
