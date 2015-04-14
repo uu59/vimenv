@@ -95,6 +95,9 @@ NeoBundle 'https://github.com/rhysd/git-messenger.vim'
 NeoBundle 'https://github.com/rhysd/conflict-marker.vim'
 NeoBundle 'https://github.com/haya14busa/vim-easymotion'
 NeoBundle 'https://github.com/int3/vim-extradite'
+NeoBundle 'https://github.com/zenorocha/dracula-theme', {
+      \ 'rtp': 'vim'
+      \ }
 " }}}
 
 " colorschemes {{{
