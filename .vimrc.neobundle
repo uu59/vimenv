@@ -106,7 +106,9 @@ NeoBundle 'https://github.com/zenorocha/dracula-theme', {
 "NeoBundle 'https://github.com/vim-scripts/darkburn'
 "NeoBundle "https://github.com/nanotech/jellybeans.vim"
 "NeoBundle 'https://github.com/vim-scripts/Lucius'
-NeoBundle "https://github.com/chriskempson/vim-tomorrow-theme"
+NeoBundle "https://github.com/chriskempson/tomorrow-theme", {
+      \ 'rtp': 'vim'
+      \ }
 NeoBundle "https://github.com/jonathanfilip/vim-lucius"
 NeoBundle "https://github.com/hail2u/h2u_colorscheme"
 "NeoBundle 'https://github.com/vim-scripts/mrkn256.vim'
