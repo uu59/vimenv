@@ -84,6 +84,7 @@ NeoBundleLazy 'https://github.com/wavded/vim-stylus', {'autoload':{'filetypes':[
 
 " testing {{{
 NeoBundle "https://github.com/drmikehenry/vim-fontsize"
+NeoBundle "https://github.com/uu59/vim-emoji"
 NeoBundle "https://github.com/kana/vim-submode"
 NeoBundle "https://github.com/mhinz/vim-signify"
 NeoBundle "https://github.com/cocopon/colorswatch.vim"

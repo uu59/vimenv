@@ -406,4 +406,9 @@ endif
 "    end
 "endfunction
 " }}}
+
+" vim-emoji {{{
+set completefunc=emoji#complete
+" }}}
+
 " }}}
