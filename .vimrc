@@ -151,7 +151,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 " }}}
 
 " -- ctrlp.vim {{{
-let g:ctrlp_map = '[Space]f'
+let g:ctrlp_map = '[Space]ff'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_max_height = 12
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
@@ -161,6 +161,9 @@ if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
     \ '| head -1000' .
     \ '| grep -v -i -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 endif
+
+" ctrlp-ghq.vim
+noremap [Space]fg :<c-u>CtrlPGhq<cr>
 
 let g:ctrlp_prompt_mappings = {
   \ 'PrtSelectMove("j")': ['<C-n>'],
