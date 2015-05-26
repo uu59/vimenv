@@ -30,8 +30,9 @@ if has('mac')
   "set guifontwide=MotoyaLCedar\ 9
   set guifont=Osaka−等幅:h14
   set linespace=1
-  " colo herokudoc "MacVim can't read if has('gui_running') in .vimrc :(
-  colo flatland
+  "MacVim can't read if has('gui_running') in .vimrc :(
+  " colo herokudoc 
+  colo dracula
   if has('gui_running')
     set transparency=10
     set lines=75
