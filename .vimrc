@@ -120,6 +120,27 @@ let g:quickrun_config['javascript'] = {
       \ }
 " }}}
 
+" -- watchdogs (after quickrun config) {{{
+let g:quickrun_config["watchdogs_checker/_"] = {
+      \   'outputter/quickfix/open_cmd' : '',
+      \ }
+" errorformat for jruby and cruby
+let g:quickrun_config["watchdogs_checker/ruby"] = {
+      \   "command" : "ruby",
+      \   "exec"    : "%c %o -W2 -c %s:p",
+      \   "errorformat" : '%ESyntaxError in %f:%l: %m,'.
+      \                   '%W%f:%l: warning: %m,'.
+      \                   '%f:%l: %m',
+      \ }
+"set errorformat+=%ESyntaxError\ in\ %f:%l:\ %m
+call watchdogs#setup(g:quickrun_config)
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_BufWritePost_enable_on_wq = 0
+hi SpellBad ctermbg=1 ctermfg=0 guifg=#333333 guibg=#ff5555 gui=NONE
+hi SpellLocal ctermbg=11 ctermfg=0 guifg=#333333 guibg=#cccc77 gui=NONE
+hi SpellRare ctermfg=11 ctermfg=0 guifg=#333333 guibg=#aaaaaa gui=NONE
+" }}}
+
 " -- unite.vim {{{
 let g:unite_enable_start_insert=1
 noremap [Space]u :<C-u>Unite 
@@ -248,6 +269,7 @@ let g:syntastic_javascript_jshint_arg = "~/.vim/jshintrc"
 let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
 let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 " }}}
+
 
 " -- VimShell {{{
 "nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
