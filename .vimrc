@@ -217,11 +217,11 @@ nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
 let g:ref_source_webdict_sites = {
 \   'je': {
 \     'url': 'http://dictionary.goo.ne.jp/srch/je/%s/m0u/',
-\     'line': 43,
+\     'line': 36,
 \   },
 \   'ej': {
 \     'url': 'http://dictionary.goo.ne.jp/srch/ej/%s/m0u/',
-\     'line': 43,
+\     'line': 36,
 \   },
 \   'alc': {
 \     'url': 'http://eow.alc.co.jp/search?q=%s',
@@ -229,7 +229,7 @@ let g:ref_source_webdict_sites = {
 \   },
 \   'weblio': {
 \     'url': 'http://www.weblio.jp/content/%s',
-\     'line': 14,
+\     'line': 30,
 \   },
 \   'thesaurus': {
 \     'url': 'http://thesaurus.weblio.jp/content/%s',
