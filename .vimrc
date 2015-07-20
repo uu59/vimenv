@@ -144,7 +144,7 @@ hi SpellRare ctermfg=11 ctermfg=0 guifg=#333333 guibg=#aaaaaa gui=NONE
 " -- unite.vim {{{
 let g:unite_enable_start_insert=1
 noremap [Space]u :<C-u>Unite 
-noremap [Space]b :<C-u>Unite buffer<CR>
+"noremap [Space]b :<C-u>Unite buffer<CR>
 noremap [Space]o :<C-u>Unite outline<CR>
 "noremap [Space]f :<C-u>Unite file_rec/async<CR>
 noremap [Space]h :<C-u>Unite history/command<CR>
@@ -178,13 +178,18 @@ let g:ctrlp_max_height = 12
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
 if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
   let g:ctrlp_user_command =
-    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f' .
+    \ 'find %s -type f -o \( -name .cache -o -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f' .
     \ '| head -1000' .
     \ '| grep -v -i -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 endif
 
+noremap [Space]b :<c-u>CtrlPBuffer<cr>
+
 " ctrlp-ghq.vim
 noremap [Space]fg :<c-u>CtrlPGhq<cr>
+" ctrl-extensions
+noremap [Space]f: :<c-u>CtrlPCmdline<cr>
+noremap [Space]fy :<c-u>CtrlPYankring<cr>
 
 let g:ctrlp_prompt_mappings = {
   \ 'PrtSelectMove("j")': ['<C-n>'],
