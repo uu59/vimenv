@@ -18,7 +18,7 @@ set showmatch
 set matchtime=0
 set ambiwidth=double
 set mouse=
-set history=50000
+set history=10000
 set notitle
 set titlestring=%F%(\ %M%)%(\ (%{getcwd()})%)%(\ %a%)
 set completeopt=menuone,preview
