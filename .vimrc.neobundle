@@ -1,11 +1,12 @@
 " /* vim: set fdm=marker: */
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim/
+  set runtimepath+=~/.vim/neobundle/neobundle.vim/
 endif
 
 
 call neobundle#begin(expand('~/.vim/neobundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'https://github.com/Shougo/vimproc', {
   \ 'build' : {
