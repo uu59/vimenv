@@ -137,6 +137,12 @@ let g:quickrun_config["javascript/watchdogs_checker"] = {
       \    "watchdogs_checker/eslint" :
       \    "watchdogs_checker/jshint"
       \ }
+let g:quickrun_config["watchdogs_checker/javascript"] = {
+      \   "command" : "eslint",
+      \   "exec"    : "%c -c ~/.vim/.eslintrc -f compact %o %s:p",
+      \   "errorformat" : '%E%f: line %l\, col %c\, Error - %m,' .
+      \                   '%W%f: line %l\, col %c\, Warning - %m'
+      \ }
 "set errorformat+=%ESyntaxError\ in\ %f:%l:\ %m
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enable = 1
