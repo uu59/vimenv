@@ -132,6 +132,11 @@ let g:quickrun_config["watchdogs_checker/ruby"] = {
       \                   '%W%f:%l: warning: %m,'.
       \                   '%f:%l: %m',
       \ }
+let g:quickrun_config["javascript/watchdogs_checker"] = {
+      \  "type" : expand('%:e') == "es6" ?
+      \    "watchdogs_checker/eslint" :
+      \    "watchdogs_checker/jshint"
+      \ }
 "set errorformat+=%ESyntaxError\ in\ %f:%l:\ %m
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enable = 1
