@@ -14,6 +14,14 @@ augroup FileTypes
   au BufEnter *.coffee   setlocal ft=coffee
   au BufEnter *.bats     setlocal ft=sh
   au BufEnter *.es6      setlocal ft=javascript
+        \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
+        \   "type" : "watchdogs_checker/eslint"
+        \ }
+  au BufEnter *.js      setlocal ft=javascript
+        \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
+        \   "type" : "watchdogs_checker/jshint"
+        \ }
+
   au BufEnter Gemfile    setlocal ft=ruby
   au BufEnter Rakefile   setlocal ft=ruby
   au BufEnter config.ru  setlocal ft=ruby
@@ -131,11 +139,6 @@ let g:quickrun_config["watchdogs_checker/ruby"] = {
       \   "errorformat" : '%ESyntaxError in %f:%l: %m,'.
       \                   '%W%f:%l: warning: %m,'.
       \                   '%f:%l: %m',
-      \ }
-let g:quickrun_config["javascript/watchdogs_checker"] = {
-      \  "type" : expand('%:e') == "es6" ?
-      \    "watchdogs_checker/eslint" :
-      \    "watchdogs_checker/jshint"
       \ }
 let g:quickrun_config["watchdogs_checker/javascript"] = {
       \   "command" : "eslint",
