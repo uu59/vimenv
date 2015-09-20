@@ -15,7 +15,8 @@ augroup FileTypes
   au BufEnter *.bats     setlocal ft=sh
   au BufEnter *.es6      setlocal ft=javascript
         \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
-        \   "type" : "watchdogs_checker/eslint"
+        \   "type" : "watchdogs_checker/eslint",
+        \   "exec"    : "%c -c ~/.vim/.eslintrc -f compact %o %s:p"
         \ }
   au BufEnter *.js      setlocal ft=javascript
         \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
