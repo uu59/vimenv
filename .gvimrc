@@ -46,14 +46,3 @@ set noballooneval
 " syntastic color setting
 hi SyntasticErrorSign guibg=#ff6666 guifg=#000000
 hi SyntasticWarningSign guibg=#ffff99 guifg=#000000
-
-" -- fix $PATH {{{
-" gvimで$PATHがzshrcの定義と違う（nodebrewやrbenvのPATHが通ってない）
-" ので必要に応じてsystemのPATHを再セットする
-
-if has('unix') && !has('mac')
-  if has('vim_starting')
-    let $PATH=system('echo $PATH')
-  endif
-endif
-" }}}
