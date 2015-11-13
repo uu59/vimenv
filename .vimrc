@@ -13,15 +13,6 @@ augroup FileTypes
   au BufEnter *.erubis   setlocal ft=eruby
   au BufEnter *.coffee   setlocal ft=coffee
   au BufEnter *.bats     setlocal ft=sh
-  au BufEnter *.es6      setlocal ft=javascript
-        \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
-        \   "type" : "watchdogs_checker/eslint",
-        \   "exec"    : "%c -c ~/.vim/.eslintrc -f compact %o %s:p"
-        \ }
-  au BufEnter *.js      setlocal ft=javascript
-        \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
-        \   "type" : "watchdogs_checker/eslint"
-        \ }
 
   au BufEnter Gemfile    setlocal ft=ruby
   au BufEnter Rakefile   setlocal ft=ruby
@@ -143,10 +134,11 @@ let g:quickrun_config["watchdogs_checker/ruby"] = {
       \ }
 let g:quickrun_config["watchdogs_checker/javascript"] = {
       \   "command" : "eslint",
-      \   "exec"    : "%c -c ~/.vim/.eslintrc -f compact %o %s:p",
-      \   "errorformat" : '%E%f: line %l\, col %c\, Error - %m,' .
-      \                   '%W%f: line %l\, col %c\, Warning - %m'
       \ }
+let g:quickrun_config["javascript/watchdogs_checker"] = {
+        \   "type" : "watchdogs_checker/eslint"
+        \ }
+
 "set errorformat+=%ESyntaxError\ in\ %f:%l:\ %m
 call watchdogs#setup(g:quickrun_config)
 let g:watchdogs_check_BufWritePost_enable = 1
