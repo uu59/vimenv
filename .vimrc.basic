@@ -12,6 +12,9 @@ endif
 source $HOME/.vimrc.functions
 source $HOME/.vimrc.neobundle
 
+" Prefer project managed command (e.g. eslint) rather than global
+let $PATH="./node_modules/.bin:".$PATH
+
 " ### set variables ### {{{
 syntax enable
 set nrformats=hex " ignore octal incr/decr
