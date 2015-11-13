@@ -20,7 +20,7 @@ augroup FileTypes
         \ }
   au BufEnter *.js      setlocal ft=javascript
         \ | let g:quickrun_config["javascript/watchdogs_checker"] = {
-        \   "type" : "watchdogs_checker/jshint"
+        \   "type" : "watchdogs_checker/eslint"
         \ }
 
   au BufEnter Gemfile    setlocal ft=ruby
