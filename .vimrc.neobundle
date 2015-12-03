@@ -72,11 +72,11 @@ NeoBundleLazy 'https://github.com/hail2u/vim-css3-syntax', {'autoload':{'filetyp
 "NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'https://github.com/pangloss/vim-javascript', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'https://github.com/othree/yajs.vim', {'autoload':{'filetypes':['javascript']}}
+NeoBundleLazy 'https://github.com/othree/es.next.syntax.vim', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'https://github.com/mxw/vim-jsx', {'autoload':{'filetypes':['javascript']}}
 NeoBundleLazy 'https://github.com/zaiste/tmux.vim', {'autoload':{'filetypes':['tmux']}}
-NeoBundleLazy 'https://github.com/dotcloud/docker', {
-      \ "rtp": "contrib/syntax/vim",
-      \ 'autoload':{'filetypes':['javascript']}
+NeoBundleLazy 'https://github.com/docker/docker', {
+      \ "rtp": "contrib/syntax/vim"
       \ }
 NeoBundleLazy 'https://github.com/slim-template/vim-slim', {'autoload':{'filetypes':['slim']}}
 NeoBundleLazy 'https://github.com/tpope/vim-haml', {'autoload':{'filetypes':['haml']}}
@@ -101,20 +101,16 @@ NeoBundle 'https://github.com/rhysd/git-messenger.vim'
 NeoBundle 'https://github.com/rhysd/conflict-marker.vim'
 NeoBundle 'https://github.com/haya14busa/vim-easymotion'
 NeoBundle 'https://github.com/int3/vim-extradite'
-NeoBundle 'https://github.com/zenorocha/dracula-theme', {
-      \ 'rtp': 'vim'
-      \ }
 NeoBundle 'https://github.com/osyo-manga/vim-watchdogs'
 NeoBundle 'https://github.com/osyo-manga/shabadou.vim'
 NeoBundle 'https://github.com/cohama/vim-hier'
-NeoBundle 'https://github.com/dannyob/quickfixstatus'
+" NeoBundle 'https://github.com/dannyob/quickfixstatus'
 NeoBundle 'https://github.com/junegunn/vim-xmark', {
       \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
       \     'cygwin' : 'make',
-      \     'mac' : 'make',
+      \     'mac'  : 'make',
       \     'linux': 'make',
-      \     'unix' : 'gmake',
+      \     'unix' : 'make',
       \    },
       \ }
 
@@ -136,6 +132,9 @@ NeoBundle "https://github.com/hail2u/h2u_colorscheme"
 NeoBundle 'https://github.com/altercation/solarized'
 NeoBundle 'https://github.com/tomasr/molokai'
 NeoBundle 'https://github.com/aereal/vim-magica-colors'
+NeoBundle 'https://github.com/zenorocha/dracula-theme', {
+      \ 'rtp': 'vim'
+      \ }
 "NeoBundle 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 NeoBundle 'https://github.com/liquidz/vim-colors-uochan'
 NeoBundle 'https://github.com/ricardovaleriano/vim-github-theme'
@@ -174,7 +173,7 @@ NeoBundleLazy 'https://github.com/mattn/benchvimrc-vim'
 
 " gui or not {{{
 if has('gui_running')
-  NeoBundleSource vimshell
+  " NeoBundleSource vimshell
 else
   NeoBundleSource benchvimrc-vim
   " csapprox takes 63 msec(25% of all) for startup vim on my machine.

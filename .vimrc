@@ -192,6 +192,8 @@ endif
 
 noremap [Space]b :<c-u>CtrlPBuffer<cr>
 
+" ctrl-funky
+noremap [Space]fo :<c-u>CtrlPFunky<cr>
 " ctrlp-ghq.vim
 noremap [Space]fg :<c-u>CtrlPGhq<cr>
 " ctrl-extensions
