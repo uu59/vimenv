@@ -108,6 +108,15 @@ NeoBundle 'https://github.com/osyo-manga/vim-watchdogs'
 NeoBundle 'https://github.com/osyo-manga/shabadou.vim'
 NeoBundle 'https://github.com/cohama/vim-hier'
 NeoBundle 'https://github.com/dannyob/quickfixstatus'
+NeoBundle 'https://github.com/junegunn/vim-xmark', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make',
+      \     'mac' : 'make',
+      \     'linux': 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
 
 " }}}
 
