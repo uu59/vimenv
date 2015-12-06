@@ -105,14 +105,15 @@ NeoBundle 'https://github.com/osyo-manga/vim-watchdogs'
 NeoBundle 'https://github.com/osyo-manga/shabadou.vim'
 NeoBundle 'https://github.com/cohama/vim-hier'
 " NeoBundle 'https://github.com/dannyob/quickfixstatus'
+
+" NOTE: Mac only
+if has('mac')
 NeoBundle 'https://github.com/junegunn/vim-xmark', {
       \ 'build' : {
-      \     'cygwin' : 'make',
-      \     'mac'  : 'make',
-      \     'linux': 'make',
-      \     'unix' : 'make',
+      \     'mac'  : 'make'
       \    },
       \ }
+endif
 
 " }}}
 
