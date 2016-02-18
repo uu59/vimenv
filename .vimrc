@@ -450,4 +450,8 @@ endif
 set completefunc=emoji#complete
 " }}}
 
+" tabular {{{
+vmap T :Tabular/
+" }}}
+
 " }}}
