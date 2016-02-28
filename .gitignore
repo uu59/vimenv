@@ -1,3 +1,6 @@
 /bundle/
 /neobundle/
 .netrwhist
+/.dein
+/repos
+/temp

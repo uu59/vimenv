@@ -10,7 +10,7 @@ if !exists('g:tinyvim')
 endif
 
 source $HOME/.vimrc.functions
-source $HOME/.vimrc.neobundle
+source $HOME/.vimrc.dein
 
 " Prefer project managed command (e.g. eslint) rather than global
 let $PATH="./node_modules/.bin:".$PATH
