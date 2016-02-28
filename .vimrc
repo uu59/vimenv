@@ -50,8 +50,9 @@ augroup END
 "colo twilight
 "colo zmrok
 if has('gui_running')
+  colo dracula
   "colo herokudoc " MacVim doesn't reach here
-  colo flatland
+  "colo flatland
   "colo hybrid
   "colo grunge
 else
