@@ -11,20 +11,15 @@ augroup FileTypes
   "au BufEnter * execute ":lcd" . expand("%:p:h")
 
   au BufEnter *.erubis   setlocal ft=eruby
-  au BufEnter *.coffee   setlocal ft=coffee
   au BufEnter *.bats     setlocal ft=sh
 
   au BufEnter Gemfile    setlocal ft=ruby
   au BufEnter Rakefile   setlocal ft=ruby
   au BufEnter config.ru  setlocal ft=ruby
   au BufEnter *.md,*.mkd setlocal ft=markdown " .md is not modula2
-  au BufEnter PKGBUILD   setlocal ft=sh
 
   au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
   \ | execute ":normal GV{{"
-
-  au BufNewFile *.rb execute "0r ~/.vim/template/ruby.txt"
-  \ | execute "10"
 
   au BufNewFile PKGBUILD execute "0r ~/.vim/template/PKGBUILD"
 
@@ -41,7 +36,6 @@ augroup FileTypes
   au BufNewFile spec_helper.rb 0r ~/.vim/template/spec_helper.rb
 
   au FileType markdown setlocal wrap
-  au FileType php setlocal noexpandtab
   au FileType text setlocal textwidth=0
 augroup END
 " }}}
