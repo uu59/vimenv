@@ -105,11 +105,11 @@ call dein#add('https://github.com/dannyob/quickfixstatus')
 
 " NOTE: Mac only
 if has('mac')
-call dein#add('https://github.com/junegunn/vim-xmark', {)
+call dein#add('https://github.com/junegunn/vim-xmark', {
       \ 'build' : {
       \     'mac'  : 'make'
       \    },
-      \ }
+      \ })
 endif
 
 call dein#add('https://github.com/mattn/benchvimrc-vim')
