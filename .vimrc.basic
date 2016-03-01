@@ -9,6 +9,8 @@ if !exists('g:tinyvim')
   let g:tinyvim = 1
 endif
 
+syntax enable
+
 source $HOME/.vimrc.functions
 source $HOME/.vimrc.dein
 
@@ -16,7 +18,6 @@ source $HOME/.vimrc.dein
 let $PATH="./node_modules/.bin:".$PATH
 
 " ### set variables ### {{{
-syntax enable
 set nrformats=hex " ignore octal incr/decr
 set showmatch
 set matchtime=0
