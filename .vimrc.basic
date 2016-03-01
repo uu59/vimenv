@@ -94,12 +94,6 @@ inoremap <C-u>  <C-g>u<C-u>
 " http://vim-jp.org/blog/2015/06/30/visual-ctrl-a-ctrl-x.html
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
-
-" operator-user.vimに登録
-call operator#user#define('ginger', 'g:ginger_user_op')
-vmap T <Plug>(operator-ginger)
-
-noremap <silent> <Leader>G :<C-u>call g:gitdiffCurrent()<CR>
 " }}}
 
 " ### misc ### {{{

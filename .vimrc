@@ -65,34 +65,6 @@ endif
 
 " ### plugin setting ### {{{
 
-" -- TweetVim{{{
-let g:tweetvim_tweet_per_page = 200
-let g:tweetvim_include_rts    = 1
-let g:tweetvim_display_source = 1
-let g:tweetvim_display_time   = 1
-let g:tweetvim_display_icon = 1
-let g:tweetvim_expand_t_co = 1
-
-function! s:tweetvim_keymap()
-  nnoremap <buffer><silent> t :Unite tweetvim<CR>
-  nnoremap <buffer><silent> I :<C-u>TweetVimSay<CR>
-  nmap <silent><buffer> <leader>f  <NOP>
-  nmap <silent><buffer> <leader>uf <NOP>
-  nmap <silent><buffer> F <Plug>(tweetvim_action_favstar)
-  nmap <buffer><silent> <C-m> :<C-u>source ~/.vimrc.tweetvim<CR>
-  nmap <silent><buffer> <C-r> <Plug>(tweetvim_action_reload)
-endfunction
-
-augroup TweetVim
-  autocmd!
-  au FileType tweetvim call s:tweetvim_keymap()
-  au FileType tweetvim setlocal wrap
-augroup END
-
-nmap [Space]tw :<C-u>TweetVimHomeTimeline<CR><C-m>
-
-" }}}
-
 " -- quickrun.vim {{{
 map <Space>r <Plug>(quickrun)
 let g:quickrun_config = {}
@@ -285,19 +257,6 @@ let g:syntastic_error_symbol='⚔' " ☠ ✗ ☣ ☢
 let g:syntastic_warning_symbol='⚐' " ☹  ⚠
 " }}}
 
-
-" -- VimShell {{{
-"nnoremap <silent> [Space]s :<C-u>VimShell -popup<CR>
-function! s:vimshell_keymap()
-  imap <buffer><silent> <C-d> exit<CR>
-endfunction
-
-augroup VimShell
-  autocmd!
-  au FileType vimshell call s:vimshell_keymap()
-augroup END
-" }}}
-
 " -- vim-rooter.vim {{{
 let g:rooter_patterns = ['.git/', "spec/", "Gemfile", 'Rakefile', "manifest.json", "package.json"]
 let g:rooter_use_lcd = 1
@@ -384,12 +343,6 @@ call submode#map('signify', 'n', 'r', 's', '[Signify]s')
 call submode#map('signify', 'n', 'r', 'S', '[Signify]S')
 call submode#map('signify', 'n', 'r', 'j', '[Signify]j')
 call submode#map('signify', 'n', 'r', 'k', '[Signify]k')
-
-call submode#enter_with('fontsize', 'n', 'r', '\S+', '<Plug>FontsizeBegin')
-call submode#enter_with('fontsize', 'n', 'r', '\S-', '<Plug>FontsizeBegin')
-call submode#map('fontsize', 'n', 'r', '+', '<Plug>FontsizeInc')
-call submode#map('fontsize', 'n', 'r', '-', '<Plug>FontsizeDec')
-call submode#map('fontsize', 'n', 'r', '0', '<Plug>FontsizeDefault')
 " }}}
 
 " EasyMotion {{{
@@ -404,21 +357,6 @@ let g:EasyMotion_do_mapping = 0
 map <C-f> <Plug>(easymotion-s2)
 "map <Space>j <Plug>(easymotion-bd-jk)
 "map <Space>k <Plug>(easymotion-bd-jk)
-" }}}
-
-" wildfire.vim {{{
-" This selects the next closest text object.
-let g:wildfire_fuel_map = "<Enter>"
-
-" This selects the previous closest text object.
-let g:wildfire_water_map = "<S-Enter>"
-
-" use '*' to mean 'all other filetypes'
-" in this example, html and xml share the same text objects
-let g:wildfire_objects = {
-    \ '*' : ['i"', "i'", 'i)', 'i]'],
-    \ "html,xml" : ["at"],
-\ }
 " }}}
 
 " open-browser.vim {{{
