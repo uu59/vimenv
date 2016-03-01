@@ -1,0 +1,122 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'https://github.com/Shougo/vimproc'
+build = 'make'
+
+[[plugins]]
+repo = 'https://github.com/kana/vim-operator-user'
+
+[[plugins]]
+repo = 'https://github.com/rhysd/committia.vim'
+
+[[plugins]]
+repo = 'https://github.com/tpope/vim-surround'
+
+[[plugins]]
+repo = 'https://github.com/t9md/vim-surround_custom_mapping'
+
+[[plugins]]
+repo = 'https://github.com/LeafCage/yankround.vim'
+
+[[plugins]]
+repo = 'https://github.com/godlygeek/tabular'
+
+[[plugins]]
+repo = 'https://github.com/vim-scripts/Rename'
+
+[[plugins]]
+repo = 'https://github.com/kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'https://github.com/kana/vim-textobj-indent'
+
+[[plugins]]
+repo = 'https://github.com/vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'https://github.com/nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'https://github.com/airblade/vim-rooter'
+
+[[plugins]]
+repo = 'https://github.com/osyo-manga/vim-anzu'
+
+[[plugins]]
+repo = 'https://github.com/itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'https://github.com/uu59/vim-emoji'
+
+[[plugins]]
+repo = 'https://github.com/osyo-manga/vim-watchdogs'
+
+[[plugins]]
+repo = 'https://github.com/osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo = 'https://github.com/cohama/vim-hier'
+
+[[plugins]]
+repo = 'https://github.com/dannyob/quickfixstatus'
+
+[[plugins]]
+repo = 'https://github.com/rhysd/conflict-marker.vim'
+
+[[plugins]]
+repo = 'https://github.com/haya14busa/vim-easymotion'
+
+[[plugins]]
+repo = 'https://github.com/kana/vim-submode'
+
+[[plugins]]
+repo = 'https://github.com/mhinz/vim-signify'
+
+[[plugins]]
+repo = "https://github.com/tpope/vim-fugitive"
+
+
+# Colorschema
+
+[[plugins]]
+repo = 'https://github.com/vim-scripts/Lucius'
+
+[[plugins]]
+repo = "https://github.com/chriskempson/tomorrow-theme"
+rtp = "vim"
+
+[[plugins]]
+repo = "https://github.com/jonathanfilip/vim-lucius"
+
+[[plugins]]
+repo = 'https://github.com/trapd00r/neverland-vim-theme'
+
+[[plugins]]
+repo = 'https://github.com/zenorocha/dracula-theme'
+rtp = "vim"
+
+[[plugins]]
+repo = 'https://github.com/bluntpeak/bluntpeak-vim-colors'
+
+[[plugins]]
+repo = 'https://github.com/liquidz/vim-colors-uochan'
+
+[[plugins]]
+repo = 'https://github.com/ricardovaleriano/vim-github-theme'
+
+[[plugins]]
+repo = 'https://github.com/w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'https://github.com/thinkpixellab/flatland'
+trp = "Vim"
+
+
+# Mac
+[[plugins]]
+repo = 'https://github.com/junegunn/vim-xmark'
+if = "has('mac')"
+build = "make"
+
