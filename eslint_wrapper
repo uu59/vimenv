@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# set -x
+# exec 2>&1
+# exec 1>> >(tee -a /tmp/err.log)
+
+exe="$(find "$(pwd)" -name eslint -executable -type l)"
+if [ -n "$exe" -a -x "$exe" ];then
+  "$exe" $@
+  exit
+fi
+
+exe="$(which eslint 2>/dev/null)"
+if [ -x "$exe" ];then
+  "$exe" -c ~/.vim/eslintrc_loose $@
+  exit
+fi

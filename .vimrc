@@ -99,8 +99,8 @@ let g:quickrun_config["watchdogs_checker/ruby"] = {
       \                   '%W%f:%l: warning: %m,'.
       \                   '%f:%l: %m',
       \ }
-let g:quickrun_config["watchdogs_checker/javascript"] = {
-      \   "command" : "eslint",
+let g:quickrun_config["watchdogs_checker/eslint"] = {
+      \   "command" : $HOME."/.vim/eslint_wrapper",
       \ }
 let g:quickrun_config["javascript/watchdogs_checker"] = {
         \   "type" : "watchdogs_checker/eslint"
