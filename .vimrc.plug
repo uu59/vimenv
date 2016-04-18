@@ -29,6 +29,19 @@ Plug 'https://github.com/mattn/webapi-vim'
 Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/sgur/unite-git_grep'
 Plug 'https://github.com/Shougo/unite-outline'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/mattn/ctrlp-ghq'
+Plug 'https://github.com/sjl/gundo.vim'
+Plug 'https://github.com/thinca/vim-quickrun'
+Plug 'https://github.com/sgur/ctrlp-extensions.vim'
+Plug 'https://github.com/tacahiroy/ctrlp-funky'
+Plug 'https://github.com/cocopon/colorswatch.vim'
+Plug 'https://github.com/rhysd/try-colorscheme.vim'
+Plug 'https://github.com/mattn/benchvimrc-vim'
+Plug 'https://github.com/thinca/vim-ref'
+Plug 'https://github.com/tyru/open-browser.vim'
+
+" colorscheme
 Plug 'https://github.com/vim-scripts/Lucius'
 Plug 'https://github.com/chriskempson/tomorrow-theme', {'rtp': 'vim'}
 Plug 'https://github.com/jonathanfilip/vim-lucius'
@@ -39,7 +52,8 @@ Plug 'https://github.com/liquidz/vim-colors-uochan'
 Plug 'https://github.com/ricardovaleriano/vim-github-theme'
 Plug 'https://github.com/w0ng/vim-hybrid'
 Plug 'https://github.com/thinkpixellab/flatland', {'rtp': 'Vim'}
-" Plug 'https://github.com/junegunn/vim-xmark' " for OSX
+
+" syntax
 Plug 'https://github.com/cespare/vim-toml', {'for': 'toml'}
 Plug 'https://github.com/kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'https://github.com/othree/html5.vim', {'for': 'html'}
@@ -55,15 +69,9 @@ Plug 'https://github.com/wavded/vim-stylus', {'for': 'stylus'}
 Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
 
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-Plug 'https://github.com/mattn/ctrlp-ghq'
-Plug 'https://github.com/sjl/gundo.vim'
-Plug 'https://github.com/thinca/vim-quickrun'
-Plug 'https://github.com/sgur/ctrlp-extensions.vim'
-Plug 'https://github.com/tacahiroy/ctrlp-funky'
-Plug 'https://github.com/cocopon/colorswatch.vim'
-Plug 'https://github.com/rhysd/try-colorscheme.vim'
-Plug 'https://github.com/mattn/benchvimrc-vim'
-Plug 'https://github.com/thinca/vim-ref'
-Plug 'https://github.com/tyru/open-browser.vim'
+" conditional
+if has('mac')
+  Plug 'https://github.com/junegunn/vim-xmark' " for OSX
+endif
+
 call plug#end()
