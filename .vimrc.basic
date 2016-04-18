@@ -12,7 +12,7 @@ endif
 syntax enable
 
 source $HOME/.vimrc.functions
-source $HOME/.vimrc.dein
+source $HOME/.vim/.vimrc.plug
 
 " Prefer project managed command (e.g. eslint) rather than global
 let $PATH="./node_modules/.bin:".$PATH
