@@ -52,7 +52,7 @@ Plug 'https://github.com/slim-template/vim-slim', {'for': 'slim'}
 Plug 'https://github.com/tpope/vim-haml', {'for': 'haml'}
 Plug 'https://github.com/vim-scripts/PKGBUILD', {'for': 'pkgbuild'}
 Plug 'https://github.com/wavded/vim-stylus', {'for': 'stylus'}
-Plug 'https://github.com/docker/docker', {'for': 'dockerfile', 'rtp': 'contrib/syntax/vim'}
+Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
 
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
