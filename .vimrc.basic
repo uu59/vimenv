@@ -9,8 +9,6 @@ if !exists('g:tinyvim')
   let g:tinyvim = 1
 endif
 
-syntax enable
-
 source $HOME/.vim/.vimrc.plug
 
 " Prefer project managed command (e.g. eslint) rather than global
