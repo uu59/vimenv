@@ -11,9 +11,6 @@ endif
 
 source $HOME/.vim/.vimrc.plug
 
-" Prefer project managed command (e.g. eslint) rather than global
-let $PATH="./node_modules/.bin:".$PATH
-
 " ### set variables ### {{{
 set nrformats=hex " ignore octal incr/decr
 set showmatch
