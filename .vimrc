@@ -157,6 +157,7 @@ if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
     \ '| head -1000' .
     \ '| grep -v -i -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 endif
+let g:ctrlp_yankring_disable = 1
 
 noremap [Space]b :<c-u>CtrlPBuffer<cr>
 
