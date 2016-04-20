@@ -18,5 +18,8 @@ fi
 
 cd $DIR
 git submodule update --init
-read -p "Press Enter for go BundleInstall or C-c"
-vim '+NeoBundleInstall' '+qall'
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+read -p "Press Enter for go PlugInstall or C-c"
+vim '+PlugInstall' '+qall'
