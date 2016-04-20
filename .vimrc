@@ -149,6 +149,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 let g:ctrlp_map = '[Space]ff'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_max_height = 12
+let g:ctrlp_by_filename = 1 " <C-d> by default
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
 if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
   let g:ctrlp_user_command =
