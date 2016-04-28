@@ -40,23 +40,6 @@ augroup FileTypes
 augroup END
 " }}}
 
-" ### color setting ### {{{
-"colo twilight
-"colo zmrok
-if has('gui_running')
-  colo dracula
-  "colo herokudoc " MacVim doesn't reach here
-  "colo flatland
-  "colo hybrid
-  "colo grunge
-else
-  "let g:zenburn_high_Contrast = 1
-  "NeoBundleSource csapprox
-  "set t_Co=256
-  colo Tomorrow-Night-Bright
-endif
-" }}}
-
 " ### plugin setting ### {{{
 
 " -- quickrun.vim {{{

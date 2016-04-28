@@ -113,3 +113,16 @@ augroup executable
 augroup END
 
 " }}}
+
+" ### color setting ### {{{
+if has('gui_running')
+  colo dracula
+else
+  "set t_Co=256
+  if g:tinyvim == 0
+    colo Tomorrow-Night-Bright
+  else
+    colo dracula
+  endif
+endif
+" }}}
