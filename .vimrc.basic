@@ -120,7 +120,8 @@ if has('gui_running')
 else
   "set t_Co=256
   if g:tinyvim == 0
-    colo Tomorrow-Night-Bright
+    "colo Tomorrow-Night-Bright
+    colo dracula
   else
     colo dracula
   endif
