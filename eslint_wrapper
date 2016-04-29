@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh -i
 
 # set -x
 # exec 2>&1
