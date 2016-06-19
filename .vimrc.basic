@@ -2,6 +2,11 @@
 
 set nocompatible
 
+if empty($XDG_CONFIG_HOME)
+  let $XDG_CONFIG_HOME = $HOME . '/.config'
+endif
+
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 " for tmux: http://stackoverflow.com/a/15095377
 set t_ut=
 
@@ -9,7 +14,11 @@ if !exists('g:tinyvim')
   let g:tinyvim = 1
 endif
 
-source $HOME/.vim/.vimrc.plug
+if has("gui_running")
+  source $XDG_CONFIG_HOME/vim/.gvimrc
+endif
+
+source $XDG_CONFIG_HOME/vim/.vimrc.plug
 
 " ### set variables ### {{{
 set nrformats=hex " ignore octal incr/decr

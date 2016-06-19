@@ -2,7 +2,13 @@
 
 let g:tinyvim = 0
 
-source $HOME/.vimrc.basic
+if empty($XDG_CONFIG_HOME)
+  let $XDG_CONFIG_HOME = $HOME . '/.config'
+endif
+
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+
+source $XDG_CONFIG_HOME/vim/.vimrc.basic
 
 " ### filetype setting ### {{{
 augroup FileTypes

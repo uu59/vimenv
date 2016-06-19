@@ -18,7 +18,7 @@ fi
 
 cd $DIR
 git submodule update --init
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo $DIR/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 read -p "Press Enter for go PlugInstall or C-c"

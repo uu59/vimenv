@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin($XDG_CONFIG_HOME . '/vim/plugged')
 
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'https://github.com/tpope/vim-surround'
