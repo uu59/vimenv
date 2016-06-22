@@ -12,6 +12,6 @@ fi
 
 exe="$(which eslint 2>/dev/null)"
 if [ -x "$exe" ];then
-  "$exe" -c ~/.vim/eslintrc_loose $@
+  "$exe" -c  $XDG_CONFIG_HOME/vim/eslintrc_loose $@
   exit
 fi

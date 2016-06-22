@@ -24,22 +24,22 @@ augroup FileTypes
   au BufEnter config.ru  setlocal ft=ruby
   au BufEnter *.md,*.mkd setlocal ft=markdown " .md is not modula2
 
-  au BufNewFile *.sh,*.bash execute "0r ~/.vim/template/bash.txt"
+  au BufNewFile *.sh,*.bash execute "0r $XDG_CONFIG_HOME/vim/template/bash.txt"
   \ | execute ":normal GV{{"
 
-  au BufNewFile PKGBUILD execute "0r ~/.vim/template/PKGBUILD"
+  au BufNewFile PKGBUILD execute "0r  $XDG_CONFIG_HOME/vim/template/PKGBUILD"
 
-  au BufNewFile *.html 0r ~/.vim/template/html.txt
+  au BufNewFile *.html 0r  $XDG_CONFIG_HOME/vim/template/html.txt
   \ | execute "silent 11d"
   \ | execute "9"
 
-  au BufNewFile *.user.js 0r ~/.vim/template/user.js.txt
+  au BufNewFile *.user.js 0r $XDG_CONFIG_HOME/vim/template/user.js.txt
   \ | execute "silent 11d"
   \ | execute "9"
 
-  au BufNewFile manifest.json 0r ~/.vim/template/manifest.json
-  au BufNewFile Gemfile 0r ~/.vim/template/Gemfile
-  au BufNewFile spec_helper.rb 0r ~/.vim/template/spec_helper.rb
+  au BufNewFile manifest.json 0r  $XDG_CONFIG_HOME/vim/template/manifest.json
+  au BufNewFile Gemfile 0r  $XDG_CONFIG_HOME/vim/template/Gemfile
+  au BufNewFile spec_helper.rb 0r  $XDG_CONFIG_HOME/vim/template/spec_helper.rb
 
   au FileType markdown setlocal wrap
   au FileType text setlocal textwidth=0
@@ -89,7 +89,7 @@ let g:quickrun_config["watchdogs_checker/ruby"] = {
       \                   '%f:%l: %m',
       \ }
 let g:quickrun_config["watchdogs_checker/eslint"] = {
-      \   "command" : $HOME."/.vim/eslint_wrapper",
+      \   "command" :  $XDG_CONFIG_HOME."/vim/eslint_wrapper",
       \ }
 let g:quickrun_config["javascript/watchdogs_checker"] = {
         \   "type" : "watchdogs_checker/eslint"
