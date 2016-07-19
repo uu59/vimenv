@@ -15,10 +15,10 @@ if !exists('g:tinyvim')
 endif
 
 if has("gui_running")
-  source $XDG_CONFIG_HOME/vim/.gvimrc
+  source $XDG_CONFIG_HOME/vim/gvim.vim
 endif
 
-source $XDG_CONFIG_HOME/vim/.vimrc.plug
+source $XDG_CONFIG_HOME/vim/plug.vim
 
 " ### set variables ### {{{
 set nrformats=hex " ignore octal incr/decr

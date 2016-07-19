@@ -1,6 +1,9 @@
 " /* vim: set fdm=marker: */
 
 let g:tinyvim = 0
+if has('nvim') && !exists('g:nyaovim_version')
+  let g:nyaovim_version = '1' " adhoc workaround
+endif
 
 if empty($XDG_CONFIG_HOME)
   let $XDG_CONFIG_HOME = $HOME . '/.config'
@@ -8,7 +11,7 @@ endif
 
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 
-source $XDG_CONFIG_HOME/vim/.vimrc.basic
+source $XDG_CONFIG_HOME/vim/basic-init.vim
 
 " ### filetype setting ### {{{
 augroup FileTypes
@@ -378,4 +381,12 @@ set completefunc=emoji#complete
 vmap T :Tabular/
 " }}}
 
+" ** nyaovim ** {{{
+if exists('g:nyaovim_version')
+  " markdown {{{
+  let g:markdown_preview_auto = 1
+  let g:markdown_preview_eager = 1
+  " }}}
+endif
+" }}}
 " }}}

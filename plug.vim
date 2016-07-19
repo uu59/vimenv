@@ -81,6 +81,11 @@ if g:tinyvim == 0
   Plug 'https://github.com/wavded/vim-stylus', {'for': 'stylus'}
   Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
   Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
+
+  if has('nvim')
+    Plug 'https://github.com/rhysd/nyaovim-popup-tooltip'
+    Plug 'https://github.com/rhysd/nyaovim-markdown-preview'
+  endif
 endif
 
 call plug#end()
