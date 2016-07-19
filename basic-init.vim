@@ -5,8 +5,9 @@ set nocompatible
 if empty($XDG_CONFIG_HOME)
   let $XDG_CONFIG_HOME = $HOME . '/.config'
 endif
+let $VIM_CONFIG_DIR=$XDG_CONFIG_HOME . '/vim'
 
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+set runtimepath=$VIM_CONFIG_DIR,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 " for tmux: http://stackoverflow.com/a/15095377
 set t_ut=
 
@@ -57,7 +58,7 @@ let &statusline = "%m%r%y%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%< %=%F"
 
 " http://vim-users.jp/2010/07/hack162/
 if has('persistent_undo')
-  set undodir=~/.vimundo
+  set undodir=$VIM_CONFIG_DIR/vimundo
   set undofile
 endif
 

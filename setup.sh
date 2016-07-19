@@ -11,9 +11,11 @@ for dotfile in `find $DIR -maxdepth 1 -type f -name ".*" -a -not -name ".git*"`;
   fi
 done
 
-if [ ! -d "$HOME/.vimundo" ];then
-  echo "mkdir $HOME/.vimundo for persistent_undo"
-  mkdir $HOME/.vimundo
+undoDir="$DIR/vimundo"
+
+if [ ! -d "$undoDir" ];then
+  echo "mkdir $undoDir for persistent_undo"
+  mkdir $undoDir
 fi
 
 cd $DIR
