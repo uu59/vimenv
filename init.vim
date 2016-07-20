@@ -3,7 +3,6 @@
 set nocompatible
 
 "### initialize ### {{{
-let g:tinyvim = 0
 if has('nvim') && !exists('g:nyaovim_version')
   let g:nyaovim_version = '1' " adhoc workaround
 endif
@@ -14,14 +13,30 @@ endif
 let $VIM_CONFIG_DIR=$XDG_CONFIG_HOME . '/vim'
 set runtimepath=$VIM_CONFIG_DIR,$VIM,$VIMRUNTIME
 
+source $VIM_CONFIG_DIR/plug.vim
+
 if has("gui_running")
   source $VIM_CONFIG_DIR/gvim.vim
 endif
-
-source $VIM_CONFIG_DIR/plug.vim
 "}}}
 
+" ### platforms ### {{{ 
+if has('mac')
+  "set guifontwide=MotoyaLCedar\ 9
+  set guifont=Osaka−等幅:h14
+  set linespace=1
+endif
+
+if has('unix') && !has('mac')
+  set guifont=VLGothic\ 10
+  set guifontwide=VLGothic\ 10
+  set linespace=0
+endif
+" }}}
+
 " ### set variables ### {{{
+colo dracula
+
 set nrformats=hex " ignore octal incr/decr
 set showmatch
 set matchtime=0
@@ -124,20 +139,6 @@ augroup END
 
 " for tmux: http://stackoverflow.com/a/15095377
 set t_ut=
-" }}}
-
-" ### color setting ### {{{
-if has('gui_running')
-  colo dracula
-else
-  "set t_Co=256
-  if g:tinyvim == 0
-    "colo Tomorrow-Night-Bright
-    colo dracula
-  else
-    colo dracula
-  endif
-endif
 " }}}
 
 " ### filetype setting ### {{{
