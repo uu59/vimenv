@@ -15,24 +15,7 @@ set runtimepath=$VIM_CONFIG_DIR,$VIM,$VIMRUNTIME
 
 source $VIM_CONFIG_DIR/plug.vim
 
-if has("gui_running")
-  source $VIM_CONFIG_DIR/gvim.vim
-endif
 "}}}
-
-" ### platforms ### {{{ 
-if has('mac')
-  "set guifontwide=MotoyaLCedar\ 9
-  set guifont=Osaka−等幅:h14
-  set linespace=1
-endif
-
-if has('unix') && !has('mac')
-  set guifont=VLGothic\ 10
-  set guifontwide=VLGothic\ 10
-  set linespace=0
-endif
-" }}}
 
 " ### set variables ### {{{
 colo dracula
@@ -517,4 +500,31 @@ if exists('g:nyaovim_version')
   " }}}
 endif
 " }}}
+" }}}
+
+" ### GUI {{{
+if has('gui')
+  set guioptions=-rLbc
+  set lines=40
+  set columns=130
+  set novb
+  set noballooneval
+
+  if has('unix') && !has('mac')
+    set guifont=VLGothic\ 10
+    set guifontwide=VLGothic\ 10
+    set linespace=0
+  endif
+
+  if has('mac')
+    set guifont=Osaka−等幅:h14
+    set linespace=1
+    colo dracula
+    if has('gui_running')
+      set transparency=10
+      set lines=75
+      set columns=240
+    endif
+  endif
+endif
 " }}}
