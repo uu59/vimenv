@@ -296,8 +296,17 @@ nmap <C-n> <Plug>(yankround-next)
 " }}}
 
 " -- indent-guides.vim {{{
-nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
+"nnoremap <C-j> :<C-u>IndentGuidesToggle<CR>
 " }}}
+
+" -- indentLines {{{
+nnoremap <C-j> :<C-u>IndentLinesToggle<CR>
+" let g:indentLine_char = '│'
+"let g:indentLine_concealcursor = 'inc'
+"let g:indentLine_conceallevel = 2
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_enabled = 0
+"  }}}
 
 " -- ref.vim {{{
 let g:ref_source_webdict_sites = {

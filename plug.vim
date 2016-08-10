@@ -3,7 +3,7 @@ call plug#begin($XDG_CONFIG_HOME . '/vim/plugged')
 Plug 'https://github.com/rhysd/committia.vim'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/LeafCage/yankround.vim'
-Plug 'https://github.com/nathanaelkane/vim-indent-guides'
+Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/vim-scripts/sudo.vim'
 Plug 'https://github.com/airblade/vim-rooter'
