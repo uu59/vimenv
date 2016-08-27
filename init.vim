@@ -77,6 +77,9 @@ nnoremap <silent> gf <C-w>f
 nnoremap <silent> gF <C-w>F
 cnoremap <C-g> <C-r>=expand('%:p:h')<CR>/
 
+" utility
+vnoremap <silent> tb :!ruby $VIM_CONFIG_DIR/csv-md-table.rb<CR>
+
 " like Emacs
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
