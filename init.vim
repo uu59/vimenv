@@ -125,6 +125,28 @@ augroup END
 
 " for tmux: http://stackoverflow.com/a/15095377
 set t_ut=
+
+" -- Markdownlink() {{{
+function! Markdownlink(motion_wise)
+  if a:motion_wise !=# 'char'
+    return
+  endif
+  let backup_z = getreg('z', 1)
+  let backup_ztype = getregtype('z')
+  execute 'silent normal! `[v`]"zy'
+  let url = getreg('z', 1)
+  echo "Fetching ".url." ..."
+  let html = webapi#http#get(url)
+  let title = webapi#html#parse(html.content).find('title').value()
+  exec setreg('z', substitute("[".title."](".url.")", "\n", "", "g"))
+  silent normal! gv"zp
+  call setreg('z', backup_z, backup_ztype)
+endfunction
+
+call operator#user#define('markdownlink', 'Markdownlink')
+vmap tt <Plug>(operator-markdownlink)
+" }}}
+
 " }}}
 
 " ### filetype setting ### {{{
