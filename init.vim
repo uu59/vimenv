@@ -537,7 +537,7 @@ endif
 " }}}
 
 " ### GUI {{{
-if has('gui')
+if has('gui_running')
   set guioptions=-rLbc
   set lines=40
   set columns=130
