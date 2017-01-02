@@ -9,7 +9,7 @@ def display_width(str)
   str.chars.map{|c| c.ascii_only? ? 1 : 2 }.inject(:+)
 end
 
-CSV.parse(csv) do |row|
+CSV.parse(csv, col_sep: ARGV.first || ",") do |row|
   row.each.with_index do |col, i|
     col_width[i] = [col_width[i], display_width(col)].compact.max
   end
