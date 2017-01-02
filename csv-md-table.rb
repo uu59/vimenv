@@ -6,6 +6,7 @@ col_width = {}
 rows = []
 
 def display_width(str)
+  return 0 unless str
   str.chars.map{|c| c.ascii_only? ? 1 : 2 }.inject(:+)
 end
 
