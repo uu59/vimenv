@@ -499,8 +499,8 @@ if has("mac")
         \ ]
 else
   let g:openbrowser_browser_commands = [
-        \ {"name": "w3m", "args": ["{browser}", "{uri}"] },
-        \ {"name": "firefox", "args": ["{browser}", "{uri}"] }
+        \ {"name": "firefox", "args": ["{browser}", "{uri}"] },
+        \ {"name": "w3m", "args": ["{browser}", "{uri}"] }
         \ ]
 endif
 " }}}
