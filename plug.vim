@@ -43,8 +43,9 @@ Plug 'https://github.com/w0ng/vim-hybrid'
 Plug 'https://github.com/thinkpixellab/flatland', {'rtp': 'Vim'}
 
 " lint tool
-Plug 'https://github.com/osyo-manga/vim-watchdogs'
-Plug 'https://github.com/osyo-manga/shabadou.vim'
+" Plug 'https://github.com/osyo-manga/vim-watchdogs'
+" Plug 'https://github.com/osyo-manga/shabadou.vim'
+Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/thinca/vim-quickrun'
 Plug 'https://github.com/cohama/vim-hier'
 Plug 'https://github.com/dannyob/quickfixstatus'
