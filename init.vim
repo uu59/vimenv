@@ -389,8 +389,8 @@ nmap # <Plug>(anzu-sharp-with-echo)
 let g:lightline = {
       \ 'colorscheme': has('gui_running') ? 'solarized_dark' : 'Tomorrow_Night',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste'],
-      \             [ 'readonly', 'fugitive' ] ],
+      \   'left': [ [ 'mode' ],
+      \             [ 'readonly', 'repo', 'fugitive' ] ],
       \   'right': [ [ 'absolutepath', 'modified' ], [ 'filetype'], ['fileformat', 'fileencoding'] ],
       \ },
       \ 'inactive': {
@@ -399,6 +399,7 @@ let g:lightline = {
       \ },
       \ 'component': {
       \   'fugitive': '%{LightlineSpecialBuffer() ? "" : fugitive#head()}',
+      \   'repo': '%{LightlineSpecialBuffer() || !fugitive#is_git_dir(fugitive#extract_git_dir(".")) ? "" : fnamemodify(getcwd(), ":t")  }',
       \   'modified': '%{&modified? "➕" : ""}',
       \   'filetype': '%{LightlineSpecialBuffer() ? "" : &ft}',
       \   'fileformat': '%{LightlineSpecialBuffer() ? "" : &ff == "unix" ? "" : &ff}',
