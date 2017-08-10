@@ -157,6 +157,7 @@ augroup FileTypes
 
   au BufEnter *.erubis   setlocal ft=eruby
   au BufEnter *.bats     setlocal ft=sh
+  au BufEnter *.jbuilder setlocal ft=ruby
 
   au BufEnter Gemfile    setlocal ft=ruby
   au BufEnter Rakefile   setlocal ft=ruby
