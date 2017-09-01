@@ -522,6 +522,7 @@ if has('gui_running')
   set columns=130
   set novb
   set noballooneval
+  set balloondelay=100000 " https://stackoverflow.com/a/9605639
 
   if has('unix') && !has('mac')
     set guifont=VLGothic\ 10
