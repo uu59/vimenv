@@ -259,7 +259,7 @@ let g:ctrlp_by_filename = 1 " <C-d> by default
 let g:ctrlp_cache_dir = '/tmp/ctrlp'
 if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
   let g:ctrlp_user_command =
-    \ 'find %s -type f -o \( -name .cache -o -name node_modules -o -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f' .
+    \ 'find %s -type f -o \( -name .cache -o -name node_modules -o -name .git -o -name tmp -o -name .hg -o -name .svn \) -prune -type f' .
     \ '| head -1000' .
     \ '| grep -v -i -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
 endif
