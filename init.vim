@@ -99,6 +99,10 @@ inoremap <C-u>  <C-g>u<C-u>
 " http://vim-jp.org/blog/2015/06/30/visual-ctrl-a-ctrl-x.html
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
+
+if exists(':tnoremap')
+  tnoremap <silent> <ESC><ESC> <C-\><C-n>
+endif
 " }}}
 
 " ### misc ### {{{
