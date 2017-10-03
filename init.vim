@@ -225,32 +225,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 " }}}
 
-" -- unite.vim {{{
-let g:unite_enable_start_insert=1
-noremap [Space]u :<C-u>Unite 
-"noremap [Space]b :<C-u>Unite buffer<CR>
-noremap [Space]o :<C-u>Unite outline<CR>
-"noremap [Space]f :<C-u>Unite file_rec/async<CR>
-noremap [Space]h :<C-u>Unite history/command<CR>
-noremap [Space]g :<C-u>Unite vcs_grep/git<CR>
-
-let g:unite_source_find_command =
-    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
-let g:unite_source_rec_async_command =
-    \ 'find %s -type f -o \( -name .git -o -name tmp -o -name .hg -name .svn \) -prune -type f | head -100 | grep -v -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
-
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  imap <silent><buffer><expr> <C-o>s     unite#do_action('split')
-  imap <silent><buffer><expr> <C-o>v     unite#do_action('vsplit')
-endfunction
-" }}}
-
-" -- unite-git_grep.vim {{{
-let g:unite_source_git_grep_required_pattern_length = 2
-let g:unite_source_hg_grep_required_pattern_length = 2
-" }}}
-
 " -- gundo.vim {{{
 nnoremap U :<C-u>GundoToggle<CR>
 " }}}
@@ -271,7 +245,7 @@ let g:ctrlp_yankring_disable = 1
 
 noremap [Space]b :<c-u>CtrlPBuffer<cr>
 
-" ctrl-funky
+" ctrl-funky (replaces unite-outline)
 noremap [Space]fo :<c-u>CtrlPFunky<cr>
 " ctrlp-ghq.vim
 noremap [Space]fg :<c-u>CtrlPGhq<cr>
@@ -427,7 +401,6 @@ function! LightlineModeString()
         \ l:fname == '__Gundo_Preview__' ? 'Gundo Preview' :
         \ l:fname =~ 'ref-webdict' ? 'webdict' :
         \ l:fname =~ 'quickrun' ? 'quickrun' :
-        \ &ft == 'unite' ? 'Unite' :
         \ &ft == 'vimfiler' ? 'VimFiler' :
         \ &ft == 'vimshell' ? 'VimShell' : lightline#mode()
 endfunction

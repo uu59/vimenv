@@ -50,11 +50,6 @@ Plug 'https://github.com/thinca/vim-quickrun'
 Plug 'https://github.com/cohama/vim-hier'
 Plug 'https://github.com/dannyob/quickfixstatus'
 
-" unite
-Plug 'https://github.com/Shougo/unite.vim'
-Plug 'https://github.com/sgur/unite-git_grep'
-Plug 'https://github.com/Shougo/unite-outline'
-
 " ctrlp
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/mattn/ctrlp-ghq', {'commit': '180bee083ded1ed5ec8292e9711d6a9ef20d7666'} " can't lcd on master
