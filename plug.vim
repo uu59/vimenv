@@ -71,6 +71,7 @@ Plug 'https://github.com/vim-scripts/PKGBUILD', {'for': 'pkgbuild'}
 Plug 'https://github.com/wavded/vim-stylus', {'for': 'stylus'}
 Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
+Plug 'https://github.com/b4b4r07/vim-hcl'
 
 " conditional
 if has('mac')
