@@ -15,8 +15,6 @@ Plug 'https://github.com/thinca/vim-ref'
 Plug 'https://github.com/kana/vim-textobj-user'
 Plug 'https://github.com/kana/vim-textobj-indent'
 
-Plug 'https://github.com/dracula/vim', {'as': 'dracula-vim'}
-
 Plug 'https://github.com/kana/vim-submode'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/mhinz/vim-signify'
@@ -34,6 +32,7 @@ Plug 'https://github.com/rhysd/try-colorscheme.vim'
 Plug 'https://github.com/mattn/benchvimrc-vim'
 
 " colorscheme
+Plug 'https://github.com/dracula/vim', {'as': 'dracula-vim'}
 Plug 'https://github.com/chriskempson/tomorrow-theme', {'rtp': 'vim'}
 Plug 'https://github.com/jonathanfilip/vim-lucius'
 Plug 'https://github.com/trapd00r/neverland-vim-theme'
@@ -72,6 +71,7 @@ Plug 'https://github.com/wavded/vim-stylus', {'for': 'stylus'}
 Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
 Plug 'https://github.com/b4b4r07/vim-hcl'
+Plug 'https://github.com/chr4/nginx.vim'
 
 " conditional
 if has('mac')
