@@ -187,6 +187,7 @@ augroup FileTypes
 
   au FileType markdown setlocal wrap
   au FileType text setlocal textwidth=0
+  au FileType yaml setlocal fdm=indent
 augroup END
 " }}}
 
