@@ -226,8 +226,9 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 " }}}
 
-" -- gundo.vim {{{
-nnoremap U :<C-u>GundoToggle<CR>
+" -- undotree.vim {{{
+let g:undotree_SetFocusWhenToggle = 1
+nnoremap U :<C-u>UndotreeToggle<CR>
 " }}}
 
 " -- ctrlp.vim {{{
@@ -398,8 +399,8 @@ function! LightlineModeString()
   let l:fname = expand('%:t')
   return  l:fname == '__Tagbar__' ? 'Tagbar' :
         \ l:fname == 'ControlP' ? 'CtrlP' :
-        \ l:fname == '__Gundo__' ? 'Gundo' :
-        \ l:fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ l:fname =~ 'undotree_' ? 'Undotree' :
+        \ l:fname =~ 'diffpanel_' ? 'Undotree diff' :
         \ l:fname =~ 'ref-webdict' ? 'webdict' :
         \ l:fname =~ 'quickrun' ? 'quickrun' :
         \ &ft == 'vimfiler' ? 'VimFiler' :

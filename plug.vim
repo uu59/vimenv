@@ -26,7 +26,7 @@ Plug 'https://github.com/vim-scripts/Rename'
 Plug 'https://github.com/rhysd/conflict-marker.vim'
 Plug 'https://github.com/haya14busa/vim-easymotion'
 Plug 'https://github.com/mattn/webapi-vim'
-Plug 'https://github.com/sjl/gundo.vim'
+Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/cocopon/colorswatch.vim', {'on': 'ColorSwatchGenerate'}
 Plug 'https://github.com/rhysd/try-colorscheme.vim'
 Plug 'https://github.com/mattn/benchvimrc-vim'
