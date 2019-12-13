@@ -231,43 +231,20 @@ let g:undotree_SetFocusWhenToggle = 1
 nnoremap U :<C-u>UndotreeToggle<CR>
 " }}}
 
-" -- ctrlp.vim {{{
-let g:ctrlp_map = '[Space]ff'
-let g:ctrlp_arg_map = 1
-let g:ctrlp_max_height = 12
-let g:ctrlp_by_filename = 1 " <C-d> by default
-let g:ctrlp_cache_dir = '/tmp/ctrlp'
-if executable('find') == 1 && executable('grep') == 1 && executable('head') == 1
-  let g:ctrlp_user_command =
-    \ 'find %s -type f -o \( -name .cache -o -name node_modules -o -name .git -o -name tmp -o -name .hg -o -name .svn \) -prune -type f' .
-    \ '| head -1000' .
-    \ '| grep -v -i -E "\.(jpe?g|png|gif|[ot]tf|ico)$"'
-endif
-let g:ctrlp_yankring_disable = 1
+" -- fzf.vim {{{
+let g:fzf_layout = { 'down': '~60%' }
 
-noremap [Space]b :<c-u>CtrlPBuffer<cr>
+nnoremap <silent> [Space]fg :<C-u>call fzf#run(fzf#wrap({
+      \ 'source': 'ghq list --full-path',
+      \   'sink': 'lcd' }))<CR>
 
-" ctrl-funky (replaces unite-outline)
-noremap [Space]fo :<c-u>CtrlPFunky<cr>
-" ctrlp-ghq.vim
-noremap [Space]fg :<c-u>CtrlPGhq<cr>
-" ctrl-extensions
-noremap [Space]f: :<c-u>CtrlPCmdline<cr>
-noremap [Space]fy :<c-u>CtrlPYankring<cr>
+nnoremap <silent> [Space]ff :<C-u>call fzf#run(fzf#wrap({
+      \ 'source': 'git ls-files',
+      \   'sink': 'e' }))<CR>
 
-let g:ctrlp_prompt_mappings = {
-  \ 'PrtSelectMove("j")': ['<C-n>'],
-  \ 'PrtSelectMove("k")': ['<C-p>'],
-  \ 'PrtHistory(-1)': [],
-  \ 'PrtHistory(1)':  [],
-  \ 'PrtClearCache()':      ['<F5>', '<S-space>'],
-  \ 'PrtBS()':              ['<bs>', '<c-]>', '<C-h>'],
-  \ 'PrtCurLeft()':         ['<C-b>', '<left>', '<c-^>'],
-  \ 'PrtCurRight()':        ['<C-f>', '<right>'],
-  \ 'ToggleType(1)':        ['<Tab>'],
-  \ 'MarkToOpen()':         ['<C-v>', '<c-z>'],
-  \ 'AcceptSelection("v")': [],
-  \ }
+" fzf-funky
+nnoremap <silent> [Space]ft :<C-u>call ctrlp#funky#funky(&ft)<CR>
+
 " }}}
 
 " -- yankround.vim {{{

@@ -50,10 +50,9 @@ Plug 'https://github.com/cohama/vim-hier'
 Plug 'https://github.com/dannyob/quickfixstatus'
 
 " ctrlp
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-Plug 'https://github.com/mattn/ctrlp-ghq', {'commit': '180bee083ded1ed5ec8292e9711d6a9ef20d7666'} " can't lcd on master
-Plug 'https://github.com/sgur/ctrlp-extensions.vim'
-Plug 'https://github.com/tacahiroy/ctrlp-funky'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin --xdg' }
+"Plug 'https://github.com/tracyone/fzf-funky'
+Plug 'https://github.com/uu59/fzf-funky',  {'branch': 'respect_fzf_setting'}
 
 " syntax
 Plug 'https://github.com/cespare/vim-toml', {'for': 'toml'}
