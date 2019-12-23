@@ -12,19 +12,17 @@ Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/uu59/vim-emoji'
 Plug 'https://github.com/thinca/vim-ref'
 
-Plug 'https://github.com/kana/vim-textobj-user'
-Plug 'https://github.com/kana/vim-textobj-indent'
+" Transform URL to markdown form with page title (See init.vim)
+Plug 'https://github.com/mattn/webapi-vim'
+Plug 'https://github.com/kana/vim-operator-user'
 
 Plug 'https://github.com/kana/vim-submode'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/tpope/vim-fugitive'
-Plug 'https://github.com/junegunn/gv.vim'
-Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/vim-scripts/Rename'
 Plug 'https://github.com/rhysd/conflict-marker.vim'
 Plug 'https://github.com/haya14busa/vim-easymotion'
-Plug 'https://github.com/mattn/webapi-vim'
 Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/cocopon/colorswatch.vim', {'on': 'ColorSwatchGenerate'}
 Plug 'https://github.com/rhysd/try-colorscheme.vim'
@@ -50,6 +48,8 @@ Plug 'https://github.com/dannyob/quickfixstatus'
 
 " ctrlp
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin --xdg' }
+
+" waiting to be merged: https://github.com/tracyone/fzf-funky/pull/2
 "Plug 'https://github.com/tracyone/fzf-funky'
 Plug 'https://github.com/uu59/fzf-funky',  {'branch': 'respect_fzf_setting'}
 
@@ -70,15 +70,5 @@ Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
 Plug 'https://github.com/b4b4r07/vim-hcl'
 Plug 'https://github.com/chr4/nginx.vim'
-
-" conditional
-if has('mac')
-  Plug 'https://github.com/junegunn/vim-xmark' " for OSX
-endif
-
-if has('nvim')
-  Plug 'https://github.com/rhysd/nyaovim-popup-tooltip'
-  Plug 'https://github.com/rhysd/nyaovim-markdown-preview'
-endif
 
 call plug#end()
