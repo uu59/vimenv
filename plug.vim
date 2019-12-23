@@ -20,7 +20,6 @@ Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/junegunn/gv.vim'
-Plug 'https://github.com/Shougo/vimproc', {'do': 'make'}
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/vim-scripts/Rename'
 Plug 'https://github.com/rhysd/conflict-marker.vim'
