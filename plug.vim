@@ -37,6 +37,7 @@ Plug 'https://github.com/bluntpeak/bluntpeak-vim-colors'
 Plug 'https://github.com/ricardovaleriano/vim-github-theme'
 Plug 'https://github.com/w0ng/vim-hybrid'
 Plug 'https://github.com/thinkpixellab/flatland', {'rtp': 'Vim'}
+Plug 'https://github.com/sonph/onehalf', {'rtp': 'vim'}
 
 " lint tool
 " Plug 'https://github.com/osyo-manga/vim-watchdogs'
@@ -70,5 +71,10 @@ Plug 'https://github.com/ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'https://github.com/digitaltoad/vim-pug', {'for': 'jade'}
 Plug 'https://github.com/b4b4r07/vim-hcl'
 Plug 'https://github.com/chr4/nginx.vim'
+
+
+if has('nvim')
+  Plug 'https://github.com/glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
 
 call plug#end()

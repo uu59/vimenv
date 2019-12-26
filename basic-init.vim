@@ -18,3 +18,7 @@ if has("gui_running")
 endif
 
 source $XDG_CONFIG_HOME/vim/plug.vim
+
+if exists('g:started_by_firenvim')
+  source $XDG_CONFIG_HOME/vim/firenvim.vim
+endif
